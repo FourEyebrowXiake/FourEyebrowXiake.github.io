@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="大问题," />
+  <meta name="keywords" content="Java范型," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="论证好的哲学表述的关键是论证。">
+<meta name="description" content="在日常开发中，自定义的集合数据类型可能需要实现一些基本操作，如使用java的foreach语句通过迭代遍历并处理集合中的每个元素。下面，我举一个非常基础的例子。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大问题——逻辑准备">
-<meta property="og:url" content="http://foureyebrowxiake.github.io/2016/09/26/大问题——逻辑准备/index.html">
+<meta property="og:title" content="Java范型-Implementing the Iterable Interface">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/01/03/Java范型-Implementing the Iterable Interface/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="论证好的哲学表述的关键是论证。">
-<meta property="og:updated_time" content="2016-10-15T11:22:26.000Z">
+<meta property="og:description" content="在日常开发中，自定义的集合数据类型可能需要实现一些基本操作，如使用java的foreach语句通过迭代遍历并处理集合中的每个元素。下面，我举一个非常基础的例子。">
+<meta property="og:updated_time" content="2017-01-03T04:03:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大问题——逻辑准备">
-<meta name="twitter:description" content="论证好的哲学表述的关键是论证。">
+<meta name="twitter:title" content="Java范型-Implementing the Iterable Interface">
+<meta name="twitter:description" content="在日常开发中，自定义的集合数据类型可能需要实现一些基本操作，如使用java的foreach语句通过迭代遍历并处理集合中的每个元素。下面，我举一个非常基础的例子。">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> 大问题——逻辑准备 | Fourfish'blog </title>
+  <title> Java范型-Implementing the Iterable Interface | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +241,7 @@
             
             
               
-                大问题——逻辑准备
+                Java范型-Implementing the Iterable Interface
               
             
           </h1>
@@ -253,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T20:54:35+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2017-01-03T11:28:43+08:00" content="2017-01-03">
+              2017-01-03
             </time>
           </span>
 
@@ -267,8 +267,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/reading-notes/" itemprop="url" rel="index">
-                    <span itemprop="name">reading notes</span>
+                  <a href="/categories/Java-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java notes</span>
                   </a>
                 </span>
 
@@ -306,30 +306,13 @@
       
 
       
-        <h1 id="论证"><a href="#论证" class="headerlink" title="论证"></a>论证</h1><p>好的哲学表述的关键是论证。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="演绎"><a href="#演绎" class="headerlink" title="演绎"></a>演绎</h2><p>好的演绎论证应当具备如下两条本质特性：  </p>
-<ul>
-<li>它是<strong>有效论证</strong></li>
-<li>它的前提为真  </li>
-</ul>
-<h4 id="有效论证形式"><a href="#有效论证形式" class="headerlink" title="有效论证形式"></a>有效论证形式</h4><p>三段论形式：   </p>
-<blockquote>
-<p>所有的P都是Q，<br>S是P，  </p>
-<p>因此，S是Q。</p>
-</blockquote>
-<p>肯定前件：</p>
-<blockquote>
-<p>如果P，则Q，<br>P，  </p>
-<p>因此，Q  </p>
-</blockquote>
-<p>这个论证形式有两个前提。第一个前提是”if-then”或逻辑条件断言，表示为P蕴涵Q(P继承于Q)。第二个前提是这个条件断言的前件P是真的。从这两个前提可以在逻辑上得出后件Q一定也是真的。  </p>
-<p>否定后件：  </p>
-<blockquote>
-<p>如果P，则Q，<br>P，   </p>
-<p>因此，Q</p>
-</blockquote>
-<h2 id="归纳"><a href="#归纳" class="headerlink" title="归纳"></a>归纳</h2><p>归纳并不能保证其结论为真，而只能是我们的结论更合理一些。根据证据对结论的支持度，所举事例的质量以及概括的可信度的不同，归纳有强弱之分。  </p>
-<p>归纳论证中最重要的部分之一是假说，即指按照预先设定，对某种现象进行的解释。我们会根据根据某些具体的假说调整我们的注意力，去发现更具可信度的依据。</p>
+        <p>在日常开发中，自定义的集合数据类型可能需要实现一些基本操作，如使用java的foreach语句通过迭代遍历并处理集合中的每个元素。下面，我举一个非常基础的例子。</p>
+<a id="more"></a>
+<p>1.实现一个Iterator<e>()方法并返回一个Iterator<e>对象。</e></e></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCollection</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">E</span>&gt;</span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyIterator&lt;E&gt;();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.MyIterator必须包含两个方法：hasNext()和next()。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyIterator</span> &lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//implement...</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">next</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//implement...;</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//implement... if supported.</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.MyCollection<e>的使用方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    MyCollection&lt;String&gt; stringCollection = <span class="keyword">new</span> MyCollection&lt;String&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(String string : stringCollection)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></e></p>
 
       
     </div>
@@ -351,7 +334,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/大问题/" rel="tag">#大问题</a>
+            <a href="/tags/Java范型/" rel="tag">#Java范型</a>
           
         </div>
       
@@ -360,17 +343,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/09/26/大问题——逻辑准备/" rel="next" title="大问题——逻辑准备">
+                <i class="fa fa-chevron-left"></i> 大问题——逻辑准备
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/03/Java范型-Implementing the Iterable Interface/" rel="prev" title="Java范型-Implementing the Iterable Interface">
-                Java范型-Implementing the Iterable Interface <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -504,7 +483,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#论证"><span class="nav-number">1.</span> <span class="nav-text">论证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演绎"><span class="nav-number">1.2.</span> <span class="nav-text">演绎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有效论证形式"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">有效论证形式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归纳"><span class="nav-number">1.3.</span> <span class="nav-text">归纳</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
