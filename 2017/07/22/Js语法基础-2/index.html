@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -84,19 +84,25 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="作用域词法作用域：描述了源代码中的范围。
+if语句或while语句以及其他类似循环结构的语句块不能创建新的作用域。只用function语句块能创建新的作用域。
+执行环境：当程序运行的时候，会创建一个存储变量和变量值的存储系统。这些内存中的作用域结构被称为执行环境。
+执行环境和词法作用域的不同：执行环境实在程序运行时才被创建的，不是在代码输入时被创建的。执行环境能控制在程序执行过程中不同点能访问哪些">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://foureyebrowxiake.github.io/2016/05/21/hello-world/index.html">
+<meta property="og:title" content="Js语法基础(2)">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/07/22/Js语法基础-2/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-11-05T04:09:17.000Z">
+<meta property="og:description" content="作用域词法作用域：描述了源代码中的范围。
+if语句或while语句以及其他类似循环结构的语句块不能创建新的作用域。只用function语句块能创建新的作用域。
+执行环境：当程序运行的时候，会创建一个存储变量和变量值的存储系统。这些内存中的作用域结构被称为执行环境。
+执行环境和词法作用域的不同：执行环境实在程序运行时才被创建的，不是在代码输入时被创建的。执行环境能控制在程序执行过程中不同点能访问哪些">
+<meta property="og:updated_time" content="2017-07-22T08:39:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Js语法基础(2)">
+<meta name="twitter:description" content="作用域词法作用域：描述了源代码中的范围。
+if语句或while语句以及其他类似循环结构的语句块不能创建新的作用域。只用function语句块能创建新的作用域。
+执行环境：当程序运行的时候，会创建一个存储变量和变量值的存储系统。这些内存中的作用域结构被称为执行环境。
+执行环境和词法作用域的不同：执行环境实在程序运行时才被创建的，不是在代码输入时被创建的。执行环境能控制在程序执行过程中不同点能访问哪些">
 
 
 
@@ -114,7 +120,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | Fourfish'blog </title>
+  <title> Js语法基础(2) | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -244,7 +250,7 @@ Quick">
             
             
               
-                Hello World
+                Js语法基础(2)
               
             
           </h1>
@@ -256,8 +262,8 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-21T09:26:20+08:00" content="2016-05-21">
-              2016-05-21
+            <time itemprop="dateCreated" datetime="2017-07-22T16:12:26+08:00" content="2017-07-22">
+              2017-07-22
             </time>
           </span>
 
@@ -290,15 +296,43 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="词法作用域："><a href="#词法作用域：" class="headerlink" title="词法作用域："></a>词法作用域：</h2><p>描述了源代码中的范围。</p>
+<p>if语句或while语句以及其他类似循环结构的语句块不能创建新的作用域。只用function语句块能创建新的作用域。</p>
+<h2 id="执行环境："><a href="#执行环境：" class="headerlink" title="执行环境："></a>执行环境：</h2><p>当程序运行的时候，会创建一个存储变量和变量值的存储系统。这些内存中的作用域结构被称为执行环境。</p>
+<h2 id="执行环境和词法作用域的不同："><a href="#执行环境和词法作用域的不同：" class="headerlink" title="执行环境和词法作用域的不同："></a>执行环境和词法作用域的不同：</h2><p>执行环境实在程序运行时才被创建的，不是在代码输入时被创建的。执行环境能控制在程序执行过程中不同点能访问哪些变量。<br>注：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> test1=test();</div><div class="line"><span class="keyword">var</span> test2=test();</div><div class="line">log(test1===test2);<span class="comment">//false</span></div><div class="line">javascript不对对象进行引用</div></pre></td></tr></table></figure></p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包是指一些函数通过某种方式可以随时被访问，即使它的外部代码已经执行完毕。</p>
+<h2 id="保留函数访问权限的方法"><a href="#保留函数访问权限的方法" class="headerlink" title="保留函数访问权限的方法"></a>保留函数访问权限的方法</h2><ul>
+<li>passing to setTimeout</li>
+<li><p>从函数中return</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　alert(n);</div><div class="line">　　　　&#125;</div><div class="line">　　　　<span class="keyword">return</span> f2;</div><div class="line">　　&#125;</div><div class="line">　　<span class="keyword">var</span> result=f1();</div><div class="line">　　result(); <span class="comment">// 999</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>保存为全局变量</p>
+</li>
+</ul>
+<h2 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h2><ol>
+<li>设计模块中的私有属性和方法（闭包中的自由变量无法被直接访问）</li>
+<li>让这些变量的值始终保持在内存中(可以被延迟调用，比如事件 handler，ajax 异步调用的回调函数等)。</li>
+</ol>
+<h1 id="This"><a href="#This" class="headerlink" title="This"></a>This</h1><p>this指调用函数的那个对象</p>
+<h2 id="使用new的时候会发生什么"><a href="#使用new的时候会发生什么" class="headerlink" title="使用new的时候会发生什么"></a>使用new的时候会发生什么</h2><ol>
+<li>创建一个新的空对象；//Object.create();</li>
+<li>将this绑定到该对象；</li>
+<li>添加一个名为<strong>proto</strong>的新属性，并且指向构造函数的原型(prototype)；</li>
+<li>返回该this对象。//return this;</li>
+</ol>
+<blockquote>
+<p>解释器会自动帮你加入1，2这两步的代码。</p>
+</blockquote>
+<h2 id="this的用法"><a href="#this的用法" class="headerlink" title="this的用法"></a>this的用法</h2><ol>
+<li>纯粹的函数调用: this 就代表全局对象 Global（浏览器下就是 window）。</li>
+<li>作为对象方法的调用: this 指向调用方法的对象。</li>
+<li>作为构造函数调用：this 就指向 构造器创建的新对象</li>
+<li>apply, call, bind调用：this 指向就是这些函数的第一个参数</li>
+</ol>
+<p>#原型链</p>
+<p>原型链是使用其他对象属性的一种方式。</p>
+<p>原型链的属性复制发生在当前查找的时候，所以是实时更新的。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">Javascript为什么会有prototype</a></p>
 
       
     </div>
@@ -318,18 +352,24 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/22/Js语法基础-1/" rel="next" title="Js语法基础(1)">
+                <i class="fa fa-chevron-left"></i> Js语法基础(1)
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/22/Js语法基础-1/" rel="prev" title="Js语法基础(1)">
-                Js语法基础(1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,7 +496,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">1.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法作用域："><span class="nav-number">1.1.</span> <span class="nav-text">词法作用域：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行环境："><span class="nav-number">1.2.</span> <span class="nav-text">执行环境：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行环境和词法作用域的不同："><span class="nav-number">1.3.</span> <span class="nav-text">执行环境和词法作用域的不同：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#保留函数访问权限的方法"><span class="nav-number">2.1.</span> <span class="nav-text">保留函数访问权限的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用处"><span class="nav-number">2.2.</span> <span class="nav-text">用处</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#This"><span class="nav-number">3.</span> <span class="nav-text">This</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用new的时候会发生什么"><span class="nav-number">3.1.</span> <span class="nav-text">使用new的时候会发生什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this的用法"><span class="nav-number">3.2.</span> <span class="nav-text">this的用法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
