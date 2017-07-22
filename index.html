@@ -288,46 +288,12 @@
 
       
         
-          
-            <h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="词法作用域："><a href="#词法作用域：" class="headerlink" title="词法作用域："></a>词法作用域：</h2><p>描述了源代码中的范围。</p>
-<p>if语句或while语句以及其他类似循环结构的语句块不能创建新的作用域。只用function语句块能创建新的作用域。</p>
-<h2 id="执行环境："><a href="#执行环境：" class="headerlink" title="执行环境："></a>执行环境：</h2><p>当程序运行的时候，会创建一个存储变量和变量值的存储系统。这些内存中的作用域结构被称为执行环境。</p>
-<h2 id="执行环境和词法作用域的不同："><a href="#执行环境和词法作用域的不同：" class="headerlink" title="执行环境和词法作用域的不同："></a>执行环境和词法作用域的不同：</h2><p>执行环境实在程序运行时才被创建的，不是在代码输入时被创建的。执行环境能控制在程序执行过程中不同点能访问哪些变量。<br>注：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> test1=test();</div><div class="line"><span class="keyword">var</span> test2=test();</div><div class="line">log(test1===test2);<span class="comment">//false</span></div><div class="line">javascript不对对象进行引用</div></pre></td></tr></table></figure></p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包是指一些函数通过某种方式可以随时被访问，即使它的外部代码已经执行完毕。</p>
-<h2 id="保留函数访问权限的方法"><a href="#保留函数访问权限的方法" class="headerlink" title="保留函数访问权限的方法"></a>保留函数访问权限的方法</h2><ul>
-<li>passing to setTimeout</li>
-<li><p>从函数中return</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　alert(n);</div><div class="line">　　　　&#125;</div><div class="line">　　　　<span class="keyword">return</span> f2;</div><div class="line">　　&#125;</div><div class="line">　　<span class="keyword">var</span> result=f1();</div><div class="line">　　result(); <span class="comment">// 999</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>保存为全局变量</p>
-</li>
-</ul>
-<h2 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h2><ol>
-<li>设计模块中的私有属性和方法（闭包中的自由变量无法被直接访问）</li>
-<li>让这些变量的值始终保持在内存中(可以被延迟调用，比如事件 handler，ajax 异步调用的回调函数等)。</li>
-</ol>
-<h1 id="This"><a href="#This" class="headerlink" title="This"></a>This</h1><p>this指调用函数的那个对象</p>
-<h2 id="使用new的时候会发生什么"><a href="#使用new的时候会发生什么" class="headerlink" title="使用new的时候会发生什么"></a>使用new的时候会发生什么</h2><ol>
-<li>创建一个新的空对象；//Object.create();</li>
-<li>将this绑定到该对象；</li>
-<li>添加一个名为<strong>proto</strong>的新属性，并且指向构造函数的原型(prototype)；</li>
-<li>返回该this对象。//return this;</li>
-</ol>
-<blockquote>
-<p>解释器会自动帮你加入1，2这两步的代码。</p>
-</blockquote>
-<h2 id="this的用法"><a href="#this的用法" class="headerlink" title="this的用法"></a>this的用法</h2><ol>
-<li>纯粹的函数调用: this 就代表全局对象 Global（浏览器下就是 window）。</li>
-<li>作为对象方法的调用: this 指向调用方法的对象。</li>
-<li>作为构造函数调用：this 就指向 构造器创建的新对象</li>
-<li>apply, call, bind调用：this 指向就是这些函数的第一个参数</li>
-</ol>
-<p>#原型链</p>
-<p>原型链是使用其他对象属性的一种方式。</p>
-<p>原型链的属性复制发生在当前查找的时候，所以是实时更新的。</p>
-<p><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">Javascript为什么会有prototype</a></p>
-
-          
+          <h1 id="作用域、闭包、This"><a href="#作用域、闭包、This" class="headerlink" title="作用域、闭包、This"></a>作用域、闭包、This</h1>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/07/22/Js语法基础-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
