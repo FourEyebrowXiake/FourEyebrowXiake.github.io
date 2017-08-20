@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="oB_YOQztyLdWSBk8b2I7_2zaf6e-nXw_qnLa0fE_kMw" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="CSS要点《css设计指南》笔记
+HTMLsection只有元素内容会被列在 文档大纲 中时，才适合用section元素。
+这里的文档大纲更像是提纲，section 就是提纲中的不重复项（比如对于博文 list，整个 list 才属于一个 section）
+块级元素和行内元素块级元素盒子会扩展到与父元素同宽 明确设定 width 属性后，块级元素就不会再扩展到与父元素(即 body)同宽了。没有设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS要点">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/09/css要点/index.html">
+<meta property="og:site_name" content="Fourfish'blog">
+<meta property="og:description" content="CSS要点《css设计指南》笔记
+HTMLsection只有元素内容会被列在 文档大纲 中时，才适合用section元素。
+这里的文档大纲更像是提纲，section 就是提纲中的不重复项（比如对于博文 list，整个 list 才属于一个 section）
+块级元素和行内元素块级元素盒子会扩展到与父元素同宽 明确设定 width 属性后，块级元素就不会再扩展到与父元素(即 body)同宽了。没有设">
+<meta property="og:updated_time" content="2017-08-19T06:30:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS要点">
+<meta name="twitter:description" content="CSS要点《css设计指南》笔记
+HTMLsection只有元素内容会被列在 文档大纲 中时，才适合用section元素。
+这里的文档大纲更像是提纲，section 就是提纲中的不重复项（比如对于博文 list，整个 list 才属于一个 section）
+块级元素和行内元素块级元素盒子会扩展到与父元素同宽 明确设定 width 属性后，块级元素就不会再扩展到与父元素(即 body)同宽了。没有设">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CSS要点 | Fourfish'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Fourfish'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">竹杖芒鞋轻胜马</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS要点
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-09T20:38:44+08:00" content="2017-08-09">
+              2017-08-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/09/css要点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/09/css要点/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          <span>&nbsp; | &nbsp;
+          <span id="busuanzi_value_page_pv" ></span>次阅读
+          </span>
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="CSS要点"><a href="#CSS要点" class="headerlink" title="CSS要点"></a>CSS要点</h1><p>《css设计指南》笔记</p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="section"><a href="#section" class="headerlink" title="section"></a>section</h3><p>只有元素内容会被列在 文档大纲 中时，才适合用section元素。</p>
+<p>这里的文档大纲更像是提纲，section 就是提纲中的不重复项（比如对于博文 list，整个 list 才属于一个 section）</p>
+<h3 id="块级元素和行内元素"><a href="#块级元素和行内元素" class="headerlink" title="块级元素和行内元素"></a>块级元素和行内元素</h3><p>块级元素盒子会扩展到与父元素同宽 明确设定 width 属性后，块级元素就不会再扩展到与父元素(即 body)同宽了。没有设定 width，值为 auto。<br>行内元素盒子会“收缩包裹”其内容，并且会尽可能包紧。</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><p>伪类用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。</p>
+<ul>
+<li>UI伪类会在 HTML 元素处于某个状态时(比如鼠标 指针位于链接上)，为该元素应用 CSS 样式。</li>
+<li>结构化伪类会在标记中存在某种结构上的关系时(如某个元素是一组元素中的第一个或最后一个)，为相应元素应用 CSS 样式。<h4 id="UI伪类"><a href="#UI伪类" class="headerlink" title="UI伪类"></a>UI伪类</h4></li>
+<li>链接伪类(link 未被点，visited 已被点，hover 鼠标悬停，active 正在被点)</li>
+<li>:focus 伪类 表单中的文本字段在用户单击它时会获得焦点，获得焦点时使用 css 样式。</li>
+<li>:target 伪类，用户点击一个指向页面中其他元素的链接。常用于页面内跳转里，来显示跳转到的位置，使用举例<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#more_info"</span>&gt;</span>More Information<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>位于页面其他地方、ID 为 more_info 的那个元素就是目标。该元素可能是这样的:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">"more_info"</span>&gt;</span>This is the information you are looking for.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>那么，如下 CSS 规则<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#more_info</span><span class="selector-pseudo">:target</span> &#123;<span class="attribute">background</span>:<span class="number">#eee</span>;&#125;</div></pre></td></tr></table></figure></p>
+<p>会在用户单击链接转向 ID 为 more_info 的元素时，为该元素添加浅灰色背景。</p>
+<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p>伪元素用于创建一些不在文档树中的元素，并为其添加样式。</p>
+<ol>
+<li>::first-letter 伪元素 :<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p::first-letter &#123;font-size:300%;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可以得到段落首字符放大的效果。</p>
+<ol>
+<li>::first-line 伪元素</li>
+<li>::before 和::after 伪元素 :<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p.age::before &#123;content:"Age: ";&#125;</div><div class="line">p.age::after &#123;content:" years.";&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="伪类与伪元素的区别"><a href="#伪类与伪元素的区别" class="headerlink" title="伪类与伪元素的区别"></a>伪类与伪元素的区别</h3><p>伪类的操作对象是文档树中已有的元素，而伪元素则创建了一个文档树外的元素。因此，伪类与伪元素的区别在于：有没有创建一个文档树之外的元素。</p>
+<hr>
+<h3 id="权重"><a href="#权重" class="headerlink" title="权重"></a>权重</h3><p>浏览器通过权重来判断哪一些属性值与一个元素最为相关，从而在该元素上应用这些属性值。优先级是基于不同种类选择器组成的匹配规则。</p>
+<h4 id="权重是如何计算的？"><a href="#权重是如何计算的？" class="headerlink" title="权重是如何计算的？"></a>权重是如何计算的？</h4><p>优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。</p>
+<p>而当优先级与多个CSS声明中任意一个声明的优先级相等的时候，CSS中最后的那个声明将会被应用到元素上。</p>
+<p>当同一个元素有多个声明的时候，优先级才会有意义。因为每一个直接作用于元素的CSS规则总是会接管/覆盖（take over）该元素从祖先元素继承而来的规则。</p>
+<h4 id="MORE"><a href="#MORE" class="headerlink" title="MORE"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity" target="_blank" rel="external">MORE</a></h4><hr>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>每一个元素都会在页面上生成一个盒子。因此，HTML 页面实际上就是由一堆盒子组成的。</p>
+<h4 id="重置样式表"><a href="#重置样式表" class="headerlink" title="重置样式表"></a>重置样式表</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#123;margin:0; padding:0;&#125;</div></pre></td></tr></table></figure>
+<h4 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h4><p>当你设置一个元素为 box-sizing: border-box; 时，此元素的内边距和边框不再会增加它的宽度。</p>
+<h3 id="浮动和清除"><a href="#浮动和清除" class="headerlink" title="浮动和清除"></a>浮动和清除</h3><p>浮动，你看这俩字儿多形象，意思就是把元素从常规文档流中拿出来。</p>
+<p>拿出 来干什么?一是可以实现传统出版物上那种文字绕排图片的效果，二是可以让原来 上下堆叠的块级元素，变成左右并列，从而实现布局中的分栏。</p>
+<p>当你浮动一个元素的时候……这些(浮动)规则就好像 在说:“尽量把这个元素往上放，能放多高放多高，直到碰到某个元素的边界为止。”</p>
+<h4 id="对-clearfix的理解"><a href="#对-clearfix的理解" class="headerlink" title="对.clearfix的理解"></a>对.clearfix的理解</h4><p>浮动元素脱离了文档流，其父元素也看不到它了，因而也不会包围它。父元素会收缩到没它一样。这往往混乱页面的布局。所以我们需要使父元素围住浮动元素。我主要解释一下<strong><em>添加非浮动的清除元素</em></strong>这一方法。</p>
+<p>这种方法可以通过简单的给父元素（或者最后一个浮动元素）加上 class=”clearfix” 做到。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">    <span class="attribute">content</span>:<span class="string">"."</span>;</div><div class="line">    <span class="attribute">display</span>:block;</div><div class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">visibility</span>:hidden;</div><div class="line">    <span class="attribute">clear</span>:both;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>它只添加一个清除的包含句点为非浮动元素。规则中的其他声明只是为了确保这个伪元素没有高度，且不可见。就像有条看不见的分割线，拦住了从下往上冲的元素。</p>
+<p>clearfix大法好。该方法最早由程序员TonyAslett发明。</p>
+<hr>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
+<li>background-color</li>
+<li>background-image</li>
+<li>background-repeat   </li>
+<li>background-position   </li>
+<li>background-size</li>
+<li>background-attachment</li>
+<li>background(简写属性)</li>
+</ul>
+<h4 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>:<span class="built_in">url</span>(images/turq_spiral.png);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="背景重复"><a href="#背景重复" class="headerlink" title="背景重复"></a>背景重复</h4><p>repeat(默认),repeat-x,repeat-y,no-repeat.</p>
+<h4 id="背景位置"><a href="#背景位置" class="headerlink" title="背景位置"></a>背景位置</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p#center &#123;</div><div class="line">  background-position:center;//top,left,bottom,right</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="多背景图片"><a href="#多背景图片" class="headerlink" title="多背景图片"></a>多背景图片</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123; <span class="attribute">background</span>:  </div><div class="line">    <span class="built_in">url</span>(images/turq_spiral.png) <span class="number">30px</span> -<span class="number">10px</span> no-repeat,</div><div class="line">    <span class="built_in">url</span>(images/pink_spiral.png) <span class="number">145px</span> <span class="number">0px</span> no-repeat,</div><div class="line">    <span class="built_in">url</span>(images/gray_spiral.png) <span class="number">140px</span> -<span class="number">30px</span> no-repeat, <span class="number">#ffbd75</span>;		</div><div class="line">         &#125;</div></pre></td></tr></table></figure>
+<h4 id="背景渐变"><a href="#背景渐变" class="headerlink" title="背景渐变"></a>背景渐变</h4><h5 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.gradient1 &#123;</div><div class="line">background:linear-gradient(#e86a43, #fff);//从上到下</div><div class="line">&#125;</div><div class="line">.gradient3 &#123;</div><div class="line">    background:linear-gradient(-45deg, #e86a43, #fff);//从左上到右下</div><div class="line">&#125;      </div><div class="line">.gradient2 &#123; 1 background:linear-gradient(left, #64d1dd, #fff);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="渐变点"><a href="#渐变点" class="headerlink" title="渐变点"></a>渐变点</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.gradient1</span> &#123;</div><div class="line">  <span class="attribute">background</span>:<span class="built_in">linear-gradient</span>(#e86a43 20%, #fff 50%, #e86a43 80%); &#125;</div><div class="line"><span class="selector-class">.gradient3</span> &#123;     </div><div class="line"> <span class="attribute">background</span>:<span class="built_in">linear-gradient</span>(#64d1dd, #fff 25%, #64d1dd 50%, #fff 75%, #64d1dd);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.gradient4</span> &#123;</div><div class="line"><span class="attribute">background</span>:<span class="built_in">linear-gradient</span>(#e86a43, #fff 25%, #64d1dd 25%, #64d1dd 75%, #fff 75%, #e86a43);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="放射性渐变"><a href="#放射性渐变" class="headerlink" title="放射性渐变"></a>放射性渐变</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.gradient1</span> &#123;</div><div class="line"><span class="attribute">background</span>: <span class="built_in">-webkit-radial-gradient</span>(#fff, #64d1dd, #70aa25);</div><div class="line">  &#125;</div><div class="line"><span class="selector-class">.gradient2</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">-webkit-radial-gradient</span>(circle, #fff, #64d1dd, #e86a43);</div><div class="line">  &#125;</div><div class="line"><span class="selector-class">.gradient3</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">-webkit-radial-gradient</span>(50px 30px, circle, #fff, #64d1dd,#4947ba);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h3 id="字体和文本"><a href="#字体和文本" class="headerlink" title="字体和文本"></a>字体和文本</h3><h4 id="字体族"><a href="#字体族" class="headerlink" title="字体族"></a>字体族</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-family</span>: <span class="string">"Helvetica Neue"</span>,Helvetica,<span class="string">"PingFang SC"</span>,<span class="string">"Hiragino Sans GB"</span>,<span class="string">"Microsoft YaHei"</span>,<span class="string">"微软雅黑"</span>,Arial,sans-serif;&#125;</div></pre></td></tr></table></figure>
+<p>在指定文本的字体时，需要多列出几种后备字体， 以防第一种字体无效。这个字体的列表也叫字体栈。</p>
+<h4 id="字体类"><a href="#字体类" class="headerlink" title="字体类"></a>字体类</h4><ul>
+<li>serif，也就是衬线字体</li>
+<li>sans-serif，也就是无衬线字体</li>
+<li>monospace，也就是等宽字体</li>
+<li>cursive，也就是草书体或手写体</li>
+<li>fantasy，不能归入其他类别的字体(一般都是奇形怪状的字体)。<br>使用这些通用字体类的目的，就是确保在最坏的情况下，文档起码可以通过正确的字形来显示，将通用字体类写到最后即可。</li>
+</ul>
+<h4 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h4><p>值:italic、oblique、normal。</p>
+<p>示例:h2 {font-style:italic;} 。</p>
+<h4 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h4><ul>
+<li>文本缩进: text-indent</li>
+<li>字符间距: letter-spacing</li>
+<li>单词间距: word-spacing</li>
+<li>文本对齐: text-align，值:left、right、center、justify。</li>
+<li>行高: line-height</li>
+<li>文本装饰: text-decoration，值:underline、overline、line-through、none。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/23/CSS的重要性/" rel="next" title="CSS的重要性">
+                <i class="fa fa-chevron-left"></i> CSS的重要性
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/11/webpack基础/" rel="prev" title="webpack基础">
+                webpack基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Lin Jin" />
+          <p class="site-author-name" itemprop="name">Lin Jin</p>
+          <p class="site-description motion-element" itemprop="description">学以致用</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FourEyebrowXiake" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/fish-86-23" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-link"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS要点"><span class="nav-number">1.</span> <span class="nav-text">CSS要点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#section"><span class="nav-number">1.1.1.</span> <span class="nav-text">section</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级元素和行内元素"><span class="nav-number">1.1.2.</span> <span class="nav-text">块级元素和行内元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">1.2.1.</span> <span class="nav-text">伪类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UI伪类"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">UI伪类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素"><span class="nav-number">1.2.2.</span> <span class="nav-text">伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类与伪元素的区别"><span class="nav-number">1.2.3.</span> <span class="nav-text">伪类与伪元素的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权重"><span class="nav-number">1.2.4.</span> <span class="nav-text">权重</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权重是如何计算的？"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">权重是如何计算的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MORE"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">MORE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型"><span class="nav-number">1.2.5.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重置样式表"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">重置样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#box-sizing"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">box-sizing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动和清除"><span class="nav-number">1.2.6.</span> <span class="nav-text">浮动和清除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对-clearfix的理解"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">对.clearfix的理解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.2.7.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景图片"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景重复"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">背景重复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景位置"><span class="nav-number">1.2.7.3.</span> <span class="nav-text">背景位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多背景图片"><span class="nav-number">1.2.7.4.</span> <span class="nav-text">多背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景渐变"><span class="nav-number">1.2.7.5.</span> <span class="nav-text">背景渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#线性渐变"><span class="nav-number">1.2.7.5.1.</span> <span class="nav-text">线性渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变点"><span class="nav-number">1.2.7.5.2.</span> <span class="nav-text">渐变点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#放射性渐变"><span class="nav-number">1.2.7.6.</span> <span class="nav-text">放射性渐变</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体和文本"><span class="nav-number">1.2.8.</span> <span class="nav-text">字体和文本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字体族"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">字体族</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体类"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">字体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体样式"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">字体样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本属性"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">文本属性</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin Jin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'foureyebrow';
+      var disqus_identifier = '2017/08/09/css要点/';
+      var disqus_title = 'CSS要点';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/09/css要点/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

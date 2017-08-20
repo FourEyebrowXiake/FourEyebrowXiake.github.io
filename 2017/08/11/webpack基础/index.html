@@ -1,0 +1,656 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="oB_YOQztyLdWSBk8b2I7_2zaf6e-nXw_qnLa0fE_kMw" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="webpack模块化开发webpack本身就是一款用户打包前端模块的工具。要了解它，首先要知道什么叫模块化开发。
+前端开发中，起初只要在script标签中嵌入几十上百行代码就能实现一些基本的交互效果，后来js得到重视，应用也广泛起来了，jQuery，Ajax，Node.Js，MVC，MVVM等的助力也使得前端开发得到重视，也使得前端项目越来越复杂，然而，JavaScript却没有为组织代码提供任何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack基础">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/11/webpack基础/index.html">
+<meta property="og:site_name" content="Fourfish'blog">
+<meta property="og:description" content="webpack模块化开发webpack本身就是一款用户打包前端模块的工具。要了解它，首先要知道什么叫模块化开发。
+前端开发中，起初只要在script标签中嵌入几十上百行代码就能实现一些基本的交互效果，后来js得到重视，应用也广泛起来了，jQuery，Ajax，Node.Js，MVC，MVVM等的助力也使得前端开发得到重视，也使得前端项目越来越复杂，然而，JavaScript却没有为组织代码提供任何">
+<meta property="og:updated_time" content="2017-08-13T00:14:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack基础">
+<meta name="twitter:description" content="webpack模块化开发webpack本身就是一款用户打包前端模块的工具。要了解它，首先要知道什么叫模块化开发。
+前端开发中，起初只要在script标签中嵌入几十上百行代码就能实现一些基本的交互效果，后来js得到重视，应用也广泛起来了，jQuery，Ajax，Node.Js，MVC，MVVM等的助力也使得前端开发得到重视，也使得前端项目越来越复杂，然而，JavaScript却没有为组织代码提供任何">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> webpack基础 | Fourfish'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Fourfish'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">竹杖芒鞋轻胜马</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-11T22:33:24+08:00" content="2017-08-11">
+              2017-08-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/11/webpack基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/11/webpack基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          <span>&nbsp; | &nbsp;
+          <span id="busuanzi_value_page_pv" ></span>次阅读
+          </span>
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><h2 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h2><p>webpack本身就是一款用户打包前端模块的工具。要了解它，首先要知道什么叫模块化开发。</p>
+<p>前端开发中，起初只要在script标签中嵌入几十上百行代码就能实现一些基本的交互效果，后来js得到重视，应用也广泛起来了，jQuery，Ajax，Node.Js，MVC，MVVM等的助力也使得前端开发得到重视，也使得前端项目越来越复杂，然而，JavaScript却没有为组织代码提供任何明显帮助，甚至没有类的概念，更不用说模块（module）了，那么什么是模块呢？</p>
+<p>一个模块就是实现特定功能的文件，有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。模块开发需要遵循一定的规范，否则就都乱套了。</p>
+<p>这就是模块化开发。而webpack能将依赖的模块转化成可以代表这些包的静态文件。</p>
+<h2 id="Webpack它的目标是什么？它和其他类似的工具有什么不同？webpack为什么要将所有资源放在一个文件夹里？"><a href="#Webpack它的目标是什么？它和其他类似的工具有什么不同？webpack为什么要将所有资源放在一个文件夹里？" class="headerlink" title="Webpack它的目标是什么？它和其他类似的工具有什么不同？webpack为什么要将所有资源放在一个文件夹里？"></a>Webpack它的目标是什么？它和其他类似的工具有什么不同？webpack为什么要将所有资源放在一个文件夹里？</h2><h3 id="详情请见《webpack学习之路》"><a href="#详情请见《webpack学习之路》" class="headerlink" title="详情请见《webpack学习之路》"></a><a href="https://github.com/wangning0/Autumn_Ning_Blog/blob/master/blogs/3-12/webpack.md" target="_blank" rel="external">详情请见《webpack学习之路》</a></h3><hr>
+<h2 id="webpack-config-js详解"><a href="#webpack-config-js详解" class="headerlink" title="webpack.config.js详解"></a>webpack.config.js详解</h2><p>看代码说话：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> config_webpath_dev = <span class="built_in">require</span>(<span class="string">'./configs/webpack_dev'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">    <span class="attr">resolve</span>: &#123;</div><div class="line">        <span class="attr">alias</span>:&#123;</div><div class="line">            <span class="string">'react'</span>:path.join(nodeModulesPath,<span class="string">'react/react.js'</span>)</div><div class="line">        &#125;</div><div class="line">			&#125;,</div><div class="line">		<span class="attr">entry</span>: [<span class="string">'./src/index'</span>],</div><div class="line">	  <span class="attr">output</span>: &#123;</div><div class="line">	    <span class="attr">path</span>: path.join(__dirname, <span class="string">'dist'</span>),</div><div class="line">	    <span class="attr">filename</span>: <span class="string">'bundle.js'</span></div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">plugins</span>: [</div><div class="line">	    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">	      <span class="attr">compressor</span>: &#123;</div><div class="line">	        <span class="attr">warnings</span>: <span class="literal">false</span>,</div><div class="line">	      &#125;,</div><div class="line">	    &#125;),</div><div class="line">	    <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin()</div><div class="line">	  ],</div><div class="line">	  <span class="attr">module</span>: &#123;</div><div class="line">	    <span class="attr">loaders</span>: [&#123;</div><div class="line">	      <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">	      <span class="attr">loaders</span>: [<span class="string">'style'</span>, <span class="string">'css'</span>]</div><div class="line">	    &#125;]</div><div class="line">	  &#125;,</div><div class="line">    <span class="attr">devServer</span>: &#123;</div><div class="line">        <span class="attr">contentBase</span>: <span class="string">"./public"</span>,</div><div class="line">        <span class="attr">colors</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">inline</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">host</span>: config_webpath_dev.domain,</div><div class="line">        <span class="attr">port</span>: config_webpath_dev.port</div><div class="line">    &#125;,</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = config;</div></pre></td></tr></table></figure></p>
+<h3 id="resolve-这些选项能设置模块如何被解析"><a href="#resolve-这些选项能设置模块如何被解析" class="headerlink" title="resolve 这些选项能设置模块如何被解析"></a>resolve 这些选项能设置模块如何被解析</h3><p>alias配置项，可以为常用模块配置改属性，可以节省编译的搜索时间。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">resolve:&#123;</div><div class="line">			 <span class="attr">alias</span>:&#123;</div><div class="line">					 <span class="string">'react'</span>:path.join(nodeModulesPath,<span class="string">'react/react.js'</span>)</div><div class="line">			 &#125;</div><div class="line">	 &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="entry-是指入口文件的配置项，它是一个数组的原因是webpack允许多个入口点。"><a href="#entry-是指入口文件的配置项，它是一个数组的原因是webpack允许多个入口点。" class="headerlink" title="entry    是指入口文件的配置项，它是一个数组的原因是webpack允许多个入口点。"></a>entry    是指入口文件的配置项，它是一个数组的原因是webpack允许多个入口点。</h3><h3 id="output是指输出文件的配置项"><a href="#output是指输出文件的配置项" class="headerlink" title="output是指输出文件的配置项"></a>output是指输出文件的配置项</h3><ul>
+<li>path - 表示输出文件的路径</li>
+<li>filename - 表示输出文件的文件名</li>
+</ul>
+<h3 id="plugins-顾名思义，使用插件可以给webpack添加更多的功能，使webpack更加的灵活和强大-webpack有两种类型的插件"><a href="#plugins-顾名思义，使用插件可以给webpack添加更多的功能，使webpack更加的灵活和强大-webpack有两种类型的插件" class="headerlink" title="plugins 顾名思义，使用插件可以给webpack添加更多的功能，使webpack更加的灵活和强大,webpack有两种类型的插件:"></a>plugins 顾名思义，使用插件可以给webpack添加更多的功能，使webpack更加的灵活和强大,webpack有两种类型的插件:</h3><h4 id="webpack内置的插件"><a href="#webpack内置的插件" class="headerlink" title="webpack内置的插件"></a>webpack内置的插件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 首先要先安装webpack模块</span></div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">      <span class="attr">compressor</span>: &#123;</div><div class="line">        <span class="attr">warnings</span>: <span class="literal">false</span>,</div><div class="line">      &#125;,</div><div class="line">	&#125;)h</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="webpack外置插件"><a href="#webpack外置插件" class="headerlink" title="webpack外置插件"></a>webpack外置插件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//npm install component-webpack-plugin 先要在安装该模版</span></div><div class="line"><span class="keyword">var</span> ComponentPlugin = <span class="built_in">require</span>(<span class="string">"component-webpack-plugin"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> ComponentPlugin()</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>更多的插件以及插件的用法，大家可以到webpack的插件上查看。</p>
+<h3 id="module-决定了如何处理项目中的不同类型的模块。它通过配置要使用的loader，把资源文件（css、图片、html等非js模块）处理成相应的js模块-然后其它的plugins才能对这些资源进行下一步处理。比如babel-loader可以把es6的文件转换成es5。"><a href="#module-决定了如何处理项目中的不同类型的模块。它通过配置要使用的loader，把资源文件（css、图片、html等非js模块）处理成相应的js模块-然后其它的plugins才能对这些资源进行下一步处理。比如babel-loader可以把es6的文件转换成es5。" class="headerlink" title="module 决定了如何处理项目中的不同类型的模块。它通过配置要使用的loader，把资源文件（css、图片、html等非js模块）处理成相应的js模块,然后其它的plugins才能对这些资源进行下一步处理。比如babel-loader可以把es6的文件转换成es5。"></a>module 决定了如何处理项目中的不同类型的模块。它通过配置要使用的loader，把资源文件（css、图片、html等非js模块）处理成相应的js模块,然后其它的plugins才能对这些资源进行下一步处理。比如babel-loader可以把es6的文件转换成es5。</h3><h4 id="loaders-一个含有wepback中能处理不同文件的加载器的数组"><a href="#loaders-一个含有wepback中能处理不同文件的加载器的数组" class="headerlink" title="loaders 一个含有wepback中能处理不同文件的加载器的数组"></a>loaders 一个含有wepback中能处理不同文件的加载器的数组</h4><ul>
+<li>test 用来匹配相对应文件的正则表达式</li>
+<li>loaders 告诉webpack要利用哪种加载器来处理test所匹配的文件<h4 id="loaders-的安装方法"><a href="#loaders-的安装方法" class="headerlink" title="loaders 的安装方法"></a>loaders 的安装方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install xxx-loader --save-dev</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="devServer-webpack-dev-server-能够用于快速开发应用程序"><a href="#devServer-webpack-dev-server-能够用于快速开发应用程序" class="headerlink" title="devServer(webpack-dev-server) 能够用于快速开发应用程序"></a>devServer(webpack-dev-server) 能够用于快速开发应用程序</h3><ul>
+<li>color - Enables/Disables colors on the console.</li>
+<li><p>contentBase - 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。devServer.publicPath 将用于确定应该从哪里提供 bundle，并且此选项优先。</p>
+</li>
+<li><p>historyApiFallback - 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html.</p>
+</li>
+<li>hot - 启用 webpack 的模块热替换特性.</li>
+<li><p>inline - 默认情况下，应用程序启用内联模式(inline mode)。这意味着一段处理实时重载的脚本被插入到你的包(bundle)中，并且构建消息将会出现在浏览器控制台。</p>
+</li>
+<li><p>host - 指定使用一个 host。默认是 localhost。如果你希望服务器外部可访问，指定如下：</p>
+</li>
+<li><p>port - 指定要监听请求的端口号</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/09/css要点/" rel="next" title="CSS要点">
+                <i class="fa fa-chevron-left"></i> CSS要点
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/12/less基础/" rel="prev" title="less基础">
+                less基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Lin Jin" />
+          <p class="site-author-name" itemprop="name">Lin Jin</p>
+          <p class="site-description motion-element" itemprop="description">学以致用</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FourEyebrowXiake" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/fish-86-23" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-link"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack"><span class="nav-number">1.</span> <span class="nav-text">webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化开发"><span class="nav-number">1.1.</span> <span class="nav-text">模块化开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack它的目标是什么？它和其他类似的工具有什么不同？webpack为什么要将所有资源放在一个文件夹里？"><span class="nav-number">1.2.</span> <span class="nav-text">Webpack它的目标是什么？它和其他类似的工具有什么不同？webpack为什么要将所有资源放在一个文件夹里？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#详情请见《webpack学习之路》"><span class="nav-number">1.2.1.</span> <span class="nav-text">详情请见《webpack学习之路》</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-config-js详解"><span class="nav-number">1.3.</span> <span class="nav-text">webpack.config.js详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#resolve-这些选项能设置模块如何被解析"><span class="nav-number">1.3.1.</span> <span class="nav-text">resolve 这些选项能设置模块如何被解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#entry-是指入口文件的配置项，它是一个数组的原因是webpack允许多个入口点。"><span class="nav-number">1.3.2.</span> <span class="nav-text">entry    是指入口文件的配置项，它是一个数组的原因是webpack允许多个入口点。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output是指输出文件的配置项"><span class="nav-number">1.3.3.</span> <span class="nav-text">output是指输出文件的配置项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plugins-顾名思义，使用插件可以给webpack添加更多的功能，使webpack更加的灵活和强大-webpack有两种类型的插件"><span class="nav-number">1.3.4.</span> <span class="nav-text">plugins 顾名思义，使用插件可以给webpack添加更多的功能，使webpack更加的灵活和强大,webpack有两种类型的插件:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack内置的插件"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">webpack内置的插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack外置插件"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">webpack外置插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module-决定了如何处理项目中的不同类型的模块。它通过配置要使用的loader，把资源文件（css、图片、html等非js模块）处理成相应的js模块-然后其它的plugins才能对这些资源进行下一步处理。比如babel-loader可以把es6的文件转换成es5。"><span class="nav-number">1.3.5.</span> <span class="nav-text">module 决定了如何处理项目中的不同类型的模块。它通过配置要使用的loader，把资源文件（css、图片、html等非js模块）处理成相应的js模块,然后其它的plugins才能对这些资源进行下一步处理。比如babel-loader可以把es6的文件转换成es5。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#loaders-一个含有wepback中能处理不同文件的加载器的数组"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">loaders 一个含有wepback中能处理不同文件的加载器的数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loaders-的安装方法"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">loaders 的安装方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#devServer-webpack-dev-server-能够用于快速开发应用程序"><span class="nav-number">1.3.6.</span> <span class="nav-text">devServer(webpack-dev-server) 能够用于快速开发应用程序</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin Jin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'foureyebrow';
+      var disqus_identifier = '2017/08/11/webpack基础/';
+      var disqus_title = 'webpack基础';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/11/webpack基础/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
