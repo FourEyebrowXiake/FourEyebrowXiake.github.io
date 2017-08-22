@@ -96,7 +96,7 @@ if语句或while语句以及其他类似循环结构的语句块不能创建新�
 if语句或while语句以及其他类似循环结构的语句块不能创建新的作用域。只用function语句块能创建新的作用域。
 执行环境：当程序运行的时候，会创建一个存储变量和变量值的存储系统。这些内存中的作用域结构被称为执行环境。
 执行环境和词法作用域的不同：执行环境实在程序运行时才被创建的，不是在代码输入时被创建的。执行环境能控制在程序执行过程中不同点能访问哪些">
-<meta property="og:updated_time" content="2017-08-20T03:15:12.000Z">
+<meta property="og:updated_time" content="2017-08-22T03:10:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js基础：作用域、闭包、this">
 <meta name="twitter:description" content="作用域词法作用域：描述了源代码中的范围。
@@ -362,6 +362,7 @@ if语句或while语句以及其他类似循环结构的语句块不能创建新�
 <a id="more"></a>
 <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包是指一些函数通过某种方式可以随时被访问，即使它的外部代码已经执行完毕。</p>
 <p>在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+<p>常见的闭包的现象，如通过函数字面量创建的函数对象包含一个连到外部上下文的连接。</p>
 <h2 id="保留函数访问权限的方法"><a href="#保留函数访问权限的方法" class="headerlink" title="保留函数访问权限的方法"></a>保留函数访问权限的方法</h2><ul>
 <li>passing to setTimeout</li>
 <li><p>从函数中return</p>
@@ -508,7 +509,7 @@ if语句或while语句以及其他类似循环结构的语句块不能创建新�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -860,7 +861,7 @@ if语句或while语句以及其他类似循环结构的语句块不能创建新�
   <!-- 背景动画 -->
   <script type="text/javascript" src="/js/src/particle.js"></script>
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script>
+  <!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
 
 </body>
 </html>
