@@ -96,7 +96,7 @@ ES6中新加入了Class。但这个Class只">
 Javascript中的对象是可变的键控集合。对象是属性的容器，其中属性由键值对构成。
 Javascript包含一种原型链的特性，允许对象继承另一个对象。正确的使用它能减少对象初始化时消耗的时间和内存。
 ES6中新加入了Class。但这个Class只">
-<meta property="og:updated_time" content="2017-08-22T15:19:23.000Z">
+<meta property="og:updated_time" content="2017-08-22T15:21:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js语言精粹(2)-对象、函数">
 <meta name="twitter:description" content="对象Javascript的简单数据类型包括数字、字符串、布尔值、null值和undefined值。其他所有的值皆是对象，包括数组、函数和正则表达式。
@@ -412,7 +412,7 @@ ES6中新加入了Class。但这个Class只">
 <p>call()方法的作用和 apply() 方法类似，只有一个区别，就是 call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。</p>
 <h2 id="扩充类型功能"><a href="#扩充类型功能" class="headerlink" title="扩充类型功能"></a>扩充类型功能</h2><p>Javascript允许给语言的基本类型扩充功能。而且给原型扩充时，是动态的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.method = <span class="function"><span class="keyword">function</span>(<span class="params">name, func</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(!<span class="keyword">this</span>.prototype[name])&#123;<span class="comment">//如果方法已存在，就不添加</span></div><div class="line">			<span class="keyword">this</span>.prototype[name] = func;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>递归函数就是会直接或间接调用自身的函数。它把一个问题分为一组相似的子问题，每一个都用一个寻常解去解决。</p>
-<p>##作用域、闭包<br><a href="./2017/07/22/Js语法基础：作用域、闭包、this/">见我的另一篇文章</a></p>
+<p>##作用域、闭包<br><a href="http://foureyebrowxiake.github.io/2017/07/22/Js语法基础：作用域、闭包、this/">见我的另一篇文章</a></p>
 
       
     </div>
