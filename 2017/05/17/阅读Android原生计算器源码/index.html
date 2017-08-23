@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LESS," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -84,16 +84,49 @@
 
 
 
-<meta name="description" content="less基础变量通过变量定义参数，然后在需要的时候直接调用。123456789101112131415161718// LESS@color: #4D926F;#header &amp;#123; color: @color;&amp;#125;h2 &amp;#123; color: @color;&amp;#125;/* 生成的 CSS */#header &amp;#123; color: #4D926F;&amp;#125;h2 &amp;#1">
+<meta name="description" content="Read Android Original Calculator项目结构
+Calculator
+CalculatorPadLayout
+CalculatorNumericPadLayout
+
+
+CalculatorPadViewPager
+
+
+CalculatorExpressionBuilder
+CalculatorExpressionEvaluator
+CalculatorExpression">
 <meta property="og:type" content="article">
-<meta property="og:title" content="less基础">
-<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/12/less基础/index.html">
+<meta property="og:title" content="阅读Android原生计算器源码">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/05/17/阅读Android原生计算器源码/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="less基础变量通过变量定义参数，然后在需要的时候直接调用。123456789101112131415161718// LESS@color: #4D926F;#header &amp;#123; color: @color;&amp;#125;h2 &amp;#123; color: @color;&amp;#125;/* 生成的 CSS */#header &amp;#123; color: #4D926F;&amp;#125;h2 &amp;#1">
-<meta property="og:updated_time" content="2017-08-20T03:15:55.000Z">
+<meta property="og:description" content="Read Android Original Calculator项目结构
+Calculator
+CalculatorPadLayout
+CalculatorNumericPadLayout
+
+
+CalculatorPadViewPager
+
+
+CalculatorExpressionBuilder
+CalculatorExpressionEvaluator
+CalculatorExpression">
+<meta property="og:updated_time" content="2017-08-23T01:44:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="less基础">
-<meta name="twitter:description" content="less基础变量通过变量定义参数，然后在需要的时候直接调用。123456789101112131415161718// LESS@color: #4D926F;#header &amp;#123; color: @color;&amp;#125;h2 &amp;#123; color: @color;&amp;#125;/* 生成的 CSS */#header &amp;#123; color: #4D926F;&amp;#125;h2 &amp;#1">
+<meta name="twitter:title" content="阅读Android原生计算器源码">
+<meta name="twitter:description" content="Read Android Original Calculator项目结构
+Calculator
+CalculatorPadLayout
+CalculatorNumericPadLayout
+
+
+CalculatorPadViewPager
+
+
+CalculatorExpressionBuilder
+CalculatorExpressionEvaluator
+CalculatorExpression">
 
 
 
@@ -111,7 +144,7 @@
   };
 </script>
 
-  <title> less基础 | Fourfish'blog </title>
+  <title> 阅读Android原生计算器源码 | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +307,7 @@
             
             
               
-                less基础
+                阅读Android原生计算器源码
               
             
           </h1>
@@ -286,8 +319,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-12T09:36:42+08:00" content="2017-08-12">
-              2017-08-12
+            <time itemprop="dateCreated" datetime="2017-05-17T09:36:56+08:00" content="2017-05-17">
+              2017-05-17
             </time>
           </span>
 
@@ -300,8 +333,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
+                  <a href="/categories/移动开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动开发</span>
                   </a>
                 </span>
 
@@ -316,8 +349,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/08/12/less基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/12/less基础/" itemprop="commentsCount"></span>
+                <a href="/2017/05/17/阅读Android原生计算器源码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/17/阅读Android原生计算器源码/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -346,20 +379,48 @@
       
 
       
-        <h1 id="less基础"><a href="#less基础" class="headerlink" title="less基础"></a>less基础</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>通过变量定义参数，然后在需要的时候直接调用。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// LESS</div><div class="line"></div><div class="line">@color: #4D926F;</div><div class="line"></div><div class="line">#header &#123;</div><div class="line"> color: @color;</div><div class="line">&#125;</div><div class="line">h2 &#123;</div><div class="line"> color: @color;</div><div class="line">&#125;</div><div class="line">/* 生成的 CSS */</div><div class="line"></div><div class="line">#header &#123;</div><div class="line"> color: #4D926F;</div><div class="line">&#125;</div><div class="line">h2 &#123;</div><div class="line"> color: #4D926F;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h1 id="Read-Android-Original-Calculator"><a href="#Read-Android-Original-Calculator" class="headerlink" title="Read Android Original Calculator"></a>Read Android Original Calculator</h1><h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><ul>
+<li>Calculator<ul>
+<li>CalculatorPadLayout<ul>
+<li>CalculatorNumericPadLayout</li>
+</ul>
+</li>
+<li>CalculatorPadViewPager</li>
+</ul>
+</li>
+<li>CalculatorExpressionBuilder</li>
+<li>CalculatorExpressionEvaluator</li>
+<li>CalculatorExpressionTokenizer</li>
+</ul>
 <a id="more"></a>
-<h2 id="混合"><a href="#混合" class="headerlink" title="混合"></a>混合</h2><p>既然有了变量，自然少不了函数。就像js那样创建函数：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// LESS</div><div class="line"></div><div class="line">.rounded-corners (@radius: 5px) &#123;</div><div class="line">  border-radius: @radius;</div><div class="line">  -webkit-border-radius: @radius;</div><div class="line">  -moz-border-radius: @radius;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#header &#123;</div><div class="line">  .rounded-corners;</div><div class="line">&#125;</div><div class="line">#footer &#123;</div><div class="line">  .rounded-corners(10px);</div><div class="line">&#125;</div><div class="line">/* 生成的 CSS */</div><div class="line"></div><div class="line">#header &#123;</div><div class="line">  border-radius: 5px;</div><div class="line">  -webkit-border-radius: 5px;</div><div class="line">  -moz-border-radius: 5px;</div><div class="line">&#125;</div><div class="line">#footer &#123;</div><div class="line">  border-radius: 10px;</div><div class="line">  -webkit-border-radius: 10px;</div><div class="line">  -moz-border-radius: 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p>通过在一个选择器中嵌套另一个选择器来实现继承，减少了代码量，并且代码看起来更加的清晰。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// LESS</div><div class="line"></div><div class="line">#header &#123;</div><div class="line">  h1 &#123;</div><div class="line">    font-size: 26px;</div><div class="line">    font-weight: bold;</div><div class="line">  &#125;</div><div class="line">  p &#123; font-size: 12px;</div><div class="line">    a &#123; text-decoration: none;</div><div class="line">      &amp;:hover &#123; border-width: 1px &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 生成的 CSS */</div><div class="line"></div><div class="line">#header h1 &#123;</div><div class="line">  font-size: 26px;</div><div class="line">  font-weight: bold;</div><div class="line">&#125;</div><div class="line">#header p &#123;</div><div class="line">  font-size: 12px;</div><div class="line">&#125;</div><div class="line">#header p a &#123;</div><div class="line">  text-decoration: none;</div><div class="line">&#125;</div><div class="line">#header p a:hover &#123;</div><div class="line">  border-width: 1px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="计算功能"><a href="#计算功能" class="headerlink" title="计算功能"></a>计算功能</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">　　　　<span class="attribute">margin</span>: (<span class="number">14px</span>/<span class="number">2</span>);</div><div class="line">　　　　<span class="attribute">top</span>: <span class="number">50px</span> + <span class="number">100px</span>;</div><div class="line">　　　　<span class="attribute">right</span>: $var * <span class="number">10%</span>;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>SASS允许一个选择器，继承另一个选择器。比如，现有class1：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　<span class="selector-class">.class1</span> &#123;</div><div class="line">　　　　<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure></p>
-<p>class2要继承class1，就要使用@extend命令：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　.class2 &#123;</div><div class="line">　　　　@extend .class1;</div><div class="line">　　　　font-size:120%;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="MORE"><a href="#MORE" class="headerlink" title="MORE"></a><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="external">MORE</a></h2><p>阮一峰老师写的更加详细。</p>
-<h2 id="安装和设置加载器"><a href="#安装和设置加载器" class="headerlink" title="安装和设置加载器"></a>安装和设置加载器</h2><p>介绍一下如何在webpack里使用。</p>
-<h3 id="先设置module"><a href="#先设置module" class="headerlink" title="先设置module"></a>先设置module</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>: &#123;</div><div class="line">			<span class="attr">loaders</span>: [&#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span></div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.(png|jpg)$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'file-loader'</span></div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>,</div><div class="line">        <span class="attr">loaders</span>: [<span class="string">"style"</span>, <span class="string">"css"</span>, <span class="string">"sass"</span>]</div><div class="line">      &#125;]</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<h3 id="再安装loader"><a href="#再安装loader" class="headerlink" title="再安装loader"></a>再安装loader</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install sass-loader <span class="comment">//如果报错说缺少什么，就安装什么</span></div></pre></td></tr></table></figure>
-<h3 id="import用法"><a href="#import用法" class="headerlink" title="import用法"></a>import用法</h3><p>如果你从另外一个文件中导入一个 LESS/SASS 文件，像其他地方一样使用准确的路径，Webpack 会找出那些文件，然后识别里面的依赖。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">import</span> <span class="string">"./variables.scss"</span>;</div></pre></td></tr></table></figure></p>
-<p>你也可以直接从你的 node_modules 文件夹中加载 LESS 文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="keyword">import</span> <span class="string">"~bootstrap/less/bootstrap"</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>实际使用的时候，记得保留字前加@，参数前加$。</p>
+<h2 id="Calculator"><a href="#Calculator" class="headerlink" title="Calculator"></a>Calculator</h2><h5 id="onBackPressed"><a href="#onBackPressed" class="headerlink" title="onBackPressed()"></a>onBackPressed()</h5><p>处在第高级操作符页面时，点击back键，返回初始页面。</p>
+<h5 id="onUserInteraction"><a href="#onUserInteraction" class="headerlink" title="onUserInteraction()"></a>onUserInteraction()</h5><p>Called whenever a key, touch, or trackball event is dispatched to the activity.</p>
+<p>在处理用户交互前，如果由正在进行的动画请立即终止。</p>
+<h5 id="onEquals"><a href="#onEquals" class="headerlink" title="onEquals()"></a>onEquals()</h5><p>至于计算，只要获得式子的字符串，然后交给 org.javia.arity.Symbol就行了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一句话的事</span></div><div class="line"><span class="keyword">double</span> result = mSymbols.eval(expr);</div></pre></td></tr></table></figure></p>
+<h2 id="CalculatorPadViewPager"><a href="#CalculatorPadViewPager" class="headerlink" title="CalculatorPadViewPager"></a>CalculatorPadViewPager</h2><h5 id="为什么在显示page1的时候page2会显示出来一部分呢（右侧青色那一条）？"><a href="#为什么在显示page1的时候page2会显示出来一部分呢（右侧青色那一条）？" class="headerlink" title="为什么在显示page1的时候page2会显示出来一部分呢（右侧青色那一条）？"></a>为什么在显示page1的时候page2会显示出来一部分呢（右侧青色那一条）？</h5><p>答案在setPageMargin(-24);由于是负数，这样每个page之间就会有重叠，就出现了明明显示的第一个view，结果在右侧显示了一部分第二个view的layout。</p>
+<h5 id="为什么向左滑动的时候page1的位置一直保持不动？不应该是向左侧滑出吗？"><a href="#为什么向左滑动的时候page1的位置一直保持不动？不应该是向左侧滑出吗？" class="headerlink" title="为什么向左滑动的时候page1的位置一直保持不动？不应该是向左侧滑出吗？"></a>为什么向左滑动的时候page1的位置一直保持不动？不应该是向左侧滑出吗？</h5><p>看setPageTransformer(false, mPageTransformer);</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Apply a property transformation to the given page.</div><div class="line">*</div><div class="line">* <span class="doctag">@param</span> page Apply the transformation to this page</div><div class="line">* <span class="doctag">@param</span> position Position of page relative to the current front-and-center</div><div class="line">*                 position of the pager. 0 is front and center. 1 is one full</div><div class="line">*                 page position to the right, and -1 is one page position to the left.</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transformPage</span><span class="params">(View page, <span class="keyword">float</span> position)</span></span>;</div></pre></td></tr></table></figure>
+<p>看一下源码里的方法说明，这里的position其实是相对的，并不是常规理解的位置下标，它是以当前屏幕的正中心为坐标原点，当page的中心和屏幕的原点重合（即page正在完全显示时）position=0;<br>当page向左侧滑动，慢慢淡出屏幕时，该过程中page的中心相对屏幕的中心原点在沿着X轴向左移动，此时positon &lt; 0，当page完全滑出屏幕时，positon = -1;<br>同理，当page向右滑动，慢慢淡出屏幕时，该过程中page的中心相对屏幕的中心原点在沿着X轴向右移动，此时positon &gt; 0，当page完全滑出屏幕时，positon = 1；</p>
+<p>有了上面的分析，其实可以把positon看成正在滑动的page滑出屏幕的比例，正负代表往哪个方向滑动。所以，要想在滑出数学计算公式的page过程中保持当前输入的page位置不动，根据滑出屏幕的比例设置该page在X轴的偏移量就可以了，view.setTranslationX(getWidth() * -position); 同理，把数学计算公式的page滑出时取消这个偏移量，view.setTranslationX(0); 到这里疑问2也解决了。</p>
+<p>更多的ViewPager切换动画请参考开源项目JazzyViewPager</p>
+<h5 id="还有就是当page2滑出后宽度为什么没有铺满、左边还要留出一部分透明区域呢？"><a href="#还有就是当page2滑出后宽度为什么没有铺满、左边还要留出一部分透明区域呢？" class="headerlink" title="还有就是当page2滑出后宽度为什么没有铺满、左边还要留出一部分透明区域呢？"></a>还有就是当page2滑出后宽度为什么没有铺满、左边还要留出一部分透明区域呢？</h5><p>原来是复写了PagerAdapter的getPageWidth方法，看一下该方法的说明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Returns the proportional width of a given page as a percentage of the</div><div class="line"> * ViewPager's measured width from (0.f-1.f]</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> position The position of the page requested</div><div class="line"> * <span class="doctag">@return</span> Proportional width for the given page position</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getPageWidth</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>.f;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说的很清晰了，根据position设置当前页面宽度的百分比。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getPageWidth</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> position == <span class="number">1</span> ? <span class="number">7.0f</span> / <span class="number">9.0f</span> : <span class="number">1.0f</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h5 id="OnPageChangeListener解读"><a href="#OnPageChangeListener解读" class="headerlink" title="OnPageChangeListener解读"></a>OnPageChangeListener解读</h5><p>Callback interface for responding to changing state of the selected page.</p>
+<h6 id="OnPageChangeListener这个接口需要实现三个方法：（onPageScrollStateChanged，onPageScrolled-，onPageSelected）："><a href="#OnPageChangeListener这个接口需要实现三个方法：（onPageScrollStateChanged，onPageScrolled-，onPageSelected）：" class="headerlink" title="OnPageChangeListener这个接口需要实现三个方法：（onPageScrollStateChanged，onPageScrolled ，onPageSelected）："></a>OnPageChangeListener这个接口需要实现三个方法：（onPageScrollStateChanged，onPageScrolled ，onPageSelected）：</h6><p>onPageScrollStateChanged(int arg0)   ，此方法是在状态改变的时候调用，其中arg0这个参数。<br>有三种状态（0，1，2）。arg0 ==1的时辰默示正在滑动，arg0==2的时辰默示滑动完毕了，arg0==0的时辰默示什么都没做。</p>
+<p>onPageScrolled(int arg0,float arg1,int arg2)    ，当页面在滑动的时候会调用此方法，在滑动被停止之前，此方法回一直得到调用。其中三个参数的含义分别为：</p>
+<ul>
+<li>arg0 :当前页面，及你点击滑动的页面</li>
+<li>arg1:当前页面偏移的百分比</li>
+<li>arg2:当前页面偏移的像素位置</li>
+</ul>
+<p>onPageSelected(int arg0) ：   此方法是页面跳转完后得到调用，arg0是你当前选中的页面的Position（位置编号）。</p>
+<h2 id="CalculatorPadLayout"><a href="#CalculatorPadLayout" class="headerlink" title="CalculatorPadLayout"></a>CalculatorPadLayout</h2><p>自定义了数字键盘的布局。规定了每个按键的长宽高，以及位置。</p>
+<h2 id="CalculatorNumericPadLayout-extends-CalculatorPadLayout"><a href="#CalculatorNumericPadLayout-extends-CalculatorPadLayout" class="headerlink" title="CalculatorNumericPadLayout extends CalculatorPadLayout"></a>CalculatorNumericPadLayout extends CalculatorPadLayout</h2><p>根据id设置按钮属性。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>原本不知道怎么实现的效果，发现方法其实很简单。当然，你得对源码很了解，才能想到。</p>
+<h2 id="小要点"><a href="#小要点" class="headerlink" title="小要点"></a>小要点</h2><h4 id="SpannableStringBuilder"><a href="#SpannableStringBuilder" class="headerlink" title="SpannableStringBuilder"></a>SpannableStringBuilder</h4><p>This is the class for text whose content and markup can both be changed</p>
+<h4 id="TextWatch"><a href="#TextWatch" class="headerlink" title="TextWatch"></a>TextWatch</h4><p>When an object of a type is attached to an Editable, its methods will be called when the text is changed.</p>
 
       
     </div>
@@ -381,7 +442,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LESS/" rel="tag">#LESS</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
         </div>
       
@@ -390,16 +451,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/11/webpack基础/" rel="next" title="webpack基础">
-                <i class="fa fa-chevron-left"></i> webpack基础
+              <a href="/2017/04/28/理解Contentprovider/" rel="next" title="理解Contentprovider">
+                <i class="fa fa-chevron-left"></i> 理解Contentprovider
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/19/js语言精粹(1)-精华与糟粕/" rel="prev" title="Js语言精粹(1)-精华与糟粕">
-                Js语言精粹(1)-精华与糟粕 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/23/《人工智能狂潮》摘记/" rel="prev" title="《人工智能狂潮》摘记">
+                《人工智能狂潮》摘记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,7 +602,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#less基础"><span class="nav-number">1.</span> <span class="nav-text">less基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合"><span class="nav-number">1.2.</span> <span class="nav-text">混合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套"><span class="nav-number">1.3.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算功能"><span class="nav-number">1.4.</span> <span class="nav-text">计算功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">1.5.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MORE"><span class="nav-number">1.6.</span> <span class="nav-text">MORE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和设置加载器"><span class="nav-number">1.7.</span> <span class="nav-text">安装和设置加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先设置module"><span class="nav-number">1.7.1.</span> <span class="nav-text">先设置module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再安装loader"><span class="nav-number">1.7.2.</span> <span class="nav-text">再安装loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import用法"><span class="nav-number">1.7.3.</span> <span class="nav-text">import用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.8.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Read-Android-Original-Calculator"><span class="nav-number">1.</span> <span class="nav-text">Read Android Original Calculator</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构"><span class="nav-number">2.</span> <span class="nav-text">项目结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculator"><span class="nav-number">2.1.</span> <span class="nav-text">Calculator</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#onBackPressed"><span class="nav-number">2.1.0.0.1.</span> <span class="nav-text">onBackPressed()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#onUserInteraction"><span class="nav-number">2.1.0.0.2.</span> <span class="nav-text">onUserInteraction()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#onEquals"><span class="nav-number">2.1.0.0.3.</span> <span class="nav-text">onEquals()</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CalculatorPadViewPager"><span class="nav-number">2.2.</span> <span class="nav-text">CalculatorPadViewPager</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么在显示page1的时候page2会显示出来一部分呢（右侧青色那一条）？"><span class="nav-number">2.2.0.0.1.</span> <span class="nav-text">为什么在显示page1的时候page2会显示出来一部分呢（右侧青色那一条）？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么向左滑动的时候page1的位置一直保持不动？不应该是向左侧滑出吗？"><span class="nav-number">2.2.0.0.2.</span> <span class="nav-text">为什么向左滑动的时候page1的位置一直保持不动？不应该是向左侧滑出吗？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#还有就是当page2滑出后宽度为什么没有铺满、左边还要留出一部分透明区域呢？"><span class="nav-number">2.2.0.0.3.</span> <span class="nav-text">还有就是当page2滑出后宽度为什么没有铺满、左边还要留出一部分透明区域呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OnPageChangeListener解读"><span class="nav-number">2.2.0.0.4.</span> <span class="nav-text">OnPageChangeListener解读</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#OnPageChangeListener这个接口需要实现三个方法：（onPageScrollStateChanged，onPageScrolled-，onPageSelected）："><span class="nav-number">2.2.0.0.4.1.</span> <span class="nav-text">OnPageChangeListener这个接口需要实现三个方法：（onPageScrollStateChanged，onPageScrolled ，onPageSelected）：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CalculatorPadLayout"><span class="nav-number">2.3.</span> <span class="nav-text">CalculatorPadLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CalculatorNumericPadLayout-extends-CalculatorPadLayout"><span class="nav-number">2.4.</span> <span class="nav-text">CalculatorNumericPadLayout extends CalculatorPadLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小要点"><span class="nav-number">2.6.</span> <span class="nav-text">小要点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SpannableStringBuilder"><span class="nav-number">2.6.0.1.</span> <span class="nav-text">SpannableStringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TextWatch"><span class="nav-number">2.6.0.2.</span> <span class="nav-text">TextWatch</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -666,9 +727,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'foureyebrow';
-      var disqus_identifier = '2017/08/12/less基础/';
-      var disqus_title = 'less基础';
-      var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/12/less基础/';
+      var disqus_identifier = '2017/05/17/阅读Android原生计算器源码/';
+      var disqus_title = '阅读Android原生计算器源码';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/05/17/阅读Android原生计算器源码/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
