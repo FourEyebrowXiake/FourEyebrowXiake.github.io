@@ -1,0 +1,890 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="oB_YOQztyLdWSBk8b2I7_2zaf6e-nXw_qnLa0fE_kMw" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Node.js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="序文章脉络图：
+
+TCP中数据传递
+HTTP的基础知识和它与TCP的不同
+中间件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《了不起的Node.js》摘记(2)">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/30/《了不起的Node-js》摘记(2)/index.html">
+<meta property="og:site_name" content="Fourfish'blog">
+<meta property="og:description" content="序文章脉络图：
+
+TCP中数据传递
+HTTP的基础知识和它与TCP的不同
+中间件">
+<meta property="og:updated_time" content="2017-09-01T10:31:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《了不起的Node.js》摘记(2)">
+<meta name="twitter:description" content="序文章脉络图：
+
+TCP中数据传递
+HTTP的基础知识和它与TCP的不同
+中间件">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 《了不起的Node.js》摘记(2) | Fourfish'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Fourfish'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">竹杖芒鞋轻胜马</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《了不起的Node.js》摘记(2)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-30T13:46:05+08:00" content="2017-08-30">
+              2017-08-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/30/《了不起的Node-js》摘记(2)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/30/《了不起的Node-js》摘记(2)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          <span>&nbsp; | &nbsp;
+          <span id="busuanzi_value_page_pv" ></span>次阅读
+          </span>
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>文章脉络图：</p>
+<ul>
+<li>TCP中数据传递</li>
+<li>HTTP的基础知识和它与TCP的不同</li>
+<li>中间件</li>
+</ul>
+<a id="more"></a>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>传输控制协议（TCP）是一个面向连接的协议，它保证了两台计算机之间传输的可靠性和顺序性。</p>
+<p>TCP协议对应于TCP/IP体系中的运输层。它向用户提供可靠的端到端的差错和流量控制，保证报文的正确传输</p>
+<h3 id="面向连接的通讯和保证顺序的传递"><a href="#面向连接的通讯和保证顺序的传递" class="headerlink" title="面向连接的通讯和保证顺序的传递"></a>面向连接的通讯和保证顺序的传递</h3><p>通过三次握手建立连接。</p>
+<p>通过在IP数据包里添加标志保证顺序的传递</p>
+<h3 id="面向字节"><a href="#面向字节" class="headerlink" title="面向字节"></a>面向字节</h3><p>TCP允许数据以ASCII字符（每个字符一个字节）或者Unicode（每个字符四个字节）<br>进行传递。</p>
+<p>正是因为对消息格式没有严格的约束，使得TCP有很好的灵活性。</p>
+<h3 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h3><p>数据发送后，发送放等待确认信息。如果过了预定时间，还没收到回信。<br>发送方就会重发。</p>
+<h3 id="流控制"><a href="#流控制" class="headerlink" title="流控制"></a>流控制</h3><p>流控制能确保双方之间传输数据的平衡。避免发送方压垮接收方。</p>
+<h3 id="拥堵控制"><a href="#拥堵控制" class="headerlink" title="拥堵控制"></a>拥堵控制</h3><ul>
+<li>慢开始</li>
+<li>拥塞避免</li>
+</ul>
+<hr>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>超文本传输协议，又称为HTTP，是一种Web协议，它为Web注入<br>很多强大的功能。他是属于TCP上层的协议</p>
+<p>HTTP对应于TCP/IP体系中的应用层，主要解决如何包装数据。它能<br>识别数据内容。没有它，传输来的数据就失去意义。</p>
+<h3 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h3><p>HTTP协议构建在请求和响应的概念上，对应在Node.js中就是http.<br>ServerRequest和http.ServerResponse这两个构造器构造出来的<br>对象。</p>
+<h3 id="头信息"><a href="#头信息" class="headerlink" title="头信息"></a>头信息</h3><p>描述不同的消息内容。</p>
+<p>响应文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">	res.writeHead(<span class="number">200</span>,&#123; <span class="string">'Content-Type'</span>: <span class="string">'image/png'</span>&#125;);</div><div class="line">	<span class="built_in">require</span>(<span class="string">'fs'</span>).createReadStream(<span class="string">'image.png'</span>).pipe(res);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>TCP服务器和HTTP服务器的实现都调用了createServer方法，并且当客户端连入<br>时都会执行一个回调函数。但是，它们之间有本质区别，即回调函数中的对象类型。<br>net 服务器中是个连接（connection）对象，而在HTTp服务器中，则是请求和响应对象。<br>后者比前者更加抽象。后者的内容更丰富，且提供请求和响应的抽象。</p>
+<blockquote>
+<p>使用up重启HTTP服务器</p>
+<ol>
+<li>npm install -g up</li>
+<li>up -watch -port 80 server.js</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="Connect"><a href="#Connect" class="headerlink" title="Connect"></a>Connect</h2><p>Connect是一个基于HTTP服务器的工具集，它提供了一种新的组织代码的方式来与请求<br>和响应对象进行交互，即中间件。</p>
+<p>Connect能帮你封装网络应用中常见的操作。</p>
+<h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><p>中间件能单元化地构建代码，并且能够获得高复用性。</p>
+<p>中间件本身只是一个函数，有req，res，next这三个参数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//request_time.js</span></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">opts</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> (req, res, next) &#123;</div><div class="line">		<span class="comment">//...</span></div><div class="line">		next();</div><div class="line">	&#125;;</div><div class="line">&#125;；</div></pre></td></tr></table></figure></p>
+<p>使用中间件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> connect = <span class="built_in">require</span>(<span class="string">'connect'</span>),</div><div class="line">		time = <span class="built_in">require</span>(<span class="string">'./request_time'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = connect.createServer();</div><div class="line"></div><div class="line"><span class="comment">//记录请求的中间件</span></div><div class="line">server.use(connect.logger(<span class="string">'dev'</span>));</div><div class="line"></div><div class="line"><span class="comment">//时间中间件</span></div><div class="line">server.use(time(&#123; <span class="attr">time</span>: <span class="number">500</span>&#125;));</div><div class="line"></div><div class="line">server.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure></p>
+<p>下面介绍些常用的中间件。</p>
+<h4 id="Static中间件"><a href="#Static中间件" class="headerlink" title="Static中间件"></a>Static中间件</h4><h6 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h6><p>static允许将任意一个URL匹配到文件系统中任意一个目录。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server.use(<span class="string">'/url'</span>,connect.static(<span class="string">'/public/images'</span>));</div></pre></td></tr></table></figure></p>
+<h6 id="maxAge"><a href="#maxAge" class="headerlink" title="maxAge"></a>maxAge</h6><p>static中间件接受一个叫maxAge的选项，这个选项代表一个资源在客户端缓存的时间。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server.use(<span class="string">'/js'</span>,connect.static(<span class="string">'/build/'</span>,&#123;<span class="attr">maxAge</span>: <span class="number">10000000</span>&#125;));</div></pre></td></tr></table></figure></p>
+<h6 id="hidden"><a href="#hidden" class="headerlink" title="hidden"></a>hidden</h6><p>托管以 . 开头的隐藏文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server.use(connect.static(<span class="string">'/res/'</span>,&#123;<span class="attr">hidden</span>: <span class="literal">true</span>&#125;));</div></pre></td></tr></table></figure></p>
+<h4 id="Query中间件"><a href="#Query中间件" class="headerlink" title="Query中间件"></a>Query中间件</h4><p>使用了query，就能获取查询字符串这部分的数据<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server.use(connect.query);</div><div class="line"><span class="comment">// url: /blog-posts?page=5</span></div><div class="line">server.use(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">	<span class="comment">//req.query.page</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="logger中间件"><a href="#logger中间件" class="headerlink" title="logger中间件"></a>logger中间件</h4><p>看名字就知道是什么了。</p>
+<p>它提供四种日志格式：</p>
+<ul>
+<li>default</li>
+<li>dev</li>
+<li>short</li>
+<li>tiny<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server.use(connect.logger(<span class="string">'dev'</span>));</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="body-pares中间件"><a href="#body-pares中间件" class="headerlink" title="body.pares中间件"></a>body.pares中间件</h4><p>解析POST请求的信息体,还能处理上传的文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server.use(connect.bodyParser());</div><div class="line"><span class="comment">//然乎就可以在req.body中获取信息了</span></div><div class="line">server.use(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">	<span class="comment">//req.body.myinput</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>和query相似，不过它是用来读写cookie。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server.use(connect.cookieParser());</div><div class="line"><span class="comment">//然乎就可以在req.cookies中获取信息了</span></div><div class="line">server.use(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">	<span class="comment">//req.cookies.secret</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="会话（session）"><a href="#会话（session）" class="headerlink" title="会话（session）"></a>会话（session）</h4><p>它主要用来记录登录信息，作为多个请求间共享“用户会话”。判断<br>登录信息还要靠req.body和数据库比较。</p>
+<h4 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h4><p>Redis是一个既小又快的数据库，有一个connect-redis模块使用<br>Redis来持久化session数据。</p>
+<p>这样就让session驻扎到了Node进程之外。</p>
+<p>具体实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> connect = <span class="built_in">require</span>(<span class="string">'connect'</span>),</div><div class="line">		RedisStore = <span class="built_in">require</span>(<span class="string">'connect-redis'</span>)(connect);</div><div class="line"></div><div class="line">server.use(connect.session(&#123; <span class="attr">store</span>: <span class="keyword">new</span> RedisStore, <span class="attr">secret</span>: <span class="string">'secret'</span>&#125;));</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node-js/" rel="tag">#Node.js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/29/《了不起的Node-js》摘记(1)/" rel="next" title="《了不起的Node.js》摘记(1)">
+                <i class="fa fa-chevron-left"></i> 《了不起的Node.js》摘记(1)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/01/《了不起的Node-js》摘记(3)/" rel="prev" title="《了不起的Node.js》摘记(3)">
+                《了不起的Node.js》摘记(3) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Lin Jin" />
+          <p class="site-author-name" itemprop="name">Lin Jin</p>
+          <p class="site-description motion-element" itemprop="description">学以致用</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/FourEyebrowXiake" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/fish-86-23" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-link"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">1.1.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向连接的通讯和保证顺序的传递"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向连接的通讯和保证顺序的传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向字节"><span class="nav-number">1.1.2.</span> <span class="nav-text">面向字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可靠性"><span class="nav-number">1.1.3.</span> <span class="nav-text">可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流控制"><span class="nav-number">1.1.4.</span> <span class="nav-text">流控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拥堵控制"><span class="nav-number">1.1.5.</span> <span class="nav-text">拥堵控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP结构"><span class="nav-number">1.2.1.</span> <span class="nav-text">HTTP结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头信息"><span class="nav-number">1.2.2.</span> <span class="nav-text">头信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接"><span class="nav-number">1.2.3.</span> <span class="nav-text">连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connect"><span class="nav-number">1.3.</span> <span class="nav-text">Connect</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中间件"><span class="nav-number">1.3.1.</span> <span class="nav-text">中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Static中间件"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">Static中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#挂载"><span class="nav-number">1.3.1.1.0.1.</span> <span class="nav-text">挂载</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#maxAge"><span class="nav-number">1.3.1.1.0.2.</span> <span class="nav-text">maxAge</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#hidden"><span class="nav-number">1.3.1.1.0.3.</span> <span class="nav-text">hidden</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Query中间件"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">Query中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#logger中间件"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">logger中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#body-pares中间件"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">body.pares中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话（session）"><span class="nav-number">1.3.1.6.</span> <span class="nav-text">会话（session）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis"><span class="nav-number">1.3.1.7.</span> <span class="nav-text">Redis</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin Jin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'foureyebrow';
+      var disqus_identifier = '2017/08/30/《了不起的Node-js》摘记(2)/';
+      var disqus_title = '《了不起的Node.js》摘记(2)';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/30/《了不起的Node-js》摘记(2)/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+  <!-- 背景动画 -->
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+  <!-- 页面点击小红心 -->
+  <!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+</body>
+</html>

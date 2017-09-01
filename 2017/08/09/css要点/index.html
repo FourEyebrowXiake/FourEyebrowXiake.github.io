@@ -86,13 +86,13 @@
 
 <meta name="description" content="CSS要点《css设计指南》笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS要点">
+<meta property="og:title" content="HTML和CSS杂记">
 <meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/09/css要点/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
 <meta property="og:description" content="CSS要点《css设计指南》笔记">
-<meta property="og:updated_time" content="2017-08-20T03:13:22.000Z">
+<meta property="og:updated_time" content="2017-08-24T13:18:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS要点">
+<meta name="twitter:title" content="HTML和CSS杂记">
 <meta name="twitter:description" content="CSS要点《css设计指南》笔记">
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> CSS要点 | Fourfish'blog </title>
+  <title> HTML和CSS杂记 | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +274,7 @@
             
             
               
-                CSS要点
+                HTML和CSS杂记
               
             
           </h1>
@@ -381,17 +381,6 @@
 <p>而当优先级与多个CSS声明中任意一个声明的优先级相等的时候，CSS中最后的那个声明将会被应用到元素上。</p>
 <p>当同一个元素有多个声明的时候，优先级才会有意义。因为每一个直接作用于元素的CSS规则总是会接管/覆盖（take over）该元素从祖先元素继承而来的规则。</p>
 <h4 id="MORE"><a href="#MORE" class="headerlink" title="MORE"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity" target="_blank" rel="external">MORE</a></h4><hr>
-<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>每一个元素都会在页面上生成一个盒子。因此，HTML 页面实际上就是由一堆盒子组成的。</p>
-<h4 id="重置样式表"><a href="#重置样式表" class="headerlink" title="重置样式表"></a>重置样式表</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#123;margin:0; padding:0;&#125;</div></pre></td></tr></table></figure>
-<h4 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h4><p>当你设置一个元素为 box-sizing: border-box; 时，此元素的内边距和边框不再会增加它的宽度。</p>
-<h3 id="浮动和清除"><a href="#浮动和清除" class="headerlink" title="浮动和清除"></a>浮动和清除</h3><p>浮动，你看这俩字儿多形象，意思就是把元素从常规文档流中拿出来。</p>
-<p>拿出 来干什么?一是可以实现传统出版物上那种文字绕排图片的效果，二是可以让原来 上下堆叠的块级元素，变成左右并列，从而实现布局中的分栏。</p>
-<p>当你浮动一个元素的时候……这些(浮动)规则就好像 在说:“尽量把这个元素往上放，能放多高放多高，直到碰到某个元素的边界为止。”</p>
-<h4 id="对-clearfix的理解"><a href="#对-clearfix的理解" class="headerlink" title="对.clearfix的理解"></a>对.clearfix的理解</h4><p>浮动元素脱离了文档流，其父元素也看不到它了，因而也不会包围它。父元素会收缩到没它一样。这往往混乱页面的布局。所以我们需要使父元素围住浮动元素。我主要解释一下<strong><em>添加非浮动的清除元素</em></strong>这一方法。</p>
-<p>这种方法可以通过简单的给父元素（或者最后一个浮动元素）加上 class=”clearfix” 做到。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">    <span class="attribute">content</span>:<span class="string">"."</span>;</div><div class="line">    <span class="attribute">display</span>:block;</div><div class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">visibility</span>:hidden;</div><div class="line">    <span class="attribute">clear</span>:both;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>它只添加一个清除的包含句点为非浮动元素。规则中的其他声明只是为了确保这个伪元素没有高度，且不可见。就像有条看不见的分割线，拦住了从下往上冲的元素。</p>
-<p>clearfix大法好。该方法最早由程序员TonyAslett发明。</p>
-<hr>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
 <li>background-color</li>
 <li>background-image</li>
@@ -426,6 +415,17 @@
 <li>文本对齐: text-align，值:left、right、center、justify。</li>
 <li>行高: line-height</li>
 <li>文本装饰: text-decoration，值:underline、overline、line-through、none。</li>
+</ul>
+<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">'style_form'</span> <span class="attr">action</span>=<span class="string">'process_form.php'</span> <span class="attr">method</span>=<span class="string">'post'</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>action<ul>
+<li>用于指定服务器上用来处理表单数据的文件的URL。</li>
+</ul>
+</li>
+<li>method<ul>
+<li>(值要么是post，要么是get)用于指定怎么把数据发送到服务器上。</li>
+</ul>
+</li>
 </ul>
 
       
@@ -542,7 +542,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -550,7 +550,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -559,7 +559,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -608,7 +608,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS要点"><span class="nav-number">1.</span> <span class="nav-text">CSS要点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#section"><span class="nav-number">1.1.1.</span> <span class="nav-text">section</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级元素和行内元素"><span class="nav-number">1.1.2.</span> <span class="nav-text">块级元素和行内元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">1.2.1.</span> <span class="nav-text">伪类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UI伪类"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">UI伪类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素"><span class="nav-number">1.2.2.</span> <span class="nav-text">伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类与伪元素的区别"><span class="nav-number">1.2.3.</span> <span class="nav-text">伪类与伪元素的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权重"><span class="nav-number">1.2.4.</span> <span class="nav-text">权重</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权重是如何计算的？"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">权重是如何计算的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MORE"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">MORE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型"><span class="nav-number">1.2.5.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重置样式表"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">重置样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#box-sizing"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">box-sizing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动和清除"><span class="nav-number">1.2.6.</span> <span class="nav-text">浮动和清除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对-clearfix的理解"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">对.clearfix的理解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.2.7.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景图片"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景重复"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">背景重复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景位置"><span class="nav-number">1.2.7.3.</span> <span class="nav-text">背景位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多背景图片"><span class="nav-number">1.2.7.4.</span> <span class="nav-text">多背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景渐变"><span class="nav-number">1.2.7.5.</span> <span class="nav-text">背景渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#线性渐变"><span class="nav-number">1.2.7.5.1.</span> <span class="nav-text">线性渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变点"><span class="nav-number">1.2.7.5.2.</span> <span class="nav-text">渐变点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#放射性渐变"><span class="nav-number">1.2.7.6.</span> <span class="nav-text">放射性渐变</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体和文本"><span class="nav-number">1.2.8.</span> <span class="nav-text">字体和文本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字体族"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">字体族</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体类"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">字体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体样式"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">字体样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本属性"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">文本属性</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS要点"><span class="nav-number">1.</span> <span class="nav-text">CSS要点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#section"><span class="nav-number">1.1.1.</span> <span class="nav-text">section</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级元素和行内元素"><span class="nav-number">1.1.2.</span> <span class="nav-text">块级元素和行内元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">1.2.1.</span> <span class="nav-text">伪类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UI伪类"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">UI伪类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素"><span class="nav-number">1.2.2.</span> <span class="nav-text">伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类与伪元素的区别"><span class="nav-number">1.2.3.</span> <span class="nav-text">伪类与伪元素的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权重"><span class="nav-number">1.2.4.</span> <span class="nav-text">权重</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权重是如何计算的？"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">权重是如何计算的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MORE"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">MORE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.2.5.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景图片"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景重复"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">背景重复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景位置"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">背景位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多背景图片"><span class="nav-number">1.2.5.4.</span> <span class="nav-text">多背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景渐变"><span class="nav-number">1.2.5.5.</span> <span class="nav-text">背景渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#线性渐变"><span class="nav-number">1.2.5.5.1.</span> <span class="nav-text">线性渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变点"><span class="nav-number">1.2.5.5.2.</span> <span class="nav-text">渐变点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#放射性渐变"><span class="nav-number">1.2.5.6.</span> <span class="nav-text">放射性渐变</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体和文本"><span class="nav-number">1.2.6.</span> <span class="nav-text">字体和文本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字体族"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">字体族</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体类"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">字体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体样式"><span class="nav-number">1.2.6.3.</span> <span class="nav-text">字体样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本属性"><span class="nav-number">1.2.6.4.</span> <span class="nav-text">文本属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单"><span class="nav-number">1.2.7.</span> <span class="nav-text">表单</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -734,7 +734,7 @@
     <script type="text/javascript">
       var disqus_shortname = 'foureyebrow';
       var disqus_identifier = '2017/08/09/css要点/';
-      var disqus_title = 'CSS要点';
+      var disqus_title = 'HTML和CSS杂记';
       var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/09/css要点/';
 
       function run_disqus_script(disqus_script){

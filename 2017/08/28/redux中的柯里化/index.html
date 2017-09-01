@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="人工智能," />
+  <meta name="keywords" content="Redux," />
 
 
 
@@ -84,19 +84,28 @@
 
 
 
-<meta name="description" content="什么是人工智能？专家观点：尚未统一。作者的定义是，人工智能是“用人工方法制作的类人智能”，类人智能指的是具有“发现和觉察功能”的计算机，即能够从数据中生成特征量，并对相关现象进行模型化处理的计算机。
-人工智能的发展历史人工智能的研究是从以“推理”为重点到以“知识”为重点，再到以“学习”为重点，一条自然、清晰的脉络。">
+<meta name="description" content="参考链接：
+
+why curry helps
+
+Thunkredux中实现异步操作的之一就是使用redux-thunk.redux-thunk中间件改造store.dispatch，使得后者可以接受函数作为参数。它的源码：1234const thunk = (store) =&amp;gt; (next) =&amp;gt; (action) =&amp;gt;  typeof action === &apos;function&apos;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《人工智能狂潮》摘记">
-<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/05/23/《人工智能狂潮》摘记/index.html">
+<meta property="og:title" content="redux-thunk中的柯里化">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/28/redux中的柯里化/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="什么是人工智能？专家观点：尚未统一。作者的定义是，人工智能是“用人工方法制作的类人智能”，类人智能指的是具有“发现和觉察功能”的计算机，即能够从数据中生成特征量，并对相关现象进行模型化处理的计算机。
-人工智能的发展历史人工智能的研究是从以“推理”为重点到以“知识”为重点，再到以“学习”为重点，一条自然、清晰的脉络。">
-<meta property="og:updated_time" content="2017-09-01T10:31:42.000Z">
+<meta property="og:description" content="参考链接：
+
+why curry helps
+
+Thunkredux中实现异步操作的之一就是使用redux-thunk.redux-thunk中间件改造store.dispatch，使得后者可以接受函数作为参数。它的源码：1234const thunk = (store) =&amp;gt; (next) =&amp;gt; (action) =&amp;gt;  typeof action === &apos;function&apos;">
+<meta property="og:updated_time" content="2017-09-01T10:36:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《人工智能狂潮》摘记">
-<meta name="twitter:description" content="什么是人工智能？专家观点：尚未统一。作者的定义是，人工智能是“用人工方法制作的类人智能”，类人智能指的是具有“发现和觉察功能”的计算机，即能够从数据中生成特征量，并对相关现象进行模型化处理的计算机。
-人工智能的发展历史人工智能的研究是从以“推理”为重点到以“知识”为重点，再到以“学习”为重点，一条自然、清晰的脉络。">
+<meta name="twitter:title" content="redux-thunk中的柯里化">
+<meta name="twitter:description" content="参考链接：
+
+why curry helps
+
+Thunkredux中实现异步操作的之一就是使用redux-thunk.redux-thunk中间件改造store.dispatch，使得后者可以接受函数作为参数。它的源码：1234const thunk = (store) =&amp;gt; (next) =&amp;gt; (action) =&amp;gt;  typeof action === &apos;function&apos;">
 
 
 
@@ -114,7 +123,7 @@
   };
 </script>
 
-  <title> 《人工智能狂潮》摘记 | Fourfish'blog </title>
+  <title> redux-thunk中的柯里化 | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +286,7 @@
             
             
               
-                《人工智能狂潮》摘记
+                redux-thunk中的柯里化
               
             
           </h1>
@@ -289,8 +298,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-23T09:35:25+08:00" content="2017-05-23">
-              2017-05-23
+            <time itemprop="dateCreated" datetime="2017-08-28T09:45:38+08:00" content="2017-08-28">
+              2017-08-28
             </time>
           </span>
 
@@ -303,8 +312,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/编程之外/" itemprop="url" rel="index">
-                    <span itemprop="name">编程之外</span>
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
                   </a>
                 </span>
 
@@ -319,8 +328,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/05/23/《人工智能狂潮》摘记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/23/《人工智能狂潮》摘记/" itemprop="commentsCount"></span>
+                <a href="/2017/08/28/redux中的柯里化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/28/redux中的柯里化/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -349,34 +358,39 @@
       
 
       
-        <h1 id="什么是人工智能？"><a href="#什么是人工智能？" class="headerlink" title="什么是人工智能？"></a>什么是人工智能？</h1><p>专家观点：尚未统一。作者的定义是，人工智能是“用人工方法制作的类人智能”，类人智能指的是具有“发现和觉察功能”的计算机，即能够从数据中生成特征量，并对相关现象进行模型化处理的计算机。</p>
-<h2 id="人工智能的发展历史"><a href="#人工智能的发展历史" class="headerlink" title="人工智能的发展历史"></a>人工智能的发展历史</h2><p>人工智能的研究是从以“推理”为重点到以“知识”为重点，再到以“学习”为重点，一条自然、清晰的脉络。</p>
+        <p>参考链接：</p>
+<ul>
+<li><a href="https://gist.github.com/jcouyang/b56a830cd55bd230049f" target="_blank" rel="external">why curry helps</a></li>
+</ul>
+<h1 id="Thunk"><a href="#Thunk" class="headerlink" title="Thunk"></a>Thunk</h1><p>redux中实现异步操作的之一就是使用redux-thunk.redux-thunk中间件改造store.dispatch，使得后者可以接受函数作为参数。<br>它的源码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> thunk = <span class="function">(<span class="params">store</span>) =&gt;</span> (next) =&gt; <span class="function">(<span class="params">action</span>) =&gt;</span></div><div class="line">  <span class="keyword">typeof</span> action === <span class="string">'function'</span> ?</div><div class="line">    action(store.dispatch) :</div><div class="line">    next(action);</div></pre></td></tr></table></figure></p>
+<p>其实以上就是个柯里化函数，只不过使用了es6的写法。但是看着这么多箭头，我一开始是很懵逼的。不过，只要清楚柯里化就能轻松理解上面的代码。</p>
 <a id="more"></a>
-<h2 id="第一次人工智能狂潮的局限（20世纪60年代）"><a href="#第一次人工智能狂潮的局限（20世纪60年代）" class="headerlink" title="第一次人工智能狂潮的局限（20世纪60年代）"></a>第一次人工智能狂潮的局限（20世纪60年代）</h2><p>计算机只能解决所谓的“玩具问题”。求解迷宫问题，挑战国际象棋及将棋，这些都只需要在明确定义好的规则中考虑下一步如何走起即可，然而，现实生活中的问题却要复杂得多。</p>
-<h2 id="第二次人工智能狂潮的局限（20世纪80年代末）"><a href="#第二次人工智能狂潮的局限（20世纪80年代末）" class="headerlink" title="第二次人工智能狂潮的局限（20世纪80年代末）"></a>第二次人工智能狂潮的局限（20世纪80年代末）</h2><h4 id="永无穷尽的知识"><a href="#永无穷尽的知识" class="headerlink" title="永无穷尽的知识"></a>永无穷尽的知识</h4><p>Example:</p>
-<pre><code>He saw a woman in the garden with a telescope.
-</code></pre><p>理解这句话，需要一般性的常识。而计算机要处理一般性的常识，就需要掌握人类所拥有的，永运也无法写尽的海量知识，这是极其困难的。因为<br>，同样的事情在所有的各种各样的场合皆会发生。</p>
-<p>它用望眼镜看到一个女人在花园呢？还是他在公园用望眼镜看到一个女人？</p>
-<h4 id="框架问题"><a href="#框架问题" class="headerlink" title="框架问题"></a>框架问题</h4><p>框架问题，就是执行某项任务时“仅仅提取出与它相关的知识并对其加以运用”，这对人类来说简单的事，但对计算机来说是困难无比的。</p>
-<blockquote>
-<p><a href="http://sourcedb.cas.cn/sourcedb_scr_cas/zwqkk/kxwhzl/kxzx/200912/t20091226_2718491.html" target="_blank" rel="external">认识框架问题</a></p>
-<h4 id="符号接地问题"><a href="#符号接地问题" class="headerlink" title="符号接地问题"></a>符号接地问题</h4><p>是否能将符号（词语,语言）与它所表示的意义连接起来。</p>
-<p>日本在1982年启动了名为“第五代计算机”的国家级项目，从1982年开始前后跨越了10年，总共投入了570亿日元。尽管没有实现预定目标，但是它聚集了人工智能研究的优秀人才，还吸引了众多的海外知名专家，并由此建立了相关的人才联系网络。</p>
-</blockquote>
-<!-- more -->
-<h2 id="第三次人工智能狂潮（机器学习，深度学习）"><a href="#第三次人工智能狂潮（机器学习，深度学习）" class="headerlink" title="第三次人工智能狂潮（机器学习，深度学习）"></a>第三次人工智能狂潮（机器学习，深度学习）</h2><h3 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h3><p>机器学习，一种实现人工智能的方法。</p>
-<p>它是使用算法来分析数据的实践、学习，然后对真实的事件作出决定或预测。而不是用一组特定的指令生成的硬编码软件程序来解决特定任务。机器是通过使用大量的数据和算法来「训练」，这样就给了它学习如何执行任务的能力。</p>
-<h4 id="机器学习的难点"><a href="#机器学习的难点" class="headerlink" title="机器学习的难点"></a>机器学习的难点</h4><p>机器学习最关键的地方是如何把一个把原始数据转变成特征量。这些特征量可以很好的描述这些数据，并且利用它们建立的模型在未知数据上的表现性能可以达到最优（或者接近最佳性能）。从数学的角度来看，特征工程就是人工地去设计输入变量X。</p>
-<p>可惜的是特征量的设计必须由人来做。</p>
-<blockquote>
-<p>特征量，指的是机器学习在输入时所使用的变量，其值是对对象特征的定量表示。</p>
-</blockquote>
-<h4 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h4><p>wiki上的解释：</p>
-<blockquote>
-<p>深度学习（英语：deep learning）是机器学习拉出的分支，它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。</p>
-</blockquote>
-<p>深度学习， 一种实现机器学习的技术。它能自己产生特征量。其实回过头看，人工智能的发展其实是给予机器越来越抽象的基本信息。</p>
-<p>至于深度学习的实现过程，我其实也是模模糊糊。等有深入了解后，再来改进这篇文章。</p>
+<h1 id="什么是柯里化"><a href="#什么是柯里化" class="headerlink" title="什么是柯里化"></a>什么是柯里化</h1><p>函数也是值。从而我们可以用有趣的方法去操作函数。柯里化允许我们把函数与传递给它的值相结合，产生一个新的函数。</p>
+<p>换种说法就是把接受多个参数的函数变换成接受一个单一参数的函数，并且在最后返回（接受余下的参数而且返回结果的）新函数的技术。</p>
+<h2 id="柯里化的具体实现"><a href="#柯里化的具体实现" class="headerlink" title="柯里化的具体实现"></a>柯里化的具体实现</h2><p>对于一个原本需要n个参数的函数，柯里化就是把第一个参数变量存在函数里面，然后返回一个只需要(n-1)个参数的函数。比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> add = <span class="function"><span class="params">x</span> =&gt;</span> y =&gt; x + y</div><div class="line"><span class="keyword">let</span> add2 = add(<span class="number">2</span>)</div></pre></td></tr></table></figure></p>
+<p>本来完成 add 这个操作，应该是:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x + y</div></pre></td></tr></table></figure></p>
+<p>它需要俩参数，而现在 add2 函数完成同样操作只需要一个参数，这在函数式编程中广泛应用。</p>
+<p>详细解释一下，就是 add2 函数 等价于 有了 x 这个闭包变量的 y =&gt; x + y 函数</p>
+<p>并且此时 x = 2，所以此时调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">add2(<span class="number">3</span>) === <span class="number">2</span> + <span class="number">3</span></div></pre></td></tr></table></figure></p>
+<h2 id="连续箭头"><a href="#连续箭头" class="headerlink" title="连续箭头"></a>连续箭头</h2><p>搞清楚里一个箭头，明白n个箭头也不难。n 个连续箭头组成的函数实际上就是柯里化了 n - 1次。</p>
+<h5 id="函数里的具体调用过程："><a href="#函数里的具体调用过程：" class="headerlink" title="函数里的具体调用过程："></a>函数里的具体调用过程：</h5><p>前 n - 1 次调用，其实是提前将参数传递进去，并没有调用最内层函数体，最后一次调用才会调用最内层函数体，并返回最内层函数体的返回值。</p>
+<h2 id="为什么要用柯里化"><a href="#为什么要用柯里化" class="headerlink" title="为什么要用柯里化"></a>为什么要用柯里化</h2><p>知道了柯里化的具体实现。你有没有想过，为什么要用它呢？柯里化不就是返回一个部分配置好的函数吗？</p>
+<h3 id="柯里化函数接口"><a href="#柯里化函数接口" class="headerlink" title="柯里化函数接口"></a>柯里化函数接口</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//before</span></div><div class="line"><span class="keyword">var</span> multiple = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> +a*b + <span class="string">''</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> concatArray = <span class="function"><span class="keyword">function</span>(<span class="params">chars, inc</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> chars.map(<span class="function"><span class="keyword">function</span>(<span class="params">char</span>)</span>&#123;</div><div class="line">  	<span class="keyword">return</span> multiple(char, inc);</div><div class="line">  &#125;).reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> a.concat(b)</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(concatArray([<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>], <span class="number">2</span>))</div></pre></td></tr></table></figure>
+<p>上面的例子的map函数是为了把所有的数字加1，再乘以2。如果我还需要数字都减2呢？是不是又要重新写multiple。是不是很麻烦，那怎么能把他提取出来呢？来对比下柯里化的解法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//after</span></div><div class="line"><span class="keyword">var</span> multiple = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> +b*a + <span class="string">''</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> plus = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> (+b)+a + <span class="string">''</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> concatArray = <span class="function"><span class="keyword">function</span>(<span class="params">chars, stylishChar</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> chars.map(stylishChar)</div><div class="line">    .reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> a.concat(b)</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(concatArray([<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>], multiple(<span class="number">2</span>)))</div><div class="line"><span class="built_in">console</span>.log(concatArray([<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>], plus(<span class="number">2</span>)))</div></pre></td></tr></table></figure></p>
+<p>有什么不一样呢</p>
+<ol>
+<li>处理数组中字符的函数被提取出来, 作为参数传入</li>
+<li>提取成柯里化的函数, 部分配置好后传入, 好处显而易见, 这下接口非常通畅 无论是外层调用<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">concatArray([<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>], multiple(<span class="number">2</span>))</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>还是内部的 map 函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chars.map(stylishChar)</div></pre></td></tr></table></figure></p>
+<p>chars.map(stylishChar)<br>这些接口都清晰了很多, 不是吗</p>
+<p>这就是函数式的思想, 用已有的函数组合出新的函数, 而柯里化每消费一个参数, 都会返回一个新的部分配置的函数, 这为函数组合提供了更灵活的手段, 并且使得接口更为流畅.</p>
+<p>再加上自动柯里化的库 ramda, 简直就完美了</p>
+<p>var multiple = ramda.curry(function(a, b){<br>  return +b*a + ‘’<br>})<br>var plus = ramda.curry(function(a, b){<br>  return (+b)+a + ‘’<br>})<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">JS Bin&lt;script src=<span class="string">"http://static.jsbin.com/js/embed.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<h1 id="回归正题"><a href="#回归正题" class="headerlink" title="回归正题"></a>回归正题</h1><p>现在回头看thunk的源码。</p>
+<p>它只不过是提前传递了store，供函数形式的action使用。以及next，代表下一个中间件。而最后一个参数’action’像任何其他中间件一样。</p>
+<p>不然的话，我们只是把结果传递给链中的下一个中间件而已。</p>
 
       
     </div>
@@ -398,7 +412,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/人工智能/" rel="tag">#人工智能</a>
+            <a href="/tags/Redux/" rel="tag">#Redux</a>
           
         </div>
       
@@ -407,16 +421,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/17/阅读Android原生计算器源码/" rel="next" title="阅读Android原生计算器源码">
-                <i class="fa fa-chevron-left"></i> 阅读Android原生计算器源码
+              <a href="/2017/08/24/Flex布局/" rel="next" title="css布局(二):Flex">
+                <i class="fa fa-chevron-left"></i> css布局(二):Flex
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/Js语法基础：Array、String常用方法/" rel="prev" title="Js语法基础：Array、String常用方法">
-                Js语法基础：Array、String常用方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/29/《了不起的Node-js》摘记(1)/" rel="prev" title="《了不起的Node.js》摘记(1)">
+                《了不起的Node.js》摘记(1) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -558,7 +572,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是人工智能？"><span class="nav-number">1.</span> <span class="nav-text">什么是人工智能？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#人工智能的发展历史"><span class="nav-number">1.1.</span> <span class="nav-text">人工智能的发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一次人工智能狂潮的局限（20世纪60年代）"><span class="nav-number">1.2.</span> <span class="nav-text">第一次人工智能狂潮的局限（20世纪60年代）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二次人工智能狂潮的局限（20世纪80年代末）"><span class="nav-number">1.3.</span> <span class="nav-text">第二次人工智能狂潮的局限（20世纪80年代末）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#永无穷尽的知识"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">永无穷尽的知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架问题"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">框架问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#符号接地问题"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">符号接地问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三次人工智能狂潮（机器学习，深度学习）"><span class="nav-number">1.4.</span> <span class="nav-text">第三次人工智能狂潮（机器学习，深度学习）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习"><span class="nav-number">1.4.1.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器学习的难点"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">机器学习的难点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度学习"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">深度学习</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thunk"><span class="nav-number">1.</span> <span class="nav-text">Thunk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是柯里化"><span class="nav-number">2.</span> <span class="nav-text">什么是柯里化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#柯里化的具体实现"><span class="nav-number">2.1.</span> <span class="nav-text">柯里化的具体实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续箭头"><span class="nav-number">2.2.</span> <span class="nav-text">连续箭头</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数里的具体调用过程："><span class="nav-number">2.2.0.0.1.</span> <span class="nav-text">函数里的具体调用过程：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用柯里化"><span class="nav-number">2.3.</span> <span class="nav-text">为什么要用柯里化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#柯里化函数接口"><span class="nav-number">2.3.1.</span> <span class="nav-text">柯里化函数接口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回归正题"><span class="nav-number">3.</span> <span class="nav-text">回归正题</span></a></li></ol></div>
             
           </div>
         </section>
@@ -683,9 +697,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'foureyebrow';
-      var disqus_identifier = '2017/05/23/《人工智能狂潮》摘记/';
-      var disqus_title = '《人工智能狂潮》摘记';
-      var disqus_url = 'http://foureyebrowxiake.github.io/2017/05/23/《人工智能狂潮》摘记/';
+      var disqus_identifier = '2017/08/28/redux中的柯里化/';
+      var disqus_title = 'redux-thunk中的柯里化';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/28/redux中的柯里化/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
