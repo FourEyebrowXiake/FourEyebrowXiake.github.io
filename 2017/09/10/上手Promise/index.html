@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="Promise," />
 
 
 
@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="去看阮一峰老师的两篇博文吧。
-这篇文章可以说是给我自己看的。">
+<meta name="description" content="前言在JavaScript的世界中，所有代码都是单线程执行的。
+由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数来实现。常见的例子如AJAX，就是典型的异步操作：123456789request.onreadystatechange = function () &amp;#123;    if (request.readyState === 4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css布局(二):Flex">
-<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/24/Flex布局/index.html">
+<meta property="og:title" content="上手Promise">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/09/10/上手Promise/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="去看阮一峰老师的两篇博文吧。
-这篇文章可以说是给我自己看的。">
-<meta property="og:updated_time" content="2017-09-01T10:35:17.000Z">
+<meta property="og:description" content="前言在JavaScript的世界中，所有代码都是单线程执行的。
+由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数来实现。常见的例子如AJAX，就是典型的异步操作：123456789request.onreadystatechange = function () &amp;#123;    if (request.readyState === 4">
+<meta property="og:image" content="http://foureyebrowxiake.github.io/images/promise_status_.png">
+<meta property="og:image" content="http://foureyebrowxiake.github.io/images/promise-status">
+<meta property="og:updated_time" content="2017-09-10T13:03:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css布局(二):Flex">
-<meta name="twitter:description" content="去看阮一峰老师的两篇博文吧。
-这篇文章可以说是给我自己看的。">
+<meta name="twitter:title" content="上手Promise">
+<meta name="twitter:description" content="前言在JavaScript的世界中，所有代码都是单线程执行的。
+由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数来实现。常见的例子如AJAX，就是典型的异步操作：123456789request.onreadystatechange = function () &amp;#123;    if (request.readyState === 4">
+<meta name="twitter:image" content="http://foureyebrowxiake.github.io/images/promise_status_.png">
 
 
 
@@ -114,7 +117,7 @@
   };
 </script>
 
-  <title> css布局(二):Flex | Fourfish'blog </title>
+  <title> 上手Promise | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +280,7 @@
             
             
               
-                css布局(二):Flex
+                上手Promise
               
             
           </h1>
@@ -289,8 +292,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-24T12:23:04+08:00" content="2017-08-24">
-              2017-08-24
+            <time itemprop="dateCreated" datetime="2017-09-10T19:42:27+08:00" content="2017-09-10">
+              2017-09-10
             </time>
           </span>
 
@@ -303,8 +306,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
                   </a>
                 </span>
 
@@ -319,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/08/24/Flex布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/24/Flex布局/" itemprop="commentsCount"></span>
+                <a href="/2017/09/10/上手Promise/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/10/上手Promise/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -349,31 +352,35 @@
       
 
       
-        <p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">去看阮一峰老师的两篇博文吧。</a></p>
-<p>这篇文章可以说是给我自己看的。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在JavaScript的世界中，所有代码都是单线程执行的。</p>
+<p>由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数来实现。常见的例子如AJAX，就是典型的异步操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">request.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</div><div class="line">            <span class="keyword">return</span> success(request.responseText);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> fail(request.status);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>把回调函数success(request.responseText)和fail(request.status)写到一个AJAX操作里很正常，但是不好看，而且不利于代码复用。所以，为了使代码更优雅。出现了这样的写法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ajax = ajaxGet(<span class="string">'http://...'</span>);</div><div class="line">ajax.ifSuccess(success)</div><div class="line">    .ifFail(fail);</div></pre></td></tr></table></figure></p>
+<p>这种链式写法的好处，不单单是优雅。它使得Promise把执行代码和处理结果的代码清晰的分离了。</p>
 <a id="more"></a>
-<h1 id="记忆方法"><a href="#记忆方法" class="headerlink" title="记忆方法"></a>记忆方法</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>首先要搞清楚基本概念，知道flex中的主轴，main start， main end等概念，不然你会两眼一抹黑，一点空间概念也没有。</p>
-<p>基本概念有了，可以分<strong>容器属性</strong>和<strong>项目属性</strong>两类记忆</p>
-<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="flex-direction-flex-wrap-flex-flow"><a href="#flex-direction-flex-wrap-flex-flow" class="headerlink" title="flex-direction,flex-wrap,flex-flow"></a>flex-direction,flex-wrap,flex-flow</h3><ul>
-<li>flex-direction属性决定主轴的方向。</li>
-<li>flex-wrap决定换不换行和是否逆序排列。</li>
-<li>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</li>
-</ul>
-<h3 id="justify-content，-align-items，align-content"><a href="#justify-content，-align-items，align-content" class="headerlink" title="justify-content， align-items，align-content"></a>justify-content， align-items，align-content</h3><p>这三属性是有关项目的。</p>
+<h1 id="Promise基础介绍"><a href="#Promise基础介绍" class="headerlink" title="Promise基础介绍"></a>Promise基础介绍</h1><p>Promise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。</p>
+<h2 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="comment">// ... some code</span></div><div class="line">    <span class="keyword">if</span> ( <span class="comment">/* 异步操作成功 */</span> ) &#123;</div><div class="line">        resolve(value);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        reject(error);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">    <span class="comment">// success</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="comment">// failure</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>再来张图：</p>
+<p><img src="/images/promise_status_.png" alt=""></p>
+<p>看图说话：</p>
+<ol>
+<li>Promise构造方法接受一个方法作为参数，该方法传入两个参数，resolve和reject。这两个参数都是函数。</li>
+<li>resolve用来将Promise对象的状态置为成功，并将异步操作结果value作为参数传给成功回调函数。</li>
+<li>reject用来将Promise对象的状态置为失败，并将异步操作错误error作为参数传给失败回调函数。</li>
+<li>then方法绑定两个回调函数，第一个用来处理Promise成功状态，第二个用来处理Promise失败状态。</li>
+</ol>
+<h2 id="Promise状态"><a href="#Promise状态" class="headerlink" title="Promise状态"></a>Promise状态</h2><p>因为Promise是用来异步操作的，所以它他有三种状态：</p>
 <ul>
-<li>align-items属性定义项目在交叉轴（边框）上如何对齐。</li>
-<li>justify-content属性定义了项目在主轴上的对齐方式。</li>
-<li>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用</li>
+<li>Pending （执行中）</li>
+<li>Fulfilled (已完成)</li>
+<li>Rejectd （失败）<br>后两者对应着处理结果。</li>
 </ul>
-<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><ul>
-<li>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</li>
-<li>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。当成布尔值就是了。</li>
-<li>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</li>
-<li>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）</li>
-<li>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。<br>建议</li>
-<li>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>重要的还是多实践。不多说了，我要去实际练习。</p>
+<p>状态间的具体关系：</p>
+<p><img src="/images/promise-status" alt=""></p>
+<p>如上图所示，Promise对象有两个特点：<br>1、对象状态只由异步操作结果决定。resolve方法会使Promise对象由pendding状态变为fulfilled状态；reject方法或者异常会使得Promise对象由pendding状态变为rejected状态。Promise状态变化只有上图这两条路径。<br>2、对象状态一旦改变，任何时候都能得到这个结果。即状态一旦进入fulfilled或者rejected，promise便不再出现状态变化，同时我们再添加回调会立即得到结果。这点跟事件不一样，事件是发生后再绑定监听，就监听不到了。</p>
+<h1 id="串行执行"><a href="#串行执行" class="headerlink" title="串行执行"></a>串行执行</h1><p>通常要串行执行异步任务们，不用Promise需要写一层一层的嵌套代码。有了Promise，我们只需要简单地写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">job1.then(job2).then(job3).catch(handleError);</div></pre></td></tr></table></figure></p>
+<p>可以这样写的原因是then返回的是promise的实例。这种写法也叫级联。</p>
+<h1 id="并行执行"><a href="#并行执行" class="headerlink" title="并行执行"></a>并行执行</h1><p>除了串行执行若干异步任务外，Promise还可以并行执行异步任务。</p>
+<p>试想一个页面聊天系统，我们需要从两个不同的URL分别获得用户的个人信息和好友列表，这两个任务是可以并行执行的，用Promise.all()实现如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    setTimeout(resolve, <span class="number">500</span>, <span class="string">'P1'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    setTimeout(resolve, <span class="number">600</span>, <span class="string">'P2'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// 同时执行p1和p2，并在它们都完成后执行then:</span></div><div class="line"><span class="built_in">Promise</span>.all([p1, p2]).then(<span class="function"><span class="keyword">function</span> (<span class="params">results</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(results); <span class="comment">// 获得一个Array: ['P1', 'P2']</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -395,7 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag">#CSS</a>
+            <a href="/tags/Promise/" rel="tag">#Promise</a>
           
         </div>
       
@@ -404,17 +411,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/24/css布局(-):盒模型-display-float-position/" rel="next" title="css布局(-):传统">
-                <i class="fa fa-chevron-left"></i> css布局(-):传统
+              <a href="/2017/09/07/阿里2018前端面试题解答/" rel="next" title="阿里2018前端面试题解答">
+                <i class="fa fa-chevron-left"></i> 阿里2018前端面试题解答
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/28/redux中的柯里化/" rel="prev" title="redux-thunk中的柯里化">
-                redux-thunk中的柯里化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -506,7 +509,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -555,7 +558,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记忆方法"><span class="nav-number">1.</span> <span class="nav-text">记忆方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器属性"><span class="nav-number">1.2.</span> <span class="nav-text">容器属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-flex-wrap-flex-flow"><span class="nav-number">1.2.1.</span> <span class="nav-text">flex-direction,flex-wrap,flex-flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#justify-content，-align-items，align-content"><span class="nav-number">1.2.2.</span> <span class="nav-text">justify-content， align-items，align-content</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目属性"><span class="nav-number">1.3.</span> <span class="nav-text">项目属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise基础介绍"><span class="nav-number">2.</span> <span class="nav-text">Promise基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见用法"><span class="nav-number">2.1.</span> <span class="nav-text">常见用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise状态"><span class="nav-number">2.2.</span> <span class="nav-text">Promise状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#串行执行"><span class="nav-number">3.</span> <span class="nav-text">串行执行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并行执行"><span class="nav-number">4.</span> <span class="nav-text">并行执行</span></a></li></ol></div>
             
           </div>
         </section>
@@ -680,9 +683,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'foureyebrow';
-      var disqus_identifier = '2017/08/24/Flex布局/';
-      var disqus_title = 'css布局(二):Flex';
-      var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/24/Flex布局/';
+      var disqus_identifier = '2017/09/10/上手Promise/';
+      var disqus_title = '上手Promise';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/09/10/上手Promise/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
