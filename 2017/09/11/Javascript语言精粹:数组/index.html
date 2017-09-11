@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MongoDB," />
+  <meta name="keywords" content="Js进阶," />
 
 
 
@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="MongoDB基本配置下载 MongoDB, 解压后并启动:1$ bin/mongod
-MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也可以修改成不同目录, 只需要指定 –dbpath 参数:1$ bin/mongod --dbpath /path/to/my/data/dir
-启动 MongoDB JavaScript 工具来操作数据库:1$ b">
+<meta name="description" content="序在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。
+javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mongo Basic">
-<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/09/03/mongo_basics/index.html">
+<meta property="og:title" content="Javascript语言精粹: 数组">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/09/11/Javascript语言精粹:数组/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="MongoDB基本配置下载 MongoDB, 解压后并启动:1$ bin/mongod
-MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也可以修改成不同目录, 只需要指定 –dbpath 参数:1$ bin/mongod --dbpath /path/to/my/data/dir
-启动 MongoDB JavaScript 工具来操作数据库:1$ b">
-<meta property="og:updated_time" content="2017-09-05T08:13:08.000Z">
+<meta property="og:description" content="序在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。
+javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的">
+<meta property="og:updated_time" content="2017-09-11T08:14:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mongo Basic">
-<meta name="twitter:description" content="MongoDB基本配置下载 MongoDB, 解压后并启动:1$ bin/mongod
-MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也可以修改成不同目录, 只需要指定 –dbpath 参数:1$ bin/mongod --dbpath /path/to/my/data/dir
-启动 MongoDB JavaScript 工具来操作数据库:1$ b">
+<meta name="twitter:title" content="Javascript语言精粹: 数组">
+<meta name="twitter:description" content="序在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。
+javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的">
 
 
 
@@ -117,7 +114,7 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
   };
 </script>
 
-  <title> Mongo Basic | Fourfish'blog </title>
+  <title> Javascript语言精粹: 数组 | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +277,7 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
             
             
               
-                Mongo Basic
+                Javascript语言精粹: 数组
               
             
           </h1>
@@ -292,8 +289,8 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-09-03T09:10:34+08:00" content="2017-09-03">
-              2017-09-03
+            <time itemprop="dateCreated" datetime="2017-09-11T10:47:27+08:00" content="2017-09-11">
+              2017-09-11
             </time>
           </span>
 
@@ -306,8 +303,8 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
                   </a>
                 </span>
 
@@ -322,8 +319,8 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/09/03/mongo_basics/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/03/mongo_basics/" itemprop="commentsCount"></span>
+                <a href="/2017/09/11/Javascript语言精粹:数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/11/Javascript语言精粹:数组/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -352,43 +349,22 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
       
 
       
-        <h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>下载 MongoDB, 解压后并启动:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/mongod</div></pre></td></tr></table></figure></p>
-<p>MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也可以修改成不同目录, 只需要指定 –dbpath 参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/mongod --dbpath /path/to/my/data/dir</div></pre></td></tr></table></figure></p>
-<p>启动 MongoDB JavaScript 工具来操作数据库:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/mongo</div></pre></td></tr></table></figure></p>
-<p>添加mongo-hacker，更方便的使用mongo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g mongo-hacker</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li>NoSQL意思是“Not Only SQL”</li>
-<li>NoSQL databases store data<br>in a multitude of formats and are generally less bound to schema controls</li>
-<li>Mongo does not have a schema, it makes development really fast.<br>Additionally, changing andevolving projects is easy without a schema to migrate.</li>
-<li>Mongo的查询语句非常简单。实际上，它更像一种编程语言。</li>
-<li>The core of Mongo’s data model is documents.<br>Documents are unique records in Mongo, and they are a lot like JSON objects.</li>
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。</p>
+<p>javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的特性。</p>
+<hr>
+<h1 id="数组基础"><a href="#数组基础" class="headerlink" title="数组基础"></a>数组基础</h1><h2 id="数字字面量"><a href="#数字字面量" class="headerlink" title="数字字面量"></a>数字字面量</h2><p>像对象、函数都有字面量一样，数组也有它的字面量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> empty = [];</div><div class="line"><span class="keyword">var</span> numbers = [ <span class="string">'zero'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];</div><div class="line"></div><div class="line">empty[<span class="number">1</span>] <span class="comment">//undefined</span></div><div class="line">numbers[<span class="number">1</span>]  <span class="comment">//one</span></div><div class="line"></div><div class="line">empty.length <span class="comment">//0</span></div><div class="line">numbers.length <span class="comment">//4</span></div></pre></td></tr></table></figure></p>
+<p>我开头就说过javascript中的数组也是对象。现在就用对象字面量创建一个数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers_object = [</div><div class="line">	<span class="string">'0'</span>: <span class="string">'zero'</span>, <span class="string">'1'</span>: <span class="string">'one'</span>, <span class="string">'2'</span>:<span class="string">'two'</span>, <span class="string">'3'</span>:<span class="string">'three'</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>两者产生的结果相似。但是两者有着显著的不同。numbers继承Array.prototype,numbers_object继承Object.prototype。除此之外，numbers还有个length属性。</p>
+<p>说到length，不得不说javascript的length很奇葩。为什么，接着看。</p>
+<h2 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h2><ul>
+<li>javascript中的length是没有上界的。length会随着数组容量的增大，而自动增大，不会发送数组越界错误。不过ECMAScript262的标准规定，数组的下标必须在0到231之间。</li>
+<li>你可以直接设置length值。什么情况，自己设置length。对，想想length只是个属性而已，就没什么奇怪了。length设得过大，不会给数组分配更多的空间。如果设小了，会删除下标大于等于新length的属性。</li>
 </ul>
-<h2 id="documents-and-collection"><a href="#documents-and-collection" class="headerlink" title="documents and collection"></a>documents and collection</h2><p>在mongo里，documents是一份个人记录。collection是一张表格，每份documents像是表格上的一行。</p>
-<p>因为documents是 individual record，所以严格意义上，他不是关系型数据库上的一行，documents不一定含有所有的列(field)。在关系型数据库中，你必须要先定义好模式（schema），每一列都有特定的类型，而Mongo完全不需要管哪些缺少的值。每个documents的每一个字段都是独立的。</p>
-<h2 id="Why-ascending-or-descending-indexes-matter-in-Mongo"><a href="#Why-ascending-or-descending-indexes-matter-in-Mongo" class="headerlink" title="Why ascending or descending indexes matter in Mongo"></a><a href="http://stackoverflow.com/questions/10329104/why-does-direction-of-index-matter-in-mongodb" target="_blank" rel="external">Why ascending or descending indexes matter in Mongo</a></h2><p>重点在于使用复合键（compound key）的时候，查询方向和key的排序不一致，导致需要跳转索引，是速度变慢。</p>
-<blockquote>
-<p>The db.colleciton.createIndex method documentation: <a href="https://docs.mongodb.org/v3.0/reference/method/db.collection.createIndex/#db.collection.createIndex" target="_blank" rel="external">https://docs.mongodb.org/v3.0/reference/method/db.collection.createIndex/#db.collection.createIndex</a></p>
-</blockquote>
-<h2 id="Querying"><a href="#Querying" class="headerlink" title="Querying"></a>Querying</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.posts.find(&#123;$or:[&#123;title: &quot;I love the holidays&quot;&#125;,&#123;title: &quot;How to workout&quot;&#125;]&#125;,&#123;title: true&#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.keys(db.collection.find());</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Mongo’s query operators - <a href="https://docs.mongodb.org/v3.0/reference/operator/query/" target="_blank" rel="external">https://docs.mongodb.org/v3.0/reference/operator/query/</a></p>
-</blockquote>
-<ul>
-<li><p>Map reduce pattern to find all keys in a collection: <a href="http://stackoverflow.com/questions/2298870/mongodb-get-names-of-all-keys-in-collection" target="_blank" rel="external">http://stackoverflow.com/questions/2298870/mongodb-get-names-of-all-keys-in-collection</a></p>
-</li>
-<li><p>Pagination formula: limit = number of records on each page, skip = number of records on each page * page number - 1</p>
-<p>  So, with 5 results per page:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">page 1: limit = 5, skip = 0</div><div class="line">page 2: limit = 5, skip = 5</div><div class="line">page 3: limit = 5, skip = 10</div><div class="line">etc...</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Updating-Data"><a href="#Updating-Data" class="headerlink" title="Updating Data"></a>Updating Data</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.collection.update(&#123;author: ObjectId(&quot;56334t43532csd&quot;)&#125;,&#123;$set: &#123;tags: [&apos;javascript&apos;, &apos;front end&apos;],title: &quot;Update Title&quot;&#125;&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>mongo-hacker: <a href="https://github.com/TylerBrock/mongo-hacker" target="_blank" rel="external">https://github.com/TylerBrock/mongo-hacker</a></p>
-<p>Mongo’s update modifiers: <a href="https://docs.mongodb.org/v3.0/reference/operator/update/" target="_blank" rel="external">https://docs.mongodb.org/v3.0/reference/operator/update/</a></p>
-</blockquote>
-<h2 id="Language-Drivers-and-Sharding"><a href="#Language-Drivers-and-Sharding" class="headerlink" title="Language Drivers and Sharding"></a>Language Drivers and Sharding</h2><p>MongoDB Drivers: <a href="https://docs.mongodb.org/ecosystem/drivers/" target="_blank" rel="external">https://docs.mongodb.org/ecosystem/drivers/</a><br>Sharding in Mongo: <a href="https://docs.mongodb.org/manual/sharding/" target="_blank" rel="external">https://docs.mongodb.org/manual/sharding/</a></p>
+<h2 id="容易混淆的地方"><a href="#容易混淆的地方" class="headerlink" title="容易混淆的地方"></a>容易混淆的地方</h2><h4 id="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"><a href="#既然数组是对象，拿什么时候用数组，什么时候用对象呢？" class="headerlink" title="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"></a>既然数组是对象，拿什么时候用数组，什么时候用对象呢？</h4><p>当属性名是小而连续的整数时，你应该使用数组。否则，使用对象。</p>
+<h4 id="怎么区分数组和对象呢？"><a href="#怎么区分数组和对象呢？" class="headerlink" title="怎么区分数组和对象呢？"></a>怎么区分数组和对象呢？</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> is_array = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.apply(value) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="多维数组和初始化"><a href="#多维数组和初始化" class="headerlink" title="多维数组和初始化"></a>多维数组和初始化</h1><p>javascript的数组通常不会预置值。如果你需要预置值的话，要自己准备：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.dim = <span class="function">(<span class="params">len, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a=[], i;</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;len; i++) &#123;</div><div class="line">		a[i] = init;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>javascript没有多维数组，但是就像大多数C语言一样，它支持元素为数组的数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构造多维数组</span></div><div class="line"><span class="built_in">Array</span>.matrix = <span class="function">(<span class="params">m, n, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a, i, j, mat = [];</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">		a = [];</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">			a[j] = init;</div><div class="line">		&#125;</div><div class="line">		mat[i] = a;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> mat</div><div class="line">&#125;</div><div class="line"><span class="comment">//构造一个初始值为0的4X4矩阵。</span></div><div class="line"><span class="keyword">var</span> myMatrix = <span class="built_in">Array</span>.matrix(<span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>);c</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -410,7 +386,7 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
       
         <div class="post-tags">
           
-            <a href="/tags/MongoDB/" rel="tag">#MongoDB</a>
+            <a href="/tags/Js进阶/" rel="tag">#Js进阶</a>
           
         </div>
       
@@ -419,17 +395,13 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/30/《了不起的Node-js》摘记(2)/" rel="next" title="《了不起的Node.js》摘记(2)">
-                <i class="fa fa-chevron-left"></i> 《了不起的Node.js》摘记(2)
+              <a href="/2017/09/10/上手Promise/" rel="next" title="上手Promise">
+                <i class="fa fa-chevron-left"></i> 上手Promise
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/07/阿里2018前端面试题解答/" rel="prev" title="阿里2018前端面试题解答">
-                阿里2018前端面试题解答 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -570,7 +542,7 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB"><span class="nav-number">1.</span> <span class="nav-text">MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置"><span class="nav-number">1.1.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#documents-and-collection"><span class="nav-number">1.3.</span> <span class="nav-text">documents and collection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-ascending-or-descending-indexes-matter-in-Mongo"><span class="nav-number">1.4.</span> <span class="nav-text">Why ascending or descending indexes matter in Mongo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Querying"><span class="nav-number">1.5.</span> <span class="nav-text">Querying</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Updating-Data"><span class="nav-number">1.6.</span> <span class="nav-text">Updating Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Drivers-and-Sharding"><span class="nav-number">1.7.</span> <span class="nav-text">Language Drivers and Sharding</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组基础"><span class="nav-number">2.</span> <span class="nav-text">数组基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字字面量"><span class="nav-number">2.1.</span> <span class="nav-text">数字字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长度"><span class="nav-number">2.2.</span> <span class="nav-text">长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容易混淆的地方"><span class="nav-number">2.3.</span> <span class="nav-text">容易混淆的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#既然数组是对象，拿什么时候用数组，什么时候用对象呢？"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">既然数组是对象，拿什么时候用数组，什么时候用对象呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么区分数组和对象呢？"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">怎么区分数组和对象呢？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多维数组和初始化"><span class="nav-number">3.</span> <span class="nav-text">多维数组和初始化</span></a></li></ol></div>
             
           </div>
         </section>
@@ -695,9 +667,9 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
 
     <script type="text/javascript">
       var disqus_shortname = 'foureyebrow';
-      var disqus_identifier = '2017/09/03/mongo_basics/';
-      var disqus_title = 'Mongo Basic';
-      var disqus_url = 'http://foureyebrowxiake.github.io/2017/09/03/mongo_basics/';
+      var disqus_identifier = '2017/09/11/Javascript语言精粹:数组/';
+      var disqus_title = 'Javascript语言精粹: 数组';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/09/11/Javascript语言精粹:数组/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

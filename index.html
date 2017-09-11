@@ -276,6 +276,143 @@
             
               
                 
+                <a class="post-title-link" href="/2017/09/11/Javascript语言精粹:数组/" itemprop="url">
+                  Javascript语言精粹: 数组
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-11T10:47:27+08:00" content="2017-09-11">
+              2017-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/11/Javascript语言精粹:数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/11/Javascript语言精粹:数组/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。</p>
+<p>javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的特性。</p>
+<hr>
+<h1 id="数组基础"><a href="#数组基础" class="headerlink" title="数组基础"></a>数组基础</h1><h2 id="数字字面量"><a href="#数字字面量" class="headerlink" title="数字字面量"></a>数字字面量</h2><p>像对象、函数都有字面量一样，数组也有它的字面量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> empty = [];</div><div class="line"><span class="keyword">var</span> numbers = [ <span class="string">'zero'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];</div><div class="line"></div><div class="line">empty[<span class="number">1</span>] <span class="comment">//undefined</span></div><div class="line">numbers[<span class="number">1</span>]  <span class="comment">//one</span></div><div class="line"></div><div class="line">empty.length <span class="comment">//0</span></div><div class="line">numbers.length <span class="comment">//4</span></div></pre></td></tr></table></figure></p>
+<p>我开头就说过javascript中的数组也是对象。现在就用对象字面量创建一个数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers_object = [</div><div class="line">	<span class="string">'0'</span>: <span class="string">'zero'</span>, <span class="string">'1'</span>: <span class="string">'one'</span>, <span class="string">'2'</span>:<span class="string">'two'</span>, <span class="string">'3'</span>:<span class="string">'three'</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>两者产生的结果相似。但是两者有着显著的不同。numbers继承Array.prototype,numbers_object继承Object.prototype。除此之外，numbers还有个length属性。</p>
+<p>说到length，不得不说javascript的length很奇葩。为什么，接着看。</p>
+<h2 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h2><ul>
+<li>javascript中的length是没有上界的。length会随着数组容量的增大，而自动增大，不会发送数组越界错误。不过ECMAScript262的标准规定，数组的下标必须在0到231之间。</li>
+<li>你可以直接设置length值。什么情况，自己设置length。对，想想length只是个属性而已，就没什么奇怪了。length设得过大，不会给数组分配更多的空间。如果设小了，会删除下标大于等于新length的属性。</li>
+</ul>
+<h2 id="容易混淆的地方"><a href="#容易混淆的地方" class="headerlink" title="容易混淆的地方"></a>容易混淆的地方</h2><h4 id="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"><a href="#既然数组是对象，拿什么时候用数组，什么时候用对象呢？" class="headerlink" title="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"></a>既然数组是对象，拿什么时候用数组，什么时候用对象呢？</h4><p>当属性名是小而连续的整数时，你应该使用数组。否则，使用对象。</p>
+<h4 id="怎么区分数组和对象呢？"><a href="#怎么区分数组和对象呢？" class="headerlink" title="怎么区分数组和对象呢？"></a>怎么区分数组和对象呢？</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> is_array = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.apply(value) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="多维数组和初始化"><a href="#多维数组和初始化" class="headerlink" title="多维数组和初始化"></a>多维数组和初始化</h1><p>javascript的数组通常不会预置值。如果你需要预置值的话，要自己准备：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.dim = <span class="function">(<span class="params">len, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a=[], i;</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;len; i++) &#123;</div><div class="line">		a[i] = init;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>javascript没有多维数组，但是就像大多数C语言一样，它支持元素为数组的数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构造多维数组</span></div><div class="line"><span class="built_in">Array</span>.matrix = <span class="function">(<span class="params">m, n, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a, i, j, mat = [];</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">		a = [];</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">			a[j] = init;</div><div class="line">		&#125;</div><div class="line">		mat[i] = a;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> mat</div><div class="line">&#125;</div><div class="line"><span class="comment">//构造一个初始值为0的4X4矩阵。</span></div><div class="line"><span class="keyword">var</span> myMatrix = <span class="built_in">Array</span>.matrix(<span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>);c</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/09/10/上手Promise/" itemprop="url">
                   上手Promise
                 </a>
@@ -1402,135 +1539,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/11/webpack基础/" itemprop="url">
-                  webpack基础
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-11T22:33:24+08:00" content="2017-08-11">
-              2017-08-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/11/webpack基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/11/webpack基础/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><h2 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h2><p>webpack本身就是一款用户打包前端模块的工具。主要是用来打包在浏览器端使用的javascript的。同时也能转换、捆绑、打包其他的静态资源，包括css、image、font file、template等</p>
-<p>要了解它，首先要知道什么叫模块化开发。</p>
-<p>前端开发中，起初只要在script标签中嵌入几十上百行代码就能实现一些基本的交互效果，后来js得到重视，应用也广泛起来了，jQuery，Ajax，Node.Js，MVC，MVVM等的助力也使得前端开发得到重视，也使得前端项目越来越复杂，然而，JavaScript却没有为组织代码提供任何明显帮助，甚至没有类的概念，更不用说模块了。但javascript可以实现模块，一个定义了私有变量和函数的函数。</p>
-<p>什么鬼，什么叫定义了私有变量和函数的函数？不知道的同学，可以去看一下《javascript语言精粹》的模块章节。</p>
-<p>简单地讲，一个模块就是实现特定功能的文件，有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。模块开发需要遵循一定的规范，否则就都乱套了。</p>
-<p>这就是模块化开发。而webpack能将依赖的模块转化成可以代表这些包的静态文件。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/11/webpack基础/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1576,7 +1584,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
