@@ -89,16 +89,16 @@ Javascript中的对象是可变的键控集合。对象是属性的容器，其�
 Javascript包含一种原型链的特性，允许对象继承另一个对象。正确的使用它能减少对象初始化时消耗的时间和内存。
 ES6中新加入了Class。但这个Class只">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js语言精粹(2)：对象、函数">
+<meta property="og:title" content="Javascript语言精粹：对象、函数">
 <meta property="og:url" content="http://foureyebrowxiake.github.io/2017/08/20/Js语言精粹(2)-对象、函数/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
 <meta property="og:description" content="对象Javascript的简单数据类型包括数字、字符串、布尔值、null值和undefined值。其他所有的值皆是对象，包括数组、函数和正则表达式。
 Javascript中的对象是可变的键控集合。对象是属性的容器，其中属性由键值对构成。
 Javascript包含一种原型链的特性，允许对象继承另一个对象。正确的使用它能减少对象初始化时消耗的时间和内存。
 ES6中新加入了Class。但这个Class只">
-<meta property="og:updated_time" content="2017-08-29T06:02:49.000Z">
+<meta property="og:updated_time" content="2017-09-11T02:49:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js语言精粹(2)：对象、函数">
+<meta name="twitter:title" content="Javascript语言精粹：对象、函数">
 <meta name="twitter:description" content="对象Javascript的简单数据类型包括数字、字符串、布尔值、null值和undefined值。其他所有的值皆是对象，包括数组、函数和正则表达式。
 Javascript中的对象是可变的键控集合。对象是属性的容器，其中属性由键值对构成。
 Javascript包含一种原型链的特性，允许对象继承另一个对象。正确的使用它能减少对象初始化时消耗的时间和内存。
@@ -120,7 +120,7 @@ ES6中新加入了Class。但这个Class只">
   };
 </script>
 
-  <title> Js语言精粹(2)：对象、函数 | Fourfish'blog </title>
+  <title> Javascript语言精粹：对象、函数 | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@ ES6中新加入了Class。但这个Class只">
             
             
               
-                Js语言精粹(2)：对象、函数
+                Javascript语言精粹：对象、函数
               
             
           </h1>
@@ -402,7 +402,7 @@ ES6中新加入了Class。但这个Class只">
 <h1 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h1><p>this的值取决于调用的模式，因为this是延迟绑定的。this到对象的绑定发生在调用时。</p>
 <h2 id="方法调用模式"><a href="#方法调用模式" class="headerlink" title="方法调用模式"></a>方法调用模式</h2><p>this绑定调用方法的对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObject = &#123;</div><div class="line">	<span class="attr">value</span>: <span class="number">0</span>,</div><div class="line">	<span class="attr">increment</span>: <span class="function"><span class="keyword">function</span> (<span class="params">inc</span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.value += <span class="keyword">typeof</span> inc === <span class="string">'number'</span> ? inc : <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">myObject.increment(<span class="number">1</span>);</div></pre></td></tr></table></figure></p>
 <h2 id="函数调用模式"><a href="#函数调用模式" class="headerlink" title="函数调用模式"></a>函数调用模式</h2><p>当一个函数不是对象的属性时，他就是被当作函数来调用。此时this绑定到全局对象.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = add(<span class="number">3</span>,<span class="number">4</span>);</div></pre></td></tr></table></figure></p>
-<p>这样直接导致的后果是add方法不能利用内部函数来帮助它工作。因为内部函数的this被绑定了错误的值，所以add不能访问对象的属性。</p>
+<p>这样直接导致的后果是add方法不能利用内部函数来帮助它工作。因为add的内部函数的this被绑定了错误的值，所以add不能访问对象的属性。</p>
 <p>好在可以通过给add方法传入赋值了this的变量，来解决。</p>
 <p>解决办法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">myObject.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">	<span class="keyword">var</span> helper = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		that.value = add(that.value,that.value);</div><div class="line">	&#125;;</div><div class="line">	helper();</div><div class="line">&#125;</div><div class="line"></div><div class="line">myObject.double();</div><div class="line"><span class="built_in">document</span>.writeln(myObject.value);</div></pre></td></tr></table></figure></p>
 <h2 id="构造器调用模式"><a href="#构造器调用模式" class="headerlink" title="构造器调用模式"></a>构造器调用模式</h2><p>javascript对原型继承不自信的表现。</p>
@@ -417,7 +417,7 @@ ES6中新加入了Class。但这个Class只">
 <p>##作用域、闭包<br><a href="http://foureyebrowxiake.github.io/2017/07/22/Js语法基础：作用域、闭包、this/">见我的另一篇文章</a></p>
 <h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p><a href="https://zhihu.com/question/19801131/answer/27459821" target="_blank" rel="external">回调函数（callback）是什么？ - 回答作者: no.body</a></p>
 <h2 id="级联"><a href="#级联" class="headerlink" title="级联"></a>级联</h2><p>返回this的方法，就可以启动级联。</p>
-<h2 id="记忆"><a href="#记忆" class="headerlink" title="记忆"></a>记忆</h2><p>一个函数能帮我们构造带记忆功能的函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> memorizer = <span class="function">(<span class="params">memo, formula</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> recur = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</div><div class="line">		<span class="keyword">var</span> result = memo[n];</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> result !== <span class="string">'result'</span>) &#123;</div><div class="line">			result = formula(recur, n);</div><div class="line">			memo[n] = result;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> result;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> recur;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="记忆"><a href="#记忆" class="headerlink" title="记忆"></a>记忆</h2><p>一个函数，它能帮我们构造带记忆功能的函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> memorizer = <span class="function">(<span class="params">memo, formula</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> recur = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</div><div class="line">		<span class="keyword">var</span> result = memo[n];</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> result !== <span class="string">'result'</span>) &#123;</div><div class="line">			result = formula(recur, n);</div><div class="line">			memo[n] = result;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> result;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> recur;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -448,8 +448,8 @@ ES6中新加入了Class。但这个Class只">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/19/js语言精粹(1)-精华与糟粕/" rel="next" title="Js语言精粹(1)-精华与糟粕">
-                <i class="fa fa-chevron-left"></i> Js语言精粹(1)-精华与糟粕
+              <a href="/2017/08/19/js语言精粹(1)-精华与糟粕/" rel="next" title="Javascript语言精粹：精华与糟粕">
+                <i class="fa fa-chevron-left"></i> Javascript语言精粹：精华与糟粕
               </a>
             
           </div>
@@ -725,7 +725,7 @@ ES6中新加入了Class。但这个Class只">
     <script type="text/javascript">
       var disqus_shortname = 'foureyebrow';
       var disqus_identifier = '2017/08/20/Js语言精粹(2)-对象、函数/';
-      var disqus_title = 'Js语言精粹(2)：对象、函数';
+      var disqus_title = 'Javascript语言精粹：对象、函数';
       var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/20/Js语言精粹(2)-对象、函数/';
 
       function run_disqus_script(disqus_script){
