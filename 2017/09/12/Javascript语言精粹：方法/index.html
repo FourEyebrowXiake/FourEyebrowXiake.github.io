@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="Js进阶," />
 
 
 
@@ -84,25 +84,16 @@
 
 
 
-<meta name="description" content="CSS玉伯看HTML和CSS代码的背后https://github.com/lifesinger/blog/issues/105&amp;gt;
-
-之前在freeCodeCamp上看到两篇置顶的前端入门文章。第一篇的内容涉及html和css。第二篇就讲javascritpt。看第一篇内容时，真是被文章丰富的内容吓了一跳。当时心里就嘀咕，真的要学这么多吗？
-直到今天看了玉伯的文章，才意识到html和css同">
+<meta name="description" content="序这篇文章包含一些数组API的实现，以及看书时的一些联想。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS的重要性">
-<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/07/23/CSS的重要性/index.html">
+<meta property="og:title" content="Javascript语言精粹：方法（1）">
+<meta property="og:url" content="http://foureyebrowxiake.github.io/2017/09/12/Javascript语言精粹：方法/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="CSS玉伯看HTML和CSS代码的背后https://github.com/lifesinger/blog/issues/105&amp;gt;
-
-之前在freeCodeCamp上看到两篇置顶的前端入门文章。第一篇的内容涉及html和css。第二篇就讲javascritpt。看第一篇内容时，真是被文章丰富的内容吓了一跳。当时心里就嘀咕，真的要学这么多吗？
-直到今天看了玉伯的文章，才意识到html和css同">
-<meta property="og:updated_time" content="2017-08-20T03:13:48.000Z">
+<meta property="og:description" content="序这篇文章包含一些数组API的实现，以及看书时的一些联想。">
+<meta property="og:updated_time" content="2017-09-13T08:54:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS的重要性">
-<meta name="twitter:description" content="CSS玉伯看HTML和CSS代码的背后https://github.com/lifesinger/blog/issues/105&amp;gt;
-
-之前在freeCodeCamp上看到两篇置顶的前端入门文章。第一篇的内容涉及html和css。第二篇就讲javascritpt。看第一篇内容时，真是被文章丰富的内容吓了一跳。当时心里就嘀咕，真的要学这么多吗？
-直到今天看了玉伯的文章，才意识到html和css同">
+<meta name="twitter:title" content="Javascript语言精粹：方法（1）">
+<meta name="twitter:description" content="序这篇文章包含一些数组API的实现，以及看书时的一些联想。">
 
 
 
@@ -120,7 +111,7 @@
   };
 </script>
 
-  <title> CSS的重要性 | Fourfish'blog </title>
+  <title> Javascript语言精粹：方法（1） | Fourfish'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +274,7 @@
             
             
               
-                CSS的重要性
+                Javascript语言精粹：方法（1）
               
             
           </h1>
@@ -295,8 +286,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-23T08:55:30+08:00" content="2017-07-23">
-              2017-07-23
+            <time itemprop="dateCreated" datetime="2017-09-12T22:43:04+08:00" content="2017-09-12">
+              2017-09-12
             </time>
           </span>
 
@@ -309,8 +300,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
                   </a>
                 </span>
 
@@ -325,8 +316,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/07/23/CSS的重要性/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/07/23/CSS的重要性/" itemprop="commentsCount"></span>
+                <a href="/2017/09/12/Javascript语言精粹：方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/12/Javascript语言精粹：方法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -355,22 +346,40 @@
       
 
       
-        <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="玉伯看HTML和CSS代码的背后"><a href="#玉伯看HTML和CSS代码的背后" class="headerlink" title="玉伯看HTML和CSS代码的背后"></a>玉伯看HTML和CSS代码的背后</h2><p><a href="https://github.com/lifesinger/blog/issues/105" target="_blank" rel="external">https://github.com/lifesinger/blog/issues/105</a><br>&gt;</p>
-<blockquote>
-<p>之前在freeCodeCamp上看到两篇置顶的前端入门文章。第一篇的内容涉及html和css。第二篇就讲javascritpt。看第一篇内容时，真是被文章丰富的内容吓了一跳。当时心里就嘀咕，真的要学这么多吗？</p>
-<p>直到今天看了玉伯的文章，才意识到html和css同样非常重要。所以，特地做一下笔记，把所思所想理一下。</p>
-</blockquote>
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>这篇文章包含一些数组API的实现，以及看书时的一些联想。</p>
 <a id="more"></a>
-<p>让块元素水平居中。一般大家都会写成：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.content</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">980px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面的代码能正常工作，大部分情况下也不会有问题，但上面的代码存在思维的懒惰。应该写成:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.content</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">980px</span>;</div><div class="line">    <span class="attribute">margin-left</span>: auto;</div><div class="line">    <span class="attribute">margin-right</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>看起来代码变多了，变啰嗦了。但如果你真的了解 <strong>margin: 0 auto</strong> 的话，就能明白其中的意义。</p>
-<p><strong>margin: 0 auto</strong> 的实现：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attribute">margin-top</span>:<span class="number">0</span>;</div><div class="line">	<span class="attribute">margin-bottom</span>:<span class="number">0</span>;</div><div class="line">	<span class="attribute">margin-left</span>:auto;</div><div class="line">	<span class="attribute">margin-right</span>:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可以看到 <strong>margin: 0 auto</strong> 中会帮你把top和bottom重置了。可是，你只想要“水平居中”而已。</p>
-<p>这种不纯粹会导致顺序和优先级的依赖，比如有另一处要给 margin-top/bottom 赋值时，就必须要提高优先级。</p>
-<p>而且 <strong>margin: 0 auto</strong> 中的 0 绝大部分情况下是冗余的，页面上早就有 <strong>reset.css</strong> 或 <strong>normalize.css</strong> 重置过。</p>
-<h3 id="最小影响原则"><a href="#最小影响原则" class="headerlink" title="最小影响原则"></a>最小影响原则</h3><p>你在写某段CSS代码时，首先要非常清楚地知道这段CSS代码的功能，其次要尽量严格保障这段CSS代码只实现了你想要实现的功能。</p>
-<p>这就如医生动手术，好好做好本分就行，千万别留下一个小镊子在病人身体里。</p>
-<p>与HTML代码一样，对CSS代码来说，很重要的两个衡量标准也是稳定和灵活。</p>
+<h2 id="未解决的问题"><a href="#未解决的问题" class="headerlink" title="未解决的问题"></a>未解决的问题</h2><ul>
+<li>array的很多api的实现都基于.splice()。.splice()的优点在哪？希望知道的朋友能解答一下。<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><h3 id="array-slice-start-end-And-array-concat-item…"><a href="#array-slice-start-end-And-array-concat-item…" class="headerlink" title="array.slice(start, end) And array.concat(item…)"></a>array.slice(start, end) And array.concat(item…)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line"></div><div class="line">    c1 = [].concat(a),</div><div class="line"></div><div class="line">    c2 = a.slice(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上这两种copy方法在性能上相差无几。为了便于理解，推荐使用slice()。</p>
+<h3 id="array-pop-、array-shift-、array-unshift"><a href="#array-pop-、array-shift-、array-unshift" class="headerlink" title="array.pop()、array.shift()、array.unshift()"></a>array.pop()、array.shift()、array.unshift()</h3><p>pop的实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.method(<span class="string">'pop'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.splice(<span class="keyword">this</span>.length<span class="number">-1</span>,<span class="number">1</span>)[<span class="number">0</span>];</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>shift的实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.method(<span class="string">'shift'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>];</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>unshift的实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.method(<span class="string">'unshift'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.splice.apply(</div><div class="line">		<span class="keyword">this</span>,</div><div class="line">		[<span class="number">0</span>, <span class="number">0</span>]</div><div class="line">		.concat(<span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>))</div><div class="line">	);</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.length;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="array-push-item…"><a href="#array-push-item…" class="headerlink" title="array.push(item…)"></a>array.push(item…)</h3><p>push的实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.method(<span class="string">'push'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.splice.apply(</div><div class="line">		<span class="keyword">this</span>,</div><div class="line">		[<span class="keyword">this</span>.length, <span class="number">0</span>]</div><div class="line">		.concat(<span class="built_in">Array</span>.prototype.slice(<span class="built_in">arguments</span>))</div><div class="line">	);</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.length;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>解释一波，分成三部分：</p>
+<ol>
+<li>Array.prototype.slice(arguments)帮你把类数组转化成数组。如果你直接将arguments传入，arguments会被当作一个整体加入。原数组的长度只会加1：</li>
+</ol>
+<ul>
+<li>array<ul>
+<li>0 ：“c”</li>
+<li>1 ：[Array(2), true, {…}] //arguments</li>
+</ul>
+</li>
+</ul>
+<p>也就是没有拆分好arguments。当然你可以通过arguments索引,再配上for一个一个地加入。但是多麻烦，直接用slice()多好。</p>
+<ol>
+<li>[this.length,0].concat(#1)就是帮你产生一个新数组。新数组的前两位作为splice的前两个参数，即start和deletcount。</li>
+<li>最后一步，用this.splice.apply(this, #2)修改原数组。这里splice不是用来删除的，是用来添加的。</li>
+</ol>
+<h3 id="array-sort-comparefun"><a href="#array-sort-comparefun" class="headerlink" title="array.sort(comparefun)"></a>array.sort(comparefun)</h3><p>只能排序数字：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">num.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> a - b;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>还能排序字符串：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">num_str.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>(a === b) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> a === <span class="keyword">typeof</span> b) &#123;</div><div class="line">		<span class="keyword">return</span> a &lt; b ? <span class="number">-1</span> : <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">typeof</span> a &lt; <span class="keyword">typeof</span> b ? <span class="number">-1</span> : <span class="number">1</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>再给力点，能排序数组对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//by函数接受一个作为比较的成员名字符串参数。</span></div><div class="line"><span class="comment">//返回一个排序对象数组的比较函数</span></div><div class="line"><span class="keyword">var</span> by = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">o, p</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> a, b;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> o === <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> p === <span class="string">'object'</span> &amp;&amp; o &amp;&amp; p) &#123;</div><div class="line">			a = o[name];</div><div class="line">			b = p[name];</div><div class="line">			<span class="keyword">if</span>( a === b ) &#123;</div><div class="line">				<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>( <span class="keyword">typeof</span> a === <span class="keyword">typeof</span> b) &#123;</div><div class="line">				<span class="keyword">return</span> a &lt; b ? <span class="number">-1</span> : <span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">typeof</span> a &lt; <span class="keyword">typeof</span> b ? <span class="number">-1</span> : <span class="number">1</span>;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">throw</span> &#123;</div><div class="line">				<span class="attr">name</span>: <span class="string">'Error'</span>,</div><div class="line">				<span class="attr">message</span>: <span class="string">'期望通过'</span>+name +<span class="string">'排序对象数组'</span></div><div class="line">			&#125;;</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> s = [</div><div class="line">	&#123;<span class="attr">first</span>: <span class="string">'Joe'</span>,  <span class="attr">last</span>: <span class="string">'Besser'</span>&#125;,</div><div class="line">	&#123;<span class="attr">first</span>: <span class="string">'Moe'</span>,  <span class="attr">last</span>: <span class="string">'DeRita'</span>&#125;</div><div class="line">];</div><div class="line">s.sort(by(<span class="string">'first'</span>));</div></pre></td></tr></table></figure></p>
+<p>如果想基于多个键值进行排序：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//只要修改：</span></div><div class="line"><span class="keyword">if</span>(a === b) &#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">typeof</span> secondParam === <span class="string">'function'</span> ? secondParam (o, p) : <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">s.sort(by(<span class="string">'first'</span>,by(<span class="string">'last'</span>)));</div></pre></td></tr></table></figure></p>
+<h3 id="array-reduce"><a href="#array-reduce" class="headerlink" title="array.reduce()"></a>array.reduce()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.method(<span class="string">'reduce'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">f, value</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> i;</div><div class="line">	<span class="keyword">for</span>(i =<span class="number">0</span>; i&lt;<span class="keyword">this</span>.length; i++) &#123;</div><div class="line">		value =f(<span class="keyword">this</span>[i],value);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> value;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="array-splice-start-deleteCount-item…"><a href="#array-splice-start-deleteCount-item…" class="headerlink" title="array.splice(start, deleteCount, item…)"></a>array.splice(start, deleteCount, item…)</h3><p>splice 是我最喜欢的原生数组函数，只需要调用一次，就允许你删除元素、插入新的元素，并能同时进行删除、插入操作。需要注意的是，不同于`.concat和.slice,这个函数会改变源数组。</p>
+<p>.splice会返回删除的元素。如果你想遍历已经删除的数组时，这会非常方便。</p>
 
       
     </div>
@@ -392,7 +401,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag">#CSS</a>
+            <a href="/tags/Js进阶/" rel="tag">#Js进阶</a>
           
         </div>
       
@@ -401,16 +410,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/Js语法基础：作用域、闭包、this/" rel="next" title="Js：作用域、闭包、this">
-                <i class="fa fa-chevron-left"></i> Js：作用域、闭包、this
+              <a href="/2017/09/11/Javascript语言精粹:数组/" rel="next" title="Javascript语言精粹: 数组">
+                <i class="fa fa-chevron-left"></i> Javascript语言精粹: 数组
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/09/css要点/" rel="prev" title="HTML和CSS杂记">
-                HTML和CSS杂记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/13/Javascript语言精粹：方法（2）/" rel="prev" title="Javascript语言精粹：方法（2）">
+                Javascript语言精粹：方法（2） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -552,7 +561,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#玉伯看HTML和CSS代码的背后"><span class="nav-number">1.1.</span> <span class="nav-text">玉伯看HTML和CSS代码的背后</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小影响原则"><span class="nav-number">1.1.1.</span> <span class="nav-text">最小影响原则</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#未解决的问题"><span class="nav-number">1.1.</span> <span class="nav-text">未解决的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">1.2.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#array-slice-start-end-And-array-concat-item…"><span class="nav-number">1.2.1.</span> <span class="nav-text">array.slice(start, end) And array.concat(item…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-pop-、array-shift-、array-unshift"><span class="nav-number">1.2.2.</span> <span class="nav-text">array.pop()、array.shift()、array.unshift()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-push-item…"><span class="nav-number">1.2.3.</span> <span class="nav-text">array.push(item…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-sort-comparefun"><span class="nav-number">1.2.4.</span> <span class="nav-text">array.sort(comparefun)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-reduce"><span class="nav-number">1.2.5.</span> <span class="nav-text">array.reduce()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-splice-start-deleteCount-item…"><span class="nav-number">1.2.6.</span> <span class="nav-text">array.splice(start, deleteCount, item…)</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -677,9 +686,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'foureyebrow';
-      var disqus_identifier = '2017/07/23/CSS的重要性/';
-      var disqus_title = 'CSS的重要性';
-      var disqus_url = 'http://foureyebrowxiake.github.io/2017/07/23/CSS的重要性/';
+      var disqus_identifier = '2017/09/12/Javascript语言精粹：方法/';
+      var disqus_title = 'Javascript语言精粹：方法（1）';
+      var disqus_url = 'http://foureyebrowxiake.github.io/2017/09/12/Javascript语言精粹：方法/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

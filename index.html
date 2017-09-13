@@ -276,6 +276,260 @@
             
               
                 
+                <a class="post-title-link" href="/2017/09/13/Javascript语言精粹：方法（2）/" itemprop="url">
+                  Javascript语言精粹：方法（2）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-13T16:42:41+08:00" content="2017-09-13">
+              2017-09-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/13/Javascript语言精粹：方法（2）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/13/Javascript语言精粹：方法（2）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>文章包含Function、Number、Object的一些常用API的实现。</p>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><h3 id="function-bind-thatArg"><a href="#function-bind-thatArg" class="headerlink" title="function.bind(thatArg)"></a>function.bind(thatArg)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.method(<span class="string">'bind'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">that</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span>  method = <span class="keyword">this</span>,</div><div class="line">				slice = <span class="built_in">Array</span>.prototype.slice,</div><div class="line">				 args = slice.apply(<span class="built_in">arguments</span>,[<span class="number">1</span>]);<span class="comment">//获得除this以外的参数</span></div><div class="line">				 <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					 <span class="keyword">return</span> method.apply(that,</div><div class="line">					 args.concat(slice.apply(<span class="built_in">arguments</span>, [<span class="number">0</span>])));</div><div class="line">				 &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>apply或call是用来指定某个方法的作用对象的。像“slice.apply(arguments,[1])”这样的语句，使arguments拥有了slice方法，虽然arguments只是个类数组。</p>
+<hr>
+<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><h3 id="number-toFixed-fractionDigits"><a href="#number-toFixed-fractionDigits" class="headerlink" title="number.toFixed(fractionDigits)"></a>number.toFixed(fractionDigits)</h3><p>toFixed方法把number转换成为一个十进制的字符串。fractionDigits这个参数用来设置保留几位小数。</p>
+<h3 id="number-toPrecision-precision"><a href="#number-toPrecision-precision" class="headerlink" title="number.toPrecision(precision)"></a>number.toPrecision(precision)</h3><p>和toFixed不同的是，toPrecision决定数字的长度。toFixed决定的是小数点后的长度。</p>
+<h3 id="number-toString-radix"><a href="#number-toString-radix" class="headerlink" title="number.toString(radix)"></a>number.toString(radix)</h3><p>参数radix用来控制返回的number字符串的进制。</p>
+<hr>
+<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="Object-hasOwnProperty-name"><a href="#Object-hasOwnProperty-name" class="headerlink" title="Object.hasOwnProperty(name)"></a>Object.hasOwnProperty(name)</h3><p>该方法用来判断对象是否包含name属性。原型链不会被检查到。这个方法对name是hasOwnProperty的无效，此时返回false。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/12/Javascript语言精粹：方法/" itemprop="url">
+                  Javascript语言精粹：方法（1）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-12T22:43:04+08:00" content="2017-09-12">
+              2017-09-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/12/Javascript语言精粹：方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/12/Javascript语言精粹：方法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>这篇文章包含一些数组API的实现，以及看书时的一些联想。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/12/Javascript语言精粹：方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/09/11/Javascript语言精粹:数组/" itemprop="url">
                   Javascript语言精粹: 数组
                 </a>
@@ -1283,262 +1537,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/20/Js语言精粹(2)-对象、函数/" itemprop="url">
-                  Javascript语言精粹：对象、函数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-20T12:59:12+08:00" content="2017-08-20">
-              2017-08-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/20/Js语言精粹(2)-对象、函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/20/Js语言精粹(2)-对象、函数/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>Javascript的简单数据类型包括数字、字符串、布尔值、null值和undefined值。其他所有的值皆是对象，包括数组、函数和正则表达式。</p>
-<p>Javascript中的对象是可变的键控集合。对象是属性的容器，其中属性由键值对构成。</p>
-<p>Javascript包含一种原型链的特性，允许对象继承另一个对象。正确的使用它能减少对象初始化时消耗的时间和内存。</p>
-<p>ES6中新加入了Class。但这个Class只是简洁了Javascript的语法，让人看上去更清爽。详情见<a href="http://www.infoq.com/cn/articles/es6-in-depth-classes?utm_source=articles_about_ES6-In-Depth&amp;utm_medium=link&amp;utm_campaign=ES6-In-Depth">深入浅出ES6（十三）：类 Class</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/20/Js语言精粹(2)-对象、函数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/19/js语言精粹(1)-精华与糟粕/" itemprop="url">
-                  Javascript语言精粹：精华与糟粕
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-19T14:18:41+08:00" content="2017-08-19">
-              2017-08-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/19/js语言精粹(1)-精华与糟粕/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/19/js语言精粹(1)-精华与糟粕/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>本文是《Javascript语言精粹》的笔记和思考。</p>
-<p>参考链接:<a href="https://github.com/SimplyY/blog/blob/master/Article/编程/web%20前端/">SimplyY/blog</a></p>
-<h1 id="为什么要使用Javascript"><a href="#为什么要使用Javascript" class="headerlink" title="为什么要使用Javascript"></a>为什么要使用Javascript</h1><ol>
-<li>你没有其他选择。web已变成一个重要的应用开发平台，而javscript是唯一一门所有浏览器都可以识别的语言。</li>
-<li>javascript虽然有缺陷，但它真的很优秀。它既轻量又富有表现力。而且，你一旦掌握了它，就会发现函数式编程的魅力。<br>任何语言都有精华和糟粕。我们要取其精华，弃其糟粕。况且，你有权利定义你自己的子集。我们完全可以基于精华部分去编写更好的程序。</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/19/js语言精粹(1)-精华与糟粕/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1584,7 +1582,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
