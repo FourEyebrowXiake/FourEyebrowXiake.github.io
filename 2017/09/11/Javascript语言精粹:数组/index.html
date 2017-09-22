@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Js进阶," />
+  <meta name="keywords" content="Javascript语言精粹," />
 
 
 
@@ -92,7 +92,7 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
 <meta property="og:site_name" content="Fourfish'blog">
 <meta property="og:description" content="序在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。
 javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的">
-<meta property="og:updated_time" content="2017-09-12T14:42:05.000Z">
+<meta property="og:updated_time" content="2017-09-15T08:23:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript语言精粹: 数组">
 <meta name="twitter:description" content="序在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。
@@ -351,6 +351,7 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
       
         <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。</p>
 <p>javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的特性。</p>
+<a id="more"></a>
 <hr>
 <h1 id="数组基础"><a href="#数组基础" class="headerlink" title="数组基础"></a>数组基础</h1><h2 id="数字字面量"><a href="#数字字面量" class="headerlink" title="数字字面量"></a>数字字面量</h2><p>像对象、函数都有字面量一样，数组也有它的字面量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> empty = [];</div><div class="line"><span class="keyword">var</span> numbers = [ <span class="string">'zero'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];</div><div class="line"></div><div class="line">empty[<span class="number">1</span>] <span class="comment">//undefined</span></div><div class="line">numbers[<span class="number">1</span>]  <span class="comment">//one</span></div><div class="line"></div><div class="line">empty.length <span class="comment">//0</span></div><div class="line">numbers.length <span class="comment">//4</span></div></pre></td></tr></table></figure></p>
 <p>我开头就说过javascript中的数组也是对象。现在就用对象字面量创建一个数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers_object = [</div><div class="line">	<span class="string">'0'</span>: <span class="string">'zero'</span>, <span class="string">'1'</span>: <span class="string">'one'</span>, <span class="string">'2'</span>:<span class="string">'two'</span>, <span class="string">'3'</span>:<span class="string">'three'</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
@@ -363,8 +364,8 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
 <h2 id="容易混淆的地方"><a href="#容易混淆的地方" class="headerlink" title="容易混淆的地方"></a>容易混淆的地方</h2><h4 id="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"><a href="#既然数组是对象，拿什么时候用数组，什么时候用对象呢？" class="headerlink" title="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"></a>既然数组是对象，拿什么时候用数组，什么时候用对象呢？</h4><p>当属性名是小而连续的整数时，你应该使用数组。否则，使用对象。</p>
 <h4 id="怎么区分数组和对象呢？"><a href="#怎么区分数组和对象呢？" class="headerlink" title="怎么区分数组和对象呢？"></a>怎么区分数组和对象呢？</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> is_array = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.apply(value) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <hr>
-<h1 id="多维数组和初始化"><a href="#多维数组和初始化" class="headerlink" title="多维数组和初始化"></a>多维数组和初始化</h1><p>javascript的数组通常不会预置值。如果你需要预置值的话，要自己准备：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.dim = <span class="function">(<span class="params">len, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a=[], i;</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;len; i++) &#123;</div><div class="line">		a[i] = init;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>javascript没有多维数组，但是就像大多数C语言一样，它支持元素为数组的数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构造多维数组</span></div><div class="line"><span class="built_in">Array</span>.matrix = <span class="function">(<span class="params">m, n, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a, i, j, mat = [];</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">		a = [];</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">			a[j] = init;</div><div class="line">		&#125;</div><div class="line">		mat[i] = a;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> mat</div><div class="line">&#125;</div><div class="line"><span class="comment">//构造一个初始值为0的4X4矩阵。</span></div><div class="line"><span class="keyword">var</span> myMatrix = <span class="built_in">Array</span>.matrix(<span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>);c</div></pre></td></tr></table></figure></p>
+<h1 id="多维数组和初始化"><a href="#多维数组和初始化" class="headerlink" title="多维数组和初始化"></a>多维数组和初始化</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>javascript的数组通常不会预置值。如果你需要预置值的话，要自己准备：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.dim = <span class="function">(<span class="params">len, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a=[], i;</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;len; i++) &#123;</div><div class="line">		a[i] = init;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>javascript没有多维数组，但是就像大多数C语言一样，它支持元素为数组的数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构造多维数组</span></div><div class="line"><span class="built_in">Array</span>.matrix = <span class="function">(<span class="params">m, n, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a, i, j, mat = [];</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">		a = [];</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">			a[j] = init;</div><div class="line">		&#125;</div><div class="line">		mat[i] = a;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> mat</div><div class="line">&#125;</div><div class="line"><span class="comment">//构造一个初始值为0的4X4矩阵。</span></div><div class="line"><span class="keyword">var</span> myMatrix = <span class="built_in">Array</span>.matrix(<span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -386,7 +387,7 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
       
         <div class="post-tags">
           
-            <a href="/tags/Js进阶/" rel="tag">#Js进阶</a>
+            <a href="/tags/Javascript语言精粹/" rel="tag">#Javascript语言精粹</a>
           
         </div>
       
@@ -480,7 +481,7 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -488,7 +489,7 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -497,7 +498,7 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -546,7 +547,7 @@ javascript中的数组是一个拥有数组特性的对象。它把数组的下�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组基础"><span class="nav-number">2.</span> <span class="nav-text">数组基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字字面量"><span class="nav-number">2.1.</span> <span class="nav-text">数字字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长度"><span class="nav-number">2.2.</span> <span class="nav-text">长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容易混淆的地方"><span class="nav-number">2.3.</span> <span class="nav-text">容易混淆的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#既然数组是对象，拿什么时候用数组，什么时候用对象呢？"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">既然数组是对象，拿什么时候用数组，什么时候用对象呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么区分数组和对象呢？"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">怎么区分数组和对象呢？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多维数组和初始化"><span class="nav-number">3.</span> <span class="nav-text">多维数组和初始化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组基础"><span class="nav-number">2.</span> <span class="nav-text">数组基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字字面量"><span class="nav-number">2.1.</span> <span class="nav-text">数字字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长度"><span class="nav-number">2.2.</span> <span class="nav-text">长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容易混淆的地方"><span class="nav-number">2.3.</span> <span class="nav-text">容易混淆的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#既然数组是对象，拿什么时候用数组，什么时候用对象呢？"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">既然数组是对象，拿什么时候用数组，什么时候用对象呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么区分数组和对象呢？"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">怎么区分数组和对象呢？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多维数组和初始化"><span class="nav-number">3.</span> <span class="nav-text">多维数组和初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">3.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组"><span class="nav-number">3.2.</span> <span class="nav-text">多维数组</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

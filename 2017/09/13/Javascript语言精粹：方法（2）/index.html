@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Js进阶," />
+  <meta name="keywords" content="Javascript语言精粹," />
 
 
 
@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="序文章包含Function、Number、Object的一些常用API的实现。
-Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function (that) &amp;#123;	var  method = this,				slice = Array.prototype.slice,				 args = slice.appl">
+<meta name="description" content="序文章包含Function、Number和Object的一些常用API的实现和说明。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript语言精粹：方法（2）">
 <meta property="og:url" content="http://foureyebrowxiake.github.io/2017/09/13/Javascript语言精粹：方法（2）/index.html">
 <meta property="og:site_name" content="Fourfish'blog">
-<meta property="og:description" content="序文章包含Function、Number、Object的一些常用API的实现。
-Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function (that) &amp;#123;	var  method = this,				slice = Array.prototype.slice,				 args = slice.appl">
-<meta property="og:updated_time" content="2017-09-13T11:46:41.000Z">
+<meta property="og:description" content="序文章包含Function、Number和Object的一些常用API的实现和说明。">
+<meta property="og:updated_time" content="2017-09-16T09:03:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript语言精粹：方法（2）">
-<meta name="twitter:description" content="序文章包含Function、Number、Object的一些常用API的实现。
-Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function (that) &amp;#123;	var  method = this,				slice = Array.prototype.slice,				 args = slice.appl">
+<meta name="twitter:description" content="序文章包含Function、Number和Object的一些常用API的实现和说明。">
 
 
 
@@ -349,15 +346,38 @@ Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function
       
 
       
-        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>文章包含Function、Number、Object的一些常用API的实现。</p>
+        <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>文章包含Function、Number和Object的一些常用API的实现和说明。</p>
+<a id="more"></a>
 <h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><h3 id="function-bind-thatArg"><a href="#function-bind-thatArg" class="headerlink" title="function.bind(thatArg)"></a>function.bind(thatArg)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.method(<span class="string">'bind'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">that</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span>  method = <span class="keyword">this</span>,</div><div class="line">				slice = <span class="built_in">Array</span>.prototype.slice,</div><div class="line">				 args = slice.apply(<span class="built_in">arguments</span>,[<span class="number">1</span>]);<span class="comment">//获得除this以外的参数</span></div><div class="line">				 <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					 <span class="keyword">return</span> method.apply(that,</div><div class="line">					 args.concat(slice.apply(<span class="built_in">arguments</span>, [<span class="number">0</span>])));</div><div class="line">				 &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>apply或call是用来指定某个方法的作用对象的。像“slice.apply(arguments,[1])”这样的语句，使arguments拥有了slice方法，虽然arguments只是个类数组。</p>
+<h4 id="apply、call"><a href="#apply、call" class="headerlink" title="apply、call"></a>apply、call</h4><p>apply或call是用来指定某个方法的作用对象的。换句话说，就是为了改变函数体内部 this 的指向。</p>
+<p>像“slice.apply(arguments,[1])”这样的语句，使arguments拥有了slice方法，虽然arguments只是个类数组。</p>
+<p>所以，可以看出 call 和 apply 是为了动态改变 this 而出现的，当一个 object 没有某个方法（如arguments），但是其他的有（上面的例子中Array有slice方法），我们可以借助call或apply用其它对象的方法来操作。</p>
+<h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><p>我们先看一下MDN的解释：</p>
+<blockquote>
+<p>bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作为 this，传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数.</p>
+</blockquote>
+<p>js的世界中，函数内的this会因为调用方式的不同，而发生改变。所以,常使用bind来固定函数的上下文。当然，你也可以通过函数内的变量保存上下文，来达到相同的效果。</p>
+<p>另外，一个函数多次调用bind方法，函数内的this一直是第一次绑定的值，不会改变。</p>
+<h4 id="apply、call和bind的区别"><a href="#apply、call和bind的区别" class="headerlink" title="apply、call和bind的区别"></a>apply、call和bind的区别</h4><p>那么 apply、call、bind 三者相比较，之间又有什么异同呢？何时使用 apply、call，何时使用 bind 呢。简单的一个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">x</span>: <span class="number">81</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">getX</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.x;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(foo.getX.bind(obj)());  <span class="comment">//81</span></div><div class="line"><span class="built_in">console</span>.log(foo.getX.call(obj));    <span class="comment">//81</span></div><div class="line"><span class="built_in">console</span>.log(foo.getX.apply(obj));   <span class="comment">//81</span></div></pre></td></tr></table></figure></p>
+<p>三个输出的都是81，但是注意看使用 bind() 方法的，他后面多了对括号。</p>
+<p>也就是说，区别是，当你希望改变上下文环境之后并非立即执行，而是回调执行的时候，使用 bind() 方法。而 apply/call 则会立即执行函数。</p>
+<p>再总结一下：</p>
+<ul>
+<li>apply 、 call 、bind 三者都是用来改变函数的this对象的指向的；</li>
+<li>apply 、 call 、bind 三者第一个参数都是this要指向的对象，也就是想指定的上下文；</li>
+<li>apply 、 call 、bind 三者都可以利用后续参数传参；</li>
+<li>bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。</li>
+</ul>
 <hr>
 <h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><h3 id="number-toFixed-fractionDigits"><a href="#number-toFixed-fractionDigits" class="headerlink" title="number.toFixed(fractionDigits)"></a>number.toFixed(fractionDigits)</h3><p>toFixed方法把number转换成为一个十进制的字符串。fractionDigits这个参数用来设置保留几位小数。</p>
 <h3 id="number-toPrecision-precision"><a href="#number-toPrecision-precision" class="headerlink" title="number.toPrecision(precision)"></a>number.toPrecision(precision)</h3><p>和toFixed不同的是，toPrecision决定数字的长度。toFixed决定的是小数点后的长度。</p>
 <h3 id="number-toString-radix"><a href="#number-toString-radix" class="headerlink" title="number.toString(radix)"></a>number.toString(radix)</h3><p>参数radix用来控制返回的number字符串的进制。</p>
 <hr>
 <h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="Object-hasOwnProperty-name"><a href="#Object-hasOwnProperty-name" class="headerlink" title="Object.hasOwnProperty(name)"></a>Object.hasOwnProperty(name)</h3><p>该方法用来判断对象是否包含name属性。原型链不会被检查到。这个方法对name是hasOwnProperty的无效，此时返回false。</p>
+<hr>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://web.jobbole.com/83642/" target="_blank" rel="external">深入浅出妙用 Javascript 中 apply、call、bind</a></li>
+</ul>
 
       
     </div>
@@ -379,7 +399,7 @@ Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function
       
         <div class="post-tags">
           
-            <a href="/tags/Js进阶/" rel="tag">#Js进阶</a>
+            <a href="/tags/Javascript语言精粹/" rel="tag">#Javascript语言精粹</a>
           
         </div>
       
@@ -395,6 +415,10 @@ Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/15/what-is-vanilla-js/" rel="prev" title="what is vanilla-js">
+                what is vanilla-js <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -469,7 +493,7 @@ Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -477,7 +501,7 @@ Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -486,7 +510,7 @@ Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -535,7 +559,7 @@ Functionfunction.bind(thatArg)123456789Function.method(&apos;bind&apos;,function
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.1.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#function-bind-thatArg"><span class="nav-number">1.1.1.</span> <span class="nav-text">function.bind(thatArg)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number"><span class="nav-number">1.2.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number-toFixed-fractionDigits"><span class="nav-number">1.2.1.</span> <span class="nav-text">number.toFixed(fractionDigits)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#number-toPrecision-precision"><span class="nav-number">1.2.2.</span> <span class="nav-text">number.toPrecision(precision)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#number-toString-radix"><span class="nav-number">1.2.3.</span> <span class="nav-text">number.toString(radix)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object"><span class="nav-number">1.3.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-hasOwnProperty-name"><span class="nav-number">1.3.1.</span> <span class="nav-text">Object.hasOwnProperty(name)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">1.1.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#function-bind-thatArg"><span class="nav-number">1.1.1.</span> <span class="nav-text">function.bind(thatArg)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#apply、call"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">apply、call</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply、call和bind的区别"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">apply、call和bind的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number"><span class="nav-number">1.2.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number-toFixed-fractionDigits"><span class="nav-number">1.2.1.</span> <span class="nav-text">number.toFixed(fractionDigits)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#number-toPrecision-precision"><span class="nav-number">1.2.2.</span> <span class="nav-text">number.toPrecision(precision)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#number-toString-radix"><span class="nav-number">1.2.3.</span> <span class="nav-text">number.toString(radix)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object"><span class="nav-number">1.3.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-hasOwnProperty-name"><span class="nav-number">1.3.1.</span> <span class="nav-text">Object.hasOwnProperty(name)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.4.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

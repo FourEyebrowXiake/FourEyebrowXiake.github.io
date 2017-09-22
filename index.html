@@ -276,6 +276,384 @@
             
               
                 
+                <a class="post-title-link" href="/2017/09/22/Javascript中的多态和继承/" itemprop="url">
+                  Javascript中的多态和继承
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-22T09:14:55+08:00" content="2017-09-22">
+              2017-09-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/22/Javascript中的多态和继承/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/22/Javascript中的多态和继承/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="说点历史"><a href="#说点历史" class="headerlink" title="说点历史"></a>说点历史</h1><p>了解Javascript的都知道，除了几个简单的数据类型，剩下的所有数据类型在Javascript中都是对象。之所以会这样，是因为Js诞生于面向对象思想最兴盛的时期。Js之父Brendan Eich无疑受到了影响。</p>
+<p>面向对象的思想如此的火热，以至于出现了一些狂热的言论，如没用使用面向对象思想的程序都是过时的设计。这些言论当然是荒谬的，但不得不承认面向对象的变革推动了一些概念的流行。其中最重要的概念就是<strong>封装</strong>（将内部复杂性与外部接口切割开来)，而对象正是这一概念最鲜明的体现。</p>
+<p>有了封装，才有了多态和继承等概念，可见其重要性。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/22/Javascript中的多态和继承/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/16/初识动态规划/" itemprop="url">
+                  初识动态规划
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-16T23:07:30+08:00" content="2017-09-16">
+              2017-09-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法与数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">算法与数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/16/初识动态规划/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/16/初识动态规划/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="动态规划的基本思想"><a href="#动态规划的基本思想" class="headerlink" title="动态规划的基本思想"></a>动态规划的基本思想</h1><p>动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再合并子问题的解以得出原问题的解。（这部分与分治法相似）。与分治法不同的是，适合于用动态规划求解的问题，经分解得到的子问题往往不是互相独立的。若用分治法来解这类问题，则分解得到的子问题数目太多，有些子问题被重复计算了很多次。</p>
+<p>通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈指数增长时特别有用。在实际情况中，可以用一个表记录所有已解的子问题的答案。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/16/初识动态规划/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/15/what-is-vanilla-js/" itemprop="url">
+                  what is vanilla-js
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-15T12:07:50+08:00" content="2017-09-15">
+              2017-09-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/15/what-is-vanilla-js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/15/what-is-vanilla-js/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="最强大的JS库——Vanilla-JS"><a href="#最强大的JS库——Vanilla-JS" class="headerlink" title="最强大的JS库——Vanilla JS"></a>最强大的JS库——Vanilla JS</h1><p>javascript的世界里有一个叫做Vanilla JS的库。</p>
+<p>它声称自己是占有率最高的库。各大顶级公司，如Facebook、Google、Amazon等都在使用它。它的官方文档里还说自己的使用量是Jquery、Prototype、YUI。。。的总和还多。这是要逆天的节奏啊！然而，这么牛逼的东西，我竟然一无所知？</p>
+<p>还没完呢。当你准备下载它时，它说完全没有这个必要。因为，Vanilla JS太牛逼以致所有的浏览器都内置了。我靠，这么厉害的库为毛我压根就没听说过，就算我只是个新手，多少有点耳闻把！</p>
+<p>除了使用量，衡量一个库的重要指标就是速度了。下面是Vanilla JS与其他库的速度对比：<br>我擦！<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/15/what-is-vanilla-js/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/09/13/Javascript语言精粹：方法（2）/" itemprop="url">
                   Javascript语言精粹：方法（2）
                 </a>
@@ -347,18 +725,12 @@
 
       
         
-          
-            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>文章包含Function、Number、Object的一些常用API的实现。</p>
-<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><h3 id="function-bind-thatArg"><a href="#function-bind-thatArg" class="headerlink" title="function.bind(thatArg)"></a>function.bind(thatArg)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.method(<span class="string">'bind'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">that</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span>  method = <span class="keyword">this</span>,</div><div class="line">				slice = <span class="built_in">Array</span>.prototype.slice,</div><div class="line">				 args = slice.apply(<span class="built_in">arguments</span>,[<span class="number">1</span>]);<span class="comment">//获得除this以外的参数</span></div><div class="line">				 <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					 <span class="keyword">return</span> method.apply(that,</div><div class="line">					 args.concat(slice.apply(<span class="built_in">arguments</span>, [<span class="number">0</span>])));</div><div class="line">				 &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>apply或call是用来指定某个方法的作用对象的。像“slice.apply(arguments,[1])”这样的语句，使arguments拥有了slice方法，虽然arguments只是个类数组。</p>
-<hr>
-<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><h3 id="number-toFixed-fractionDigits"><a href="#number-toFixed-fractionDigits" class="headerlink" title="number.toFixed(fractionDigits)"></a>number.toFixed(fractionDigits)</h3><p>toFixed方法把number转换成为一个十进制的字符串。fractionDigits这个参数用来设置保留几位小数。</p>
-<h3 id="number-toPrecision-precision"><a href="#number-toPrecision-precision" class="headerlink" title="number.toPrecision(precision)"></a>number.toPrecision(precision)</h3><p>和toFixed不同的是，toPrecision决定数字的长度。toFixed决定的是小数点后的长度。</p>
-<h3 id="number-toString-radix"><a href="#number-toString-radix" class="headerlink" title="number.toString(radix)"></a>number.toString(radix)</h3><p>参数radix用来控制返回的number字符串的进制。</p>
-<hr>
-<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="Object-hasOwnProperty-name"><a href="#Object-hasOwnProperty-name" class="headerlink" title="Object.hasOwnProperty(name)"></a>Object.hasOwnProperty(name)</h3><p>该方法用来判断对象是否包含name属性。原型链不会被检查到。这个方法对name是hasOwnProperty的无效，此时返回false。</p>
-
-          
+          <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>文章包含Function、Number和Object的一些常用API的实现和说明。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/13/Javascript语言精粹：方法（2）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -601,25 +973,13 @@
 
       
         
-          
-            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。</p>
+          <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>在C++、Java中，数组是一段线性分配的内存。它通过整数计算偏移并访问其中的元素。这样的数组是一种性能出色的数据结构。可惜，javascript中没有像此类数组一样的数据结构。</p>
 <p>javascript中的数组是一个拥有数组特性的对象。它把数组的下标转换成字符串，用其作为属性。这使它明显比一个真正的数组慢，但它使用起来更方便。它的属性的检索和更新的方式与对象一样，只是多了一个可以用整数作为属性名的特性。</p>
-<hr>
-<h1 id="数组基础"><a href="#数组基础" class="headerlink" title="数组基础"></a>数组基础</h1><h2 id="数字字面量"><a href="#数字字面量" class="headerlink" title="数字字面量"></a>数字字面量</h2><p>像对象、函数都有字面量一样，数组也有它的字面量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> empty = [];</div><div class="line"><span class="keyword">var</span> numbers = [ <span class="string">'zero'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];</div><div class="line"></div><div class="line">empty[<span class="number">1</span>] <span class="comment">//undefined</span></div><div class="line">numbers[<span class="number">1</span>]  <span class="comment">//one</span></div><div class="line"></div><div class="line">empty.length <span class="comment">//0</span></div><div class="line">numbers.length <span class="comment">//4</span></div></pre></td></tr></table></figure></p>
-<p>我开头就说过javascript中的数组也是对象。现在就用对象字面量创建一个数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers_object = [</div><div class="line">	<span class="string">'0'</span>: <span class="string">'zero'</span>, <span class="string">'1'</span>: <span class="string">'one'</span>, <span class="string">'2'</span>:<span class="string">'two'</span>, <span class="string">'3'</span>:<span class="string">'three'</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
-<p>两者产生的结果相似。但是两者有着显著的不同。numbers继承Array.prototype,numbers_object继承Object.prototype。除此之外，numbers还有个length属性。</p>
-<p>说到length，不得不说javascript的length很奇葩。为什么，接着看。</p>
-<h2 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h2><ul>
-<li>javascript中的length是没有上界的。length会随着数组容量的增大，而自动增大，不会发送数组越界错误。不过ECMAScript262的标准规定，数组的下标必须在0到231之间。</li>
-<li>你可以直接设置length值。什么情况，自己设置length。对，想想length只是个属性而已，就没什么奇怪了。length设得过大，不会给数组分配更多的空间。如果设小了，会删除下标大于等于新length的属性。</li>
-</ul>
-<h2 id="容易混淆的地方"><a href="#容易混淆的地方" class="headerlink" title="容易混淆的地方"></a>容易混淆的地方</h2><h4 id="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"><a href="#既然数组是对象，拿什么时候用数组，什么时候用对象呢？" class="headerlink" title="既然数组是对象，拿什么时候用数组，什么时候用对象呢？"></a>既然数组是对象，拿什么时候用数组，什么时候用对象呢？</h4><p>当属性名是小而连续的整数时，你应该使用数组。否则，使用对象。</p>
-<h4 id="怎么区分数组和对象呢？"><a href="#怎么区分数组和对象呢？" class="headerlink" title="怎么区分数组和对象呢？"></a>怎么区分数组和对象呢？</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> is_array = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.apply(value) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="多维数组和初始化"><a href="#多维数组和初始化" class="headerlink" title="多维数组和初始化"></a>多维数组和初始化</h1><p>javascript的数组通常不会预置值。如果你需要预置值的话，要自己准备：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.dim = <span class="function">(<span class="params">len, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a=[], i;</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;len; i++) &#123;</div><div class="line">		a[i] = init;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>javascript没有多维数组，但是就像大多数C语言一样，它支持元素为数组的数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构造多维数组</span></div><div class="line"><span class="built_in">Array</span>.matrix = <span class="function">(<span class="params">m, n, init</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> a, i, j, mat = [];</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">		a = [];</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">			a[j] = init;</div><div class="line">		&#125;</div><div class="line">		mat[i] = a;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> mat</div><div class="line">&#125;</div><div class="line"><span class="comment">//构造一个初始值为0的4X4矩阵。</span></div><div class="line"><span class="keyword">var</span> myMatrix = <span class="built_in">Array</span>.matrix(<span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>);c</div></pre></td></tr></table></figure></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/11/Javascript语言精粹:数组/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -795,7 +1155,7 @@
               
                 
                 <a class="post-title-link" href="/2017/09/07/阿里2018前端面试题解答/" itemprop="url">
-                  阿里2018前端面试题解答
+                  阿里2018前端笔试题解答
                 </a>
               
             
@@ -865,7 +1225,7 @@
 
       
         
-          <h1 id="阿里巴巴2018校招前端笔试题"><a href="#阿里巴巴2018校招前端笔试题" class="headerlink" title="阿里巴巴2018校招前端笔试题"></a>阿里巴巴2018校招前端笔试题</h1>
+          <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>收集整理了大部分的题目，但还是有缺少。希望知道的同学在留言里提供一下题目。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/09/07/阿里2018前端面试题解答/#more" rel="contents">
               阅读全文 &raquo;
@@ -1153,395 +1513,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/29/《了不起的Node-js》摘记(1)/" itemprop="url">
-                  《了不起的Node.js》摘记(1)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-29T14:01:07+08:00" content="2017-08-29">
-              2017-08-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/29/《了不起的Node-js》摘记(1)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/29/《了不起的Node-js》摘记(1)/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>参考链接：<a href="https://segmentfault.com/a/1190000000357044">Node 中的流（Stream)</a></p>
-<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>看标题就知道是《了不起的Node.js》的读书笔记。<br>在阅读的过程中会提取自己认为的重点，并简要地概括下它是什么，又怎么用。</p>
-<p>书中有涉及不少网络方面的知识。正巧上学期刚上完计算机网络的课，脑袋里还有基本的概念。期末复习时，特地做了一张思维导图。看书的时候时常拿来参考。果然，好记性不如烂笔头，要记笔记，时常做总结。</p>
-<p>Stream是Node.js中非常重要的API。但是书中的介绍有点少，而且还比较老。所以，就自己补充了一下。还有书中关于Event Loop的讲解，理解起来让人吃力。推荐大家看一下阮一峰老师的文章。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/29/《了不起的Node-js》摘记(1)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/28/redux中的柯里化/" itemprop="url">
-                  redux-thunk中的柯里化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T09:45:38+08:00" content="2017-08-28">
-              2017-08-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/28/redux中的柯里化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/28/redux中的柯里化/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>参考链接：</p>
-<ul>
-<li><a href="https://gist.github.com/jcouyang/b56a830cd55bd230049f">why curry helps</a></li>
-</ul>
-<h1 id="Thunk"><a href="#Thunk" class="headerlink" title="Thunk"></a>Thunk</h1><p>redux中实现异步操作的之一就是使用redux-thunk.redux-thunk中间件改造store.dispatch，使得后者可以接受函数作为参数。<br>它的源码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> thunk = <span class="function">(<span class="params">store</span>) =&gt;</span> (next) =&gt; <span class="function">(<span class="params">action</span>) =&gt;</span></div><div class="line">  <span class="keyword">typeof</span> action === <span class="string">'function'</span> ?</div><div class="line">    action(store.dispatch) :</div><div class="line">    next(action);</div></pre></td></tr></table></figure></p>
-<p>其实以上就是个柯里化函数，只不过使用了es6的写法。但是看着这么多箭头，我一开始是很懵逼的。不过，只要清楚柯里化就能轻松理解上面的代码。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/redux中的柯里化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/24/css布局(-):盒模型-display-float-position/" itemprop="url">
-                  css布局(-):传统
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-24T10:25:52+08:00" content="2017-08-24">
-              2017-08-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/24/css布局(-):盒模型-display-float-position/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/24/css布局(-):盒模型-display-float-position/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>参考链接：<br><a href="http://zh.learnlayout.com/">http://zh.learnlayout.com/</a></p>
-<p>这个网站真的很棒。实例好，讲解清楚。不急的话，可以直接看他的。</p>
-<p>不过我关于浮动和清除的介绍比他详细点，另外还有重置样式表。别忘了回来哦。</p>
-<h1 id="传统"><a href="#传统" class="headerlink" title="传统"></a>传统</h1><p>布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</p>
-<p>这篇主要介绍一下传统布局，下篇将Flex。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/24/css布局(-):盒模型-display-float-position/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1582,7 +1558,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1590,7 +1566,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1599,7 +1575,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
