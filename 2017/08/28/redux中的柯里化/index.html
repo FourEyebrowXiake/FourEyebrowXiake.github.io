@@ -117,7 +117,7 @@ Thunkredux中实现异步操作的之一就是使用redux-thunk.redux-thunk中�
     fancybox: true,
     motion: false,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -326,13 +326,6 @@ Thunkredux中实现异步操作的之一就是使用redux-thunk.redux-thunk中�
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/28/redux中的柯里化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/28/redux中的柯里化/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -456,13 +449,6 @@ Thunkredux中实现异步操作的之一就是使用redux-thunk.redux-thunk中�
 
           
   <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
     
   </div>
 
@@ -693,27 +679,6 @@ Thunkredux中实现异步操作的之一就是使用redux-thunk.redux-thunk中�
 
 
 
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'foureyebrow';
-      var disqus_identifier = '2017/08/28/redux中的柯里化/';
-      var disqus_title = 'redux-thunk中的柯里化';
-      var disqus_url = 'http://foureyebrowxiake.github.io/2017/08/28/redux中的柯里化/';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
-      
-    </script>
   
 
 

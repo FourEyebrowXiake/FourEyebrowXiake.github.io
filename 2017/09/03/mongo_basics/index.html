@@ -111,7 +111,7 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
     fancybox: true,
     motion: false,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -320,13 +320,6 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/09/03/mongo_basics/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/03/mongo_basics/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -454,13 +447,6 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
 
           
   <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
     
   </div>
 
@@ -691,27 +677,6 @@ MongoDB 默认存储数据目录为 /data/db/ (或者 c:\data\db), 当然你也�
 
 
 
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'foureyebrow';
-      var disqus_identifier = '2017/09/03/mongo_basics/';
-      var disqus_title = 'Mongo Basic';
-      var disqus_url = 'http://foureyebrowxiake.github.io/2017/09/03/mongo_basics/';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
-      
-    </script>
   
 
 
