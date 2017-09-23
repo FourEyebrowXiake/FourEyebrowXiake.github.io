@@ -347,8 +347,7 @@
 
       
         
-          
-            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>参加了不少公司的笔试，工作却还没有着落。感觉是时候总结一下，为秋招的最后冲刺做准备。</p>
+          <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>参加了不少公司的笔试，工作却还没有着落。感觉是时候总结一下，为秋招的最后冲刺做准备。</p>
 <p>原本以为写不了多少，写着写着发现有很多内容。特地在这里列一下提纲。</p>
 <ul>
 <li>HTML<ul>
@@ -371,53 +370,11 @@
 </ul>
 </li>
 </ul>
-<h1 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h1><p>校招面试和社招面试会有什么不同？借用一张图说明：</p>
-<p><img src="images/前端校招会考察什么/640" alt=""></p>
-<p>校招面试侧重潜力考察。看了自己的简历，发现缺乏能证明自我潜力的项目，都是一些小项目，缺乏深度。那该怎么办，时间已经不多了！最近，我在看《Eloquentjavascript》，发现自己的基础不扎实，缺少代码量。如果硬着头皮写项目，写不出多有深度的作品。所以，还是准备先读完《Eloquentjavascript》，做完课后的习题再说。</p>
-<h1 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h1><p>虽然清楚自己基础不扎实，但心里还是没有底。所以准备浏览一下前端的六个必备基础知识:<strong>HTML、CSS、JavaScript、移动Web开发、调试、HTTP网络知识</strong>。看一下自己了解的怎么样。</p>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="1-常用的meta"><a href="#1-常用的meta" class="headerlink" title="1.常用的meta"></a>1.常用的meta</h3><p>讲真的，除了viewport和charset,其他的meta都没印象。<br>在网上找了<a href="https://segmentfault.com/a/1190000004279791" target="_blank" rel="external">《HTML meta标签总结与属性使用介绍》</a>这篇文章，仔细地浏览完，才知道meta是什么，和一些常用meta的意义。</p>
-<p>meta是用来描述数据的数据。它不会显示在页面上，但是浏览器，搜索引擎和其他网络服务可以识别。它主要用于定义页面的说明、关键字，最后修改的日期和其他元数据。</p>
-<p>meta标签共有两个属性，分别是<strong>http-equiv属性</strong>和<strong>name属性</strong>。</p>
-<h4 id="1-1-name"><a href="#1-1-name" class="headerlink" title="1.1 name"></a>1.1 name</h4><p>name属性主要用于描述网页，比如网页的关键词，叙述等。与之对应的属性值为content，content中的内容是对name填入类型的具体描述，便于搜索引擎抓取。<br>meta标签中name属性语法格式是：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"参数"</span> <span class="attr">content</span>=<span class="string">"具体的描述"</span>&gt;</span>。</div></pre></td></tr></table></figure></p>
-<p>name的常见参数有keywords,description,viewport,robots(定义搜索引擎爬虫的索引方式),author,generator(用于标明网页是什么软件做的),copyright(版权),revisit-after(搜索引擎爬虫重访时间)和renderer(双核浏览器渲染方式)。</p>
-<h4 id="1-2-http-equiv"><a href="#1-2-http-equiv" class="headerlink" title="1.2 http-equiv"></a>1.2 http-equiv</h4><p>equiv的全称是”equivalent”,在这里的意思是相当于。http-equiv的完整意思是相当于HTTP的作用,比如说定义一些HTTP参数。</p>
-<p>meta标签中http-equiv属性语法格式是：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"参数"</span> <span class="attr">content</span>=<span class="string">"具体的描述"</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>http-equivd的属性主要有X-UA-Compatible(浏览器采取何种版本渲染当前页面)，cache-control(指定请求和响应遵循的缓存机制），expires(网页到期时间)，refresh(自动刷新并指向某页面)和Set-Cookie(cookie设定)。</p>
-<p>关于设定网页字符集，推荐使用HTML5的方式：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>现在，才知道meta的自定义属性有这么多，有些属性竟然涉及到SEO和HTTP协议。总之，感谢作者的付出。不过关于cache-control的介绍并没有深入，如定义最佳cache-control策略。毕竟文章主要是讲meta，扯的太多，容易使主旨不明确。<br>之后，我会自己写篇博文介绍一下网站优化。</p>
-<hr>
-<h3 id="2-标签语义化"><a href="#2-标签语义化" class="headerlink" title="2.标签语义化"></a>2.标签语义化</h3><p>又发现一个不懂的知识点。</p>
-<p>首先，我们要搞清楚为什么需要标签语义化。因为人们想要对web上的内容作各种处理和挖掘，所以让机器能够更好地读懂 Web 上发布的各种内容就变得越来越重要。</p>
-<p>那如何让机器理解网页上的内容？主要有两种途径：</p>
-<ul>
-<li>让机器人的理解能力赶上人类，也就是发展人工智能。</li>
-<li>我们应该在发布内容的时候，就用机器可读的、被广泛认可的语义信息来描述内容，来降低机器处理 Web 内容的难度（HTML 本身就已经是朝这个方向迈出的一小步了）。</li>
-</ul>
-<p>第一种途径是关于人工智能。第二中途径正是万维网创始人 Tim Berners-Lee 爵士提出的美好愿景：语义网。简单来说就是让一切内容和包括对关系的描述都成为 Web 上的资源，都可以由唯一的 URI 定义，语义明确、机器可读。显然，两天路都不好走。而标签语义化正是第二条途径上的一小步。</p>
-<p>其实，HTML一直在往语义化的方向上努力，许多元素、属性在设计的时候，就已经考虑了如何让各种用户代理甚至网络爬虫更好地理解 HTML 文档。HTML5 更是在之前规范的基础上，将所有表现层（presentational）的语义描述都进行了修改或者删除，增加了不少可以表达更丰富语义的元素。现在就等这些标准被广泛地接受，才能使这些语义元素有意义。</p>
-<p>参考链接：</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/20455165" target="_blank" rel="external">如何理解Web语义化</a></li>
-<li><a href="https://github.com/Justineo/slideshows" target="_blank" rel="external">强烈推荐：https://github.com/Justineo/slideshows</a></li>
-</ul>
-<hr>
-<h3 id="3-HTML5新特性"><a href="#3-HTML5新特性" class="headerlink" title="3.HTML5新特性"></a>3.HTML5新特性</h3><p>这方面的知识面也是东拼西凑出来的，是时候总结一下了。</p>
-<h4 id="3-1-Html5的基本布局（语义化的标记）"><a href="#3-1-Html5的基本布局（语义化的标记）" class="headerlink" title="3.1 Html5的基本布局（语义化的标记）"></a>3.1 Html5的基本布局（语义化的标记）</h4><p>首先要说的就是语义化标签了。对语义化标签的详细说明可以看我在上一节给出的github链接。只写一段具体实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;title&gt;标题&lt;/title&gt;</div><div class="line">	&lt;nav&gt;导航&lt;/nav&gt;</div><div class="line">	&lt;article&gt;标签则应该是用来放置诸如一篇文章或是博客一类的信息</div><div class="line">		&lt;section&gt;标签用来分组相类似的信息&lt;/section&gt;</div><div class="line">	&lt;/article&gt;</div><div class="line">	&lt;aside&gt;侧边栏&lt;/aside&gt;</div><div class="line">	&lt;footer&gt;页脚&lt;footer&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="3-2-Html5对表单的支持"><a href="#3-2-Html5对表单的支持" class="headerlink" title="3.2 Html5对表单的支持"></a>3.2 Html5对表单的支持</h4><p>Html5新增了多个控件类型，如输入网址的url类型，输入电子邮箱地址的email类型，用于输入日期的date类型，更有用于输入颜色的color类型等等。更为神奇的是这些类型还内建表单验证，如required属性就说明该表项不能为空，max属性提供了该表项输入允许的最大值，当然在html4中这些功能也可以通过javascript来实现，但是的内建在html5中的表单验证优越性不言而喻。需要注意的是，现在Html5的输入类型还没有被所有浏览器所支持。<br>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;form&gt;</div><div class="line">    Email:&lt;input type=&quot;email&quot; required /&gt;&lt;/br&gt;</div><div class="line">    Number:&lt;input type=&quot;number&quot; max=&quot;10&quot; /&gt;&lt;/br&gt;</div><div class="line">    Date :&lt;input type=&quot;date&quot;&gt;&lt;/br&gt;</div><div class="line">    File:&lt;input type=&quot;file&quot; accept=&quot;image/png&quot; /&gt;&lt;/br&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="3-3-Html5中的Media"><a href="#3-3-Html5中的Media" class="headerlink" title="3.3 Html5中的Media"></a>3.3 Html5中的Media</h4><p>Html5 的另一大特点就是不借助其他插件就可播放视频和音频文件。具体地实现，要考虑视频文件格式的版权问题,各大浏览器不能做到全部支持，所以代码要这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;vedio&gt;</div><div class="line">	&lt;source src=&quot;movie.mp4&quot;&gt;</div><div class="line">	&lt;source src=&quot;movie.ogv&quot;&gt;</div><div class="line">	&lt;object data=&quot;movie.swf&quot;&gt;</div><div class="line">		&lt;a href=&quot;movie.mp4&quot;&gt;Download&lt;/a&gt;</div><div class="line">	&lt;/object&gt;</div><div class="line">&lt;/vedio&gt;</div></pre></td></tr></table></figure></p>
-<p><object> 元素（或者称作 HTML 嵌入对象元素）表示引入一个外部资源，这个资源可能是一张图片，一个嵌入的浏览上下文，亦或是一个插件所使用的资源。data属性的值是一个合法的 URL 作为资源的地址</object></p>
-<h4 id="3-4-动画元素Canvas"><a href="#3-4-动画元素Canvas" class="headerlink" title="3.4 动画元素Canvas"></a>3.4 动画元素Canvas</h4><p>HTML5 的 canvas 元素可以使用 JavaScript 直接在网页上绘制图像</p>
-<h4 id="3-5-Drag-amp-Drop"><a href="#3-5-Drag-amp-Drop" class="headerlink" title="3.5 Drag&amp;Drop"></a>3.5 Drag&amp;Drop</h4><p>HTML5为元素新增了用于拖拽的属性draggable，这个属性决定了元素是否能被拖拽， 如果draggable=”true”，则元素可被拖拽，否则只能选择元素的文本。下面几行简单的代码可以简单的说明Html5的Drag&amp;Drop特性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;section&gt;</div><div class="line">	&lt;p draggable=&quot;true&quot; ondragstart=&quot;dragstartHandler(event)&quot;&gt;</div><div class="line">	Drag me!Drag me!!&lt;/p&gt;</div><div class="line">	&lt;p draggable=&quot;false&quot;&gt;Don’t drag me!!&lt;/p&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="3-6-Html-5的Application-Cache"><a href="#3-6-Html-5的Application-Cache" class="headerlink" title="3.6 Html 5的Application Cache"></a>3.6 Html 5的Application Cache</h4><p>现在web app有多火，相信大家都知道。但是web应用依赖网络，而网络不是随时都有的。Html5的离线存储使得这个问题迎刃而解。HTML5的web storage API 采用了离线缓存，会生成一个清单文件（manifest file），这个清单文件实质就是一系列的URL列表文件，这些URL分别指向页面当中的HTML,CSS,Javascrpit,图片等相关内容。</p>
-<p>一个Mainfest file实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">–  CACHE MANIFEST</div><div class="line">   /demo/test/style.css</div><div class="line">   /demo/test/jquery.min.js</div><div class="line">   /demo/test/test.html</div></pre></td></tr></table></figure></p>
-<p>当使用离线应用时，应用会引入这一清单文件，浏览器读取这一文件，下载相应的文件，并将其缓存到本地。使得这些web应用能够脱离网络使用，而用户在离线时的更改也同样会映射到清单文件中，并在重新连线之后将更改返回应用，工作方式与我们现在所使用的网盘有着异曲同工之处。</p>
-<h4 id="3-7-localStorage"><a href="#3-7-localStorage" class="headerlink" title="3.7 localStorage"></a>3.7 localStorage</h4><p>localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
-<p>参考链接：</p>
-<ul>
-<li><a href="https://www.pureweber.com/article/html5/" target="_blank" rel="external">Html5新特性概览</a></li>
-</ul>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/22/前端校招面试会考察什么/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
