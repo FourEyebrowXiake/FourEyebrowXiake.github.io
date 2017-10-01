@@ -5,12 +5,16 @@
       "path---初识动态规划-7cb1d329bb806eb58842.js.map"
     ],
     "path---categories": [
-      "path---categories-b45f3c7e649b76ce5a70.js",
-      "path---categories-b45f3c7e649b76ce5a70.js.map"
+      "path---categories-f33881701fb4ef84d32b.js",
+      "path---categories-f33881701fb4ef84d32b.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-d47817f2d7dbc6782770.js",
-      "component---src-pages-index-js-d47817f2d7dbc6782770.js.map"
+      "component---src-pages-index-js-36bb1c0b3af88f4c14dc.js",
+      "component---src-pages-index-js-36bb1c0b3af88f4c14dc.js.map"
+    ],
+    "path---旧的文章": [
+      "path---旧的文章-0c856a24c171a6c39b79.js",
+      "path---旧的文章-0c856a24c171a6c39b79.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
@@ -21,8 +25,8 @@
       "path---profile-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-categories-index-jsx": [
-      "component---src-pages-categories-index-jsx-bb6aa1f1575937c8e4d2.js",
-      "component---src-pages-categories-index-jsx-bb6aa1f1575937c8e4d2.js.map"
+      "component---src-pages-categories-index-jsx-2baf78d8df70c86e5fba.js",
+      "component---src-pages-categories-index-jsx-2baf78d8df70c86e5fba.js.map"
     ],
     "path---javascript中的多态和继承": [
       "path---javascript中的多态和继承-c029cc7f28b6f48a2317.js",
@@ -37,8 +41,8 @@
       "component---src-templates-blog-post-js-323ea9db9512f1e16aeb.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-e99783f3f677c4f98da2.js",
-      "component---src-layouts-index-js-e99783f3f677c4f98da2.js.map"
+      "component---src-layouts-index-js-83c674fc75858d3f141a.js",
+      "component---src-layouts-index-js-83c674fc75858d3f141a.js.map"
     ],
     "path---the-birth-of-movable-type": [
       "path---the-birth-of-movable-type-d8abf2de7c758592d7bc.js",
@@ -49,8 +53,8 @@
       "path---前端校招会考察什么（一）-d086b13d59789ade356f.js.map"
     ],
     "path---index": [
-      "path---index-e63865608c5aec22d46d.js",
-      "path---index-e63865608c5aec22d46d.js.map"
+      "path---index-cac5dd006c6ffbd0d273.js",
+      "path---index-cac5dd006c6ffbd0d273.js.map"
     ],
     "path---人工智能狂潮摘记": [
       "path---人工智能狂潮摘记-884418d6b8ad1c9dde24.js",
@@ -65,9 +69,9 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-9048ac0a03c31b2451ab.js",
+      "app-ec13ab075e01e1dabe22.js",
       "build-js-styles.css",
-      "app-9048ac0a03c31b2451ab.js.map",
+      "app-ec13ab075e01e1dabe22.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-profile-index-jsx": [
